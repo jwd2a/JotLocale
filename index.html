@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>JotLocale!</title>
+	<script src="js/libs/modernizr-1.6.min.js"></script>
+    <script src="js/libs/jquery-1.5.1.min.js"></script>
+    <script src="js/libs/underscore.js"></script>
+    <script src="js/libs/backbone.js"></script>
+	<script src="js/router.js"></script>
+	<script src="js/views/views.js"></script>
+	<script src="js/models/models.js"></script>
+	<script src="https://trigger.io/catalyst/target/target-script-min.js#B1B915C7-16FD-4A7C-AFA1-7827BB3B8E2C"></script>
+	<!--<script src="js/templates.js"></script>	-->
+	
+	<script type="text/template" id="login-template">
+		<h1>Login</h1>
+		<form id="loginForm" name="loginForm" action="#cutegirl">
+			<input type="text" id="username" name="username"/>
+			<input type="text" id="password" name="password" />
+			<input type="submit" />
+		</form>
+	</script>
+	
+	<script type="text/template" id="cute-girl">
+		<p>The cutest girl,<br>I ever saw,<br>was<br></p><h2>MOLLIE!</h2>
+	</script>
+	
+	<script type="application/javascript">
+	$(function() {
+		window.App = new JotLocale();
+		Backbone.history.start();
+		forge.enableDebug();
+	});
+	</script>
+	
+</head>
+<body>
+<div id="container"></div>
+</body>
+
+</html>

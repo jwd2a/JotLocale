@@ -1,0 +1,28 @@
+{
+	"author": "jdavis1002@gmail.com", 
+	"config_version": "2", 
+	"description": "An empty app created by default", 
+	"modules": {
+		"contact": true, 
+		"file": true, 
+		"is": true, 
+		"logging": {
+			"level": "DEBUG"
+		}, 
+		"geolocation" : true,
+		"media": true, 
+		"prefs": true, 
+		"request": {
+			"permissions": [
+				"http://*/*", 
+				"https://*/*"
+			]
+		}, 
+		"tools": true, 
+		"topbar": true,
+		"tabbar": true
+	}, 
+	"name": "JotLocale Hub", 
+	"platform_version": "v1.3", 
+	"version": "0.1"
+}

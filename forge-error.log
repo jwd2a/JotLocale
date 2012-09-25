@@ -1,0 +1,2069 @@
+2012-07-05 19:39:30,046 [   INFO] Forge tools running at version 3.3.2
+2012-07-05 19:39:30,049 [  DEBUG] Forge build tools version: 3.3.2
+2012-07-05 19:39:30,049 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-05 19:39:30,066 [  DEBUG] GET https://trigger.io/api/version_check/3/3/2/
+2012-07-05 19:39:30,077 [  ERROR] Something went wrong that we didn't expect:
+2012-07-05 19:39:30,077 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/2/
+2012-07-05 19:39:30,077 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 87, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 304, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 260, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 197, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 165, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/2/
+
+2012-07-05 19:39:30,077 [  ERROR] See /Users/jdavis1002/Code/JotLocale/forge-error.log for more details
+2012-07-05 19:39:30,077 [  ERROR] Please contact support@trigger.io
+2012-07-05 19:40:42,050 [   INFO] Forge tools running at version 3.3.2
+2012-07-05 19:40:42,052 [  DEBUG] Forge build tools version: 3.3.2
+2012-07-05 19:40:42,052 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-05 19:40:42,062 [  DEBUG] GET https://trigger.io/api/version_check/3/3/2/
+2012-07-05 19:40:42,067 [  ERROR] Something went wrong that we didn't expect:
+2012-07-05 19:40:42,067 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/2/
+2012-07-05 19:40:42,067 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 87, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 304, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 260, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 197, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 165, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/2/
+
+2012-07-05 19:40:42,067 [  ERROR] See /Users/jdavis1002/Code/JotLocale/forge-error.log for more details
+2012-07-05 19:40:42,067 [  ERROR] Please contact support@trigger.io
+2012-07-05 19:41:24,856 [   INFO] Forge tools running at version 3.3.2
+2012-07-05 19:41:24,858 [  DEBUG] Forge build tools version: 3.3.2
+2012-07-05 19:41:24,859 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-05 19:41:24,862 [  DEBUG] GET https://trigger.io/api/version_check/3/3/2/
+2012-07-05 19:41:24,871 [  ERROR] Something went wrong that we didn't expect:
+2012-07-05 19:41:24,871 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/2/
+2012-07-05 19:41:24,871 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 87, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 304, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 260, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 197, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 165, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/2/
+
+2012-07-05 19:41:24,871 [  ERROR] See /Users/jdavis1002/Code/JotLocale/forge-error.log for more details
+2012-07-05 19:41:24,871 [  ERROR] Please contact support@trigger.io
+2012-07-05 19:42:36,822 [   INFO] Forge tools running at version 3.3.2
+2012-07-05 19:42:36,824 [  DEBUG] Forge build tools version: 3.3.2
+2012-07-05 19:42:36,824 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-05 19:42:36,833 [  DEBUG] GET https://trigger.io/api/version_check/3/3/2/
+2012-07-05 19:42:36,838 [  ERROR] Something went wrong that we didn't expect:
+2012-07-05 19:42:36,838 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/2/
+2012-07-05 19:42:36,839 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 87, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 304, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 260, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 197, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 165, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/2/
+
+2012-07-05 19:42:36,839 [  ERROR] See /Users/jdavis1002/Code/JotLocale/forge-error.log for more details
+2012-07-05 19:42:36,839 [  ERROR] Please contact support@trigger.io
+2012-07-09 22:58:52,070 [   INFO] Forge tools running at version 3.3.2
+2012-07-09 22:58:52,071 [  DEBUG] Forge build tools version: 3.3.2
+2012-07-09 22:58:52,072 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-09 22:58:52,083 [  DEBUG] GET https://trigger.io/api/version_check/3/3/2/
+2012-07-09 22:58:52,405 [  DEBUG] Checking API response for success or error
+2012-07-09 22:58:52,406 [   INFO] Update result: you already have the latest tools
+2012-07-09 22:58:52,550 [  DEBUG] configuration is identical to last run
+2012-07-09 22:58:52,551 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-07-09 22:58:52,657 [  DEBUG] Checking API response for success or error
+2012-07-09 22:58:52,658 [  DEBUG] already authenticated via cookie - continuing
+2012-07-09 22:58:52,659 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-09 22:58:52,659 [  DEBUG] ignoring non-target directory config.json
+2012-07-09 22:58:52,659 [  DEBUG] ignoring non-target directory lib
+2012-07-09 22:58:52,660 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-09 22:58:52,661 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-07-09 22:58:52,763 [  DEBUG] Checking API response for success or error
+2012-07-09 22:58:52,764 [   INFO] Configuration is unchanged: using existing templates
+2012-07-09 22:58:52,867 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-09 22:58:52,868 [  DEBUG] ignoring non-target directory config.json
+2012-07-09 22:58:52,868 [  DEBUG] ignoring non-target directory lib
+2012-07-09 22:58:52,868 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-09 22:58:52,869 [  DEBUG] Enabled platforms: ['android', 'chrome', 'ios', 'web']
+2012-07-09 22:58:52,872 [  ERROR] Failed to parse command line arguments at ios
+2012-07-09 22:58:52,872 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 87, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 367, in development_build
+    generator.all('development', defaults.SRC_DIR, extra_args=unhandled_args)
+  File "/Users/jdavis1002/forge-tools/forge/generate.py", line 41, in all
+    extra_args=extra_args,
+  File "/Users/jdavis1002/forge-tools/forge/build.py", line 107, in create_build
+    local_config=local_config, extra_args=extra_args, forge_root=defaults.FORGE_ROOT)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 270, in __init__
+    self.tool_config = ToolConfig(self.log, local_config, extra_args, self.enabled_platforms)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 52, in __init__
+    self._overrides = self._arguments_to_overrides(arguments)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 93, in _arguments_to_overrides
+    key_values = self._arguments_to_key_values(arguments)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 74, in _arguments_to_key_values
+    raise ArgumentError("Failed to parse command line arguments at {arg}".format(arg=arg))
+ArgumentError: Failed to parse command line arguments at ios
+
+2012-07-11 22:21:17,795 [   INFO] Forge tools running at version 3.3.2
+2012-07-11 22:21:18,028 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-11 22:21:18,029 [  DEBUG] ignoring non-target directory config.json
+2012-07-11 22:21:18,029 [  DEBUG] ignoring non-target directory lib
+2012-07-11 22:21:18,029 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-11 22:21:18,030 [  DEBUG] Enabled platforms: ['web']
+2012-07-11 22:21:18,062 [  DEBUG] Forge build tools version: 3.3.2
+2012-07-11 22:21:18,062 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-11 22:21:18,074 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-07-11 22:21:19,295 [  DEBUG] Checking API response for success or error
+2012-07-11 22:21:19,297 [  DEBUG] already authenticated via cookie - continuing
+2012-07-11 22:21:19,297 [  DEBUG] POST https://trigger.io/api/track/
+2012-07-11 22:21:22,520 [  DEBUG] Checking API response for success or error
+2012-07-11 22:21:22,521 [  DEBUG] <ForgeTask (web)> running...
+2012-07-11 22:21:22,522 [  DEBUG] <ForgeTask (web)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('web', None, 'run_web', None, None)]
+2012-07-11 22:21:22,523 [  DEBUG] running lint_javascript((), {})
+2012-07-11 22:21:22,523 [   INFO] Checking JavaScript files...
+2012-07-11 22:21:22,638 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-07-11 22:21:22,638 [WARNING]     };
+2012-07-11 22:21:22,639 [WARNING] ....^
+2012-07-11 22:21:22,639 [   INFO] JavaScript check complete
+2012-07-11 22:21:22,639 [  DEBUG] running check_local_config_schema((), {})
+2012-07-11 22:21:22,646 [   INFO] Verifying your configuration settings...
+2012-07-11 22:21:22,648 [   INFO] Configuration settings check complete
+2012-07-11 22:21:22,649 [  DEBUG] running run_web((), {})
+2012-07-11 22:21:22,649 [  DEBUG] Running: npm install
+2012-07-11 22:21:23,652 [  DEBUG] failed to run npm: do you have Node.js installed and on your path? while running run_web((), {})
+2012-07-11 22:21:23,656 [  ERROR] failed to run npm: do you have Node.js installed and on your path?
+2012-07-11 22:21:23,656 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 87, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 388, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 87, in run_web
+    _npm("install")
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 61, in _npm
+    raise WebError("failed to run npm: do you have Node.js installed and on your path?")
+WebError: failed to run npm: do you have Node.js installed and on your path?
+
+2012-07-16 21:46:46,211 [   INFO] Forge tools running at version 3.3.5
+2012-07-16 21:46:46,386 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-16 21:46:46,386 [  DEBUG] ignoring non-target directory config.json
+2012-07-16 21:46:46,386 [  DEBUG] ignoring non-target directory lib
+2012-07-16 21:46:46,386 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-16 21:46:46,386 [  DEBUG] Enabled platforms: ['android']
+2012-07-16 21:46:46,386 [  DEBUG] Forge build tools version: 3.3.5
+2012-07-16 21:46:46,386 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-16 21:46:46,387 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-07-16 21:46:47,015 [  DEBUG] Checking API response for success or error
+2012-07-16 21:46:47,016 [  DEBUG] already authenticated via cookie - continuing
+2012-07-16 21:46:47,016 [  DEBUG] POST https://trigger.io/api/track/
+2012-07-16 21:46:47,136 [  DEBUG] Checking API response for success or error
+2012-07-16 21:46:47,137 [  DEBUG] <ForgeTask (android)> running...
+2012-07-16 21:46:47,137 [  DEBUG] <ForgeTask (android)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('android',
+  None,
+  'run_android',
+  ('/Users/jdavis1002/Code/JotLocale/development', None, None, True, None),
+  None)]
+2012-07-16 21:46:47,137 [  DEBUG] running lint_javascript((), {})
+2012-07-16 21:46:47,137 [   INFO] Checking JavaScript files...
+2012-07-16 21:46:47,254 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-07-16 21:46:47,255 [WARNING]     };
+2012-07-16 21:46:47,255 [WARNING] ....^
+2012-07-16 21:46:47,255 [   INFO] JavaScript check complete
+2012-07-16 21:46:47,255 [  DEBUG] running check_local_config_schema((), {})
+2012-07-16 21:46:47,255 [   INFO] Verifying your configuration settings...
+2012-07-16 21:46:47,255 [   INFO] Configuration settings check complete
+2012-07-16 21:46:47,255 [  DEBUG] running run_android(('/Users/jdavis1002/Code/JotLocale/development', None, None, True, None), {})
+2012-07-16 21:46:56,558 [   INFO] Downloading Android SDK (about 30MB, may take some time)
+2012-07-16 21:47:55,241 [   INFO] Download complete, extracting SDK
+2012-07-16 21:47:56,022 [  DEBUG] unzip output
+2012-07-16 21:47:56,022 [  DEBUG] Archive:  /var/folders/vv/w8d7x8rj5v97zzbv5n9lh9s40000gn/T/tmpV9zlBQ/sdk.zip
+   creating: /Applications/android-sdk-macosx/
+  inflating: /Applications/android-sdk-macosx/SDK Readme.txt  
+   creating: /Applications/android-sdk-macosx/platforms/
+   creating: /Applications/android-sdk-macosx/add-ons/
+   creating: /Applications/android-sdk-macosx/tools/
+  inflating: /Applications/android-sdk-macosx/tools/lint  
+   creating: /Applications/android-sdk-macosx/tools/ant/
+  inflating: /Applications/android-sdk-macosx/tools/ant/build.xml  
+  inflating: /Applications/android-sdk-macosx/tools/ant/NOTICE.txt  
+  inflating: /Applications/android-sdk-macosx/tools/ant/pre_setup.xml  
+  inflating: /Applications/android-sdk-macosx/tools/emulator-x86  
+  inflating: /Applications/android-sdk-macosx/tools/hprof-conv  
+   creating: /Applications/android-sdk-macosx/tools/apps/
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/AndroidManifest.xml  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/drawable-mdpi/
+ extracting: /Applications/android-sdk-macosx/tools/apps/SdkController/res/drawable-mdpi/ic_launcher.png  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/drawable-ldpi/
+ extracting: /Applications/android-sdk-macosx/tools/apps/SdkController/res/drawable-ldpi/ic_launcher.png  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/drawable-xhdpi/
+ extracting: /Applications/android-sdk-macosx/tools/apps/SdkController/res/drawable-xhdpi/ic_launcher.png  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/layout-land/
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/layout-land/sensors.xml  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/values/
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/values/strings.xml  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/values/styles.xml  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/layout/
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/layout/multitouch.xml  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/layout/sensors.xml  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/layout/sensor_row.xml  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/layout/main.xml  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/drawable-hdpi/
+ extracting: /Applications/android-sdk-macosx/tools/apps/SdkController/res/drawable-hdpi/ic_launcher.png  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/values-v11/
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/res/values-v11/styles_v11.xml  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/proguard-project.txt  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/assets/
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/assets/intro_help.html  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/project.properties  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/Implementation.txt  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/activities/
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/activities/SensorActivity.java  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/activities/MainActivity.java  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/activities/BaseBindingActivity.java  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/activities/MultiTouchActivity.java  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/lib/
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/lib/EmulatorListener.java  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/lib/EmulatorConnection.java  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/views/
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/views/MultiTouchView.java  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/utils/
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/utils/ApiHelper.java  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/utils/ApiHelper_11.java  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/handlers/
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/handlers/SensorsHandler.java  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/handlers/MultiTouchHandler.java  
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/handlers/BaseHandler.java  
+   creating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/service/
+  inflating: /Applications/android-sdk-macosx/tools/apps/SdkController/src/com/android/tools/sdkcontroller/service/ControllerService.java  
+   creating: /Applications/android-sdk-macosx/tools/lib/
+  inflating: /Applications/android-sdk-macosx/tools/lib/androidprefs.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/emma_ant.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/devices.xml  
+  inflating: /Applications/android-sdk-macosx/tools/lib/commons-codec-1.4.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/chimpchat.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/ddmuilib.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/sdkstats.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/org.eclipse.equinox.common_3.4.0.v20080421-2006.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/jsilver.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/build.template  
+  inflating: /Applications/android-sdk-macosx/tools/lib/jcommon-1.0.12.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/jfreechart-1.0.9-swt.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/emma.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/httpcore-4.1.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/emma_device.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/libGLES_V2_translator.dylib  
+   creating: /Applications/android-sdk-macosx/tools/lib/x86_64/
+  inflating: /Applications/android-sdk-macosx/tools/lib/x86_64/swt.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/asm-4.0.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/proguard-project.txt  
+  inflating: /Applications/android-sdk-macosx/tools/lib/lint_checks.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/swing-worker-1.1.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/lombok-ast-0.2.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/asm-tree-4.0.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/org.eclipse.jface_3.4.2.M20090107-0800.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/swtmenubar.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/monkeyrunner.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/ddms.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/libGLES_CM_translator.dylib  
+  inflating: /Applications/android-sdk-macosx/tools/lib/sdklib.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/traceview.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/org.eclipse.core.commands_3.4.0.I20080509-2000.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/android.el  
+   creating: /Applications/android-sdk-macosx/tools/lib/emulator/
+  inflating: /Applications/android-sdk-macosx/tools/lib/emulator/snapshots.img  
+  inflating: /Applications/android-sdk-macosx/tools/lib/ddmlib.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/libEGL_translator.dylib  
+  inflating: /Applications/android-sdk-macosx/tools/lib/sdkuilib.jar  
+   creating: /Applications/android-sdk-macosx/tools/lib/pc-bios/
+  inflating: /Applications/android-sdk-macosx/tools/lib/pc-bios/bios.bin  
+  inflating: /Applications/android-sdk-macosx/tools/lib/pc-bios/vgabios-cirrus.bin  
+  inflating: /Applications/android-sdk-macosx/tools/lib/draw9patch.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/anttasks.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/sdkmanager.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/common.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/httpmime-4.1.1.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/hardware-properties.ini  
+  inflating: /Applications/android-sdk-macosx/tools/lib/jython.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/commons-logging-1.1.1.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/lint_api.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/lint.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/hierarchyviewer2.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/jfreechart-1.0.9.jar  
+   creating: /Applications/android-sdk-macosx/tools/lib/x86/
+  inflating: /Applications/android-sdk-macosx/tools/lib/x86/swt.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/mkidentity.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/guava-10.0.1.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/osgi.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/httpclient-4.1.1.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/libOpenglRender.dylib  
+  inflating: /Applications/android-sdk-macosx/tools/lib/guavalib.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/commons-compress-1.0.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/archquery.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/hierarchyviewerlib.jar  
+  inflating: /Applications/android-sdk-macosx/tools/lib/plugin.prop  
+   creating: /Applications/android-sdk-macosx/tools/proguard/
+   creating: /Applications/android-sdk-macosx/tools/proguard/ant/
+  inflating: /Applications/android-sdk-macosx/tools/proguard/ant/task.properties  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/license.html  
+   creating: /Applications/android-sdk-macosx/tools/proguard/lib/
+  inflating: /Applications/android-sdk-macosx/tools/proguard/lib/proguardgui.jar  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/lib/proguard.jar  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/lib/retrace.jar  
+   creating: /Applications/android-sdk-macosx/tools/proguard/docs/
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/screenshot_gui8.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/quality.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/license.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/results.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/acknowledgements.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/title.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/GPL_exception.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/alternatives.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/screenshots_gui_small.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/title.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/FAQ.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/GPL.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/screenshot_gui1.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/screenshot_gui5.gif  
+ extracting: /Applications/android-sdk-macosx/tools/proguard/docs/drop3.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/drop2.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/screenshot_gui4.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/checkmark.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/main.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/testimonials.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/screenshot_console.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/steel.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/sections.html  
+   creating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/troubleshooting.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/attention.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/examples.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/gui.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/ant.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/limitations.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/optimizations.html  
+   creating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/retrace/
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/retrace/examples.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/retrace/introduction.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/retrace/usage.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/retrace/index.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/introduction.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/usage.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/wtk.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/refcard.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/sections.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/style.css  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/manual/index.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/screenshot_console_small.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/feedback.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/style.css  
+ extracting: /Applications/android-sdk-macosx/tools/proguard/docs/saikoalogo.png  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/screenshot_gui2.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/screenshot_gui3.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/screenshot_gui7.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/index.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/drop1.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/screenshot_gui6.gif  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/downloads.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/screenshots.html  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/docs/favicon.ico  
+ extracting: /Applications/android-sdk-macosx/tools/proguard/docs/sflogo.png  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/README  
+   creating: /Applications/android-sdk-macosx/tools/proguard/examples/
+   creating: /Applications/android-sdk-macosx/tools/proguard/examples/ant/
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/ant/applications2.xml  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/ant/applications1.xml  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/ant/midlets.xml  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/ant/proguard.xml  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/ant/applets.xml  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/ant/android-8.xml  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/ant/applications3.xml  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/ant/servlets.xml  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/ant/library.xml  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/retrace.pro  
+   creating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/
+   creating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/lib/
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/lib/annotations.pro  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/lib/annotations.jar  
+   creating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/examples/
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/examples/Bean.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/examples/NativeCallBack.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/examples/Applet.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/examples/Application.java  
+   creating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/
+   creating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/
+   creating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/KeepName.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/KeepPublicImplementations.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/KeepImplementations.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/KeepPublicProtectedClassMembers.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/KeepClassMembers.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/KeepGettersSetters.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/Keep.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/KeepPublicClassMemberNames.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/KeepPublicClassMembers.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/KeepApplication.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/KeepClassMemberNames.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/KeepPublicGettersSetters.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/src/proguard/annotation/KeepPublicProtectedClassMemberNames.java  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/annotations/examples.pro  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/library.pro  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/proguardgui.pro  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/applets.pro  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/applications.pro  
+   creating: /Applications/android-sdk-macosx/tools/proguard/examples/dictionaries/
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/dictionaries/shakespeare.txt  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/dictionaries/keywords.txt  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/dictionaries/windows.txt  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/dictionaries/compact.txt  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/scala.pro  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/midlets.pro  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/proguard.pro  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/android.pro  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/proguardall.pro  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/examples/servlets.pro  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/proguard-android.txt  
+   creating: /Applications/android-sdk-macosx/tools/proguard/bin/
+  inflating: /Applications/android-sdk-macosx/tools/proguard/bin/proguardgui.sh  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/bin/retrace.sh  
+  inflating: /Applications/android-sdk-macosx/tools/proguard/bin/proguard.sh  
+  inflating: /Applications/android-sdk-macosx/tools/ddms  
+  inflating: /Applications/android-sdk-macosx/tools/android  
+  inflating: /Applications/android-sdk-macosx/tools/NOTICE.txt  
+  inflating: /Applications/android-sdk-macosx/tools/hierarchyviewer  
+  inflating: /Applications/android-sdk-macosx/tools/monkeyrunner  
+  inflating: /Applications/android-sdk-macosx/tools/zipalign  
+  inflating: /Applications/android-sdk-macosx/tools/emulator  
+  inflating: /Applications/android-sdk-macosx/tools/source.properties  
+  inflating: /Applications/android-sdk-macosx/tools/dmtracedump  
+  inflating: /Applications/android-sdk-macosx/tools/apkbuilder  
+   creating: /Applications/android-sdk-macosx/tools/Jet/
+   creating: /Applications/android-sdk-macosx/tools/Jet/demo_content/
+  inflating: /Applications/android-sdk-macosx/tools/Jet/demo_content/JetCreator_demo_1.zip  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/demo_content/JetCreator_demo_2.zip  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/demo_content/README.txt  
+   creating: /Applications/android-sdk-macosx/tools/Jet/logic_templates/
+  inflating: /Applications/android-sdk-macosx/tools/Jet/logic_templates/README.txt  
+   creating: /Applications/android-sdk-macosx/tools/Jet/logic_templates/JET_Logic8.logic/
+   creating: /Applications/android-sdk-macosx/tools/Jet/logic_templates/JET_Logic8.logic/LgDoc/
+  inflating: /Applications/android-sdk-macosx/tools/Jet/logic_templates/JET_Logic8.logic/LgDoc/documentData  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/logic_templates/JET_Logic8.logic/LgDoc/displayState  
+   creating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/img_favicon.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetAudition.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetPreview.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetCreator.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetCtrls.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/libEASLIb.dylib  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/img_Open.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/img_Cut.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetSegGraph.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/img_Copy.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetDialogs.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetDefs.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/ReadMe1st.txt  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetSystemInfo.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetUtils.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetFile.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/img_Print.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/img_splash.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/img_Undo.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/eas.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/img_New.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/midifile.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetCreatorhlp.dat  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetHelp.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/img_Find.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/img_Redo.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetDebug.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/img_Paste.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/JetStatusEvent.py  
+  inflating: /Applications/android-sdk-macosx/tools/Jet/JetCreator/img_Save.py  
+  inflating: /Applications/android-sdk-macosx/tools/sqlite3  
+   creating: /Applications/android-sdk-macosx/tools/support/
+  inflating: /Applications/android-sdk-macosx/tools/support/annotations.jar  
+  inflating: /Applications/android-sdk-macosx/tools/adb_has_moved.txt  
+  inflating: /Applications/android-sdk-macosx/tools/draw9patch  
+  inflating: /Applications/android-sdk-macosx/tools/etc1tool  
+  inflating: /Applications/android-sdk-macosx/tools/mksdcard  
+  inflating: /Applications/android-sdk-macosx/tools/traceview  
+  inflating: /Applications/android-sdk-macosx/tools/emulator-arm  
+
+2012-07-16 21:47:56,022 [   INFO] Updating SDK and downloading required Android platform (about 90MB, may take some time)
+2012-07-16 21:48:01,028 [  DEBUG] Running: killall adb
+2012-07-16 21:48:01,028 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:01,028 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:48:01,028 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:48:01,029 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:01,029 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:48:06,031 [  DEBUG] Running: killall adb
+2012-07-16 21:48:06,032 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:06,034 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:48:06,034 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:48:06,043 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:06,043 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:48:11,072 [  DEBUG] Running: killall adb
+2012-07-16 21:48:11,073 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:11,073 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:48:11,073 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:48:11,073 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:11,073 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:48:16,104 [  DEBUG] Running: killall adb
+2012-07-16 21:48:16,104 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:16,104 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:48:16,104 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:48:16,104 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:16,104 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:48:21,115 [  DEBUG] Running: killall adb
+2012-07-16 21:48:21,115 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:21,115 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:48:21,115 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:48:21,115 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:21,116 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:48:26,123 [  DEBUG] Running: killall adb
+2012-07-16 21:48:26,123 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:26,123 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:48:26,123 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:48:26,123 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:26,123 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:48:31,115 [  DEBUG] Running: killall adb
+2012-07-16 21:48:31,119 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:31,120 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:48:31,120 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:48:31,129 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:31,129 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:48:36,135 [  DEBUG] Running: killall adb
+2012-07-16 21:48:36,139 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:36,140 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:48:36,140 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:48:36,149 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:36,149 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:48:41,155 [  DEBUG] Running: killall adb
+2012-07-16 21:48:41,156 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:41,157 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:48:41,157 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:48:41,165 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:41,165 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:48:46,171 [  DEBUG] Running: killall adb
+2012-07-16 21:48:46,175 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:46,175 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:48:46,177 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:48:46,186 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:46,187 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:48:51,192 [  DEBUG] Running: killall adb
+2012-07-16 21:48:51,197 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:51,198 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:48:51,198 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:48:51,206 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:51,206 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:48:56,213 [  DEBUG] Running: killall adb
+2012-07-16 21:48:56,218 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:56,218 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:48:56,218 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:48:56,227 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:48:56,227 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:49:01,234 [  DEBUG] Running: killall adb
+2012-07-16 21:49:01,235 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:49:01,235 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:49:01,235 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:49:01,243 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:49:01,243 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:49:06,248 [  DEBUG] Running: killall adb
+2012-07-16 21:49:06,248 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:49:06,250 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:49:06,251 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:49:06,259 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:49:06,259 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:49:11,264 [  DEBUG] Running: killall adb
+2012-07-16 21:49:11,266 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:49:11,266 [  DEBUG] Failed to run killall adb, but was told to carry on anyway
+2012-07-16 21:49:11,266 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:49:11,274 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:49:11,275 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:49:16,297 [  DEBUG] Running: killall adb
+2012-07-16 21:49:16,297 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:49:16,297 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:49:16,297 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:49:16,672 [   INFO] Android SDK update complete
+2012-07-16 21:49:16,672 [   INFO] Starting ADB if not running
+2012-07-16 21:49:16,672 [  DEBUG] Running detached: /Applications/android-sdk-macosx/platform-tools/adb start-server
+2012-07-16 21:49:19,746 [  DEBUG] * daemon not running. starting it now on port 5037 *
+2012-07-16 21:49:19,746 [  DEBUG] * daemon started successfully *
+2012-07-16 21:49:19,747 [   INFO] Looking for Android device
+2012-07-16 21:49:19,765 [  DEBUG] No devices found, checking again
+2012-07-16 21:49:21,345 [  DEBUG] Running: killall adb
+2012-07-16 21:49:21,345 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:49:21,346 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:49:21,346 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:49:24,875 [  DEBUG] No devices found, checking again
+2012-07-16 21:49:26,863 [  DEBUG] Running: killall adb
+2012-07-16 21:49:26,863 [  DEBUG] Running: killall -9 adb
+2012-07-16 21:49:26,869 [  DEBUG] No matching processes belonging to you were found
+2012-07-16 21:49:26,869 [  DEBUG] Failed to run killall -9 adb, but was told to carry on anyway
+2012-07-16 21:49:26,869 [  DEBUG] Running detached: /Applications/android-sdk-macosx/platform-tools/adb start-server
+2012-07-16 21:49:29,991 [  DEBUG] * daemon not running. starting it now on port 5037 *
+2012-07-16 21:49:29,991 [  DEBUG] * daemon started successfully *
+2012-07-16 21:49:29,992 [  DEBUG] No devices found, checking again
+2012-07-16 21:49:37,605 [   INFO] Checking for previously created AVD
+2012-07-16 21:49:37,606 [   INFO] Creating AVD
+2012-07-16 21:49:38,725 [  ERROR] failed: Error: Target id is not valid. Use 'android list targets' to get the target ids.
+
+2012-07-16 21:49:38,726 [  DEBUG]  while running run_android(('/Users/jdavis1002/Code/JotLocale/development', None, None, True, None), {})
+2012-07-16 21:49:38,730 [  ERROR] 
+2012-07-16 21:49:38,730 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/android_tasks.py", line 595, in run_android
+    _prompt_user_to_attach_device(path_info)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/android_tasks.py", line 243, in _prompt_user_to_attach_device
+    _create_avd_if_necessary(path_info)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/android_tasks.py", line 518, in _create_avd_if_necessary
+    _create_avd(path_info)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/android_tasks.py", line 412, in _create_avd
+    raise AndroidError
+AndroidError
+
+2012-07-18 19:52:42,331 [   INFO] Forge tools running at version 3.3.5
+2012-07-18 19:52:42,535 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-18 19:52:42,535 [  DEBUG] ignoring non-target directory config.json
+2012-07-18 19:52:42,535 [  DEBUG] ignoring non-target directory lib
+2012-07-18 19:52:42,535 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-18 19:52:42,536 [  DEBUG] Enabled platforms: ['web']
+2012-07-18 19:52:42,536 [  DEBUG] Forge build tools version: 3.3.5
+2012-07-18 19:52:42,536 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-18 19:52:42,536 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-07-18 19:52:42,959 [  DEBUG] Checking API response for success or error
+2012-07-18 19:52:42,959 [  DEBUG] already authenticated via cookie - continuing
+2012-07-18 19:52:42,959 [  DEBUG] POST https://trigger.io/api/track/
+2012-07-18 19:52:43,129 [  DEBUG] Checking API response for success or error
+2012-07-18 19:52:43,130 [  DEBUG] <ForgeTask (web)> running...
+2012-07-18 19:52:43,130 [  DEBUG] <ForgeTask (web)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('web', None, 'run_web', None, None)]
+2012-07-18 19:52:43,130 [  DEBUG] running lint_javascript((), {})
+2012-07-18 19:52:43,130 [   INFO] Checking JavaScript files...
+2012-07-18 19:52:43,198 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-07-18 19:52:43,199 [WARNING]     };
+2012-07-18 19:52:43,199 [WARNING] ....^
+2012-07-18 19:52:43,199 [   INFO] JavaScript check complete
+2012-07-18 19:52:43,199 [  DEBUG] running check_local_config_schema((), {})
+2012-07-18 19:52:43,199 [   INFO] Verifying your configuration settings...
+2012-07-18 19:52:43,199 [   INFO] Configuration settings check complete
+2012-07-18 19:52:43,200 [  DEBUG] running run_web((), {})
+2012-07-18 19:52:43,200 [  DEBUG] Running: npm install
+2012-07-18 19:52:44,201 [  DEBUG] failed to run npm: do you have Node.js installed and on your path? while running run_web((), {})
+2012-07-18 19:52:44,201 [  ERROR] failed to run npm: do you have Node.js installed and on your path?
+2012-07-18 19:52:44,201 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 87, in run_web
+    _npm("install")
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 61, in _npm
+    raise WebError("failed to run npm: do you have Node.js installed and on your path?")
+WebError: failed to run npm: do you have Node.js installed and on your path?
+
+2012-07-25 10:30:00,045 [   INFO] Forge tools running at version 3.3.5
+2012-07-25 10:30:00,314 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-25 10:30:00,314 [  DEBUG] ignoring non-target directory config.json
+2012-07-25 10:30:00,314 [  DEBUG] ignoring non-target directory lib
+2012-07-25 10:30:00,315 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-25 10:30:00,315 [  DEBUG] Enabled platforms: ['web']
+2012-07-25 10:30:00,342 [  DEBUG] Forge build tools version: 3.3.5
+2012-07-25 10:30:00,342 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-25 10:30:00,342 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-07-25 10:30:00,971 [  DEBUG] Checking API response for success or error
+2012-07-25 10:30:00,972 [  DEBUG] already authenticated via cookie - continuing
+2012-07-25 10:30:00,972 [  DEBUG] POST https://trigger.io/api/track/
+2012-07-25 10:30:01,090 [  DEBUG] Checking API response for success or error
+2012-07-25 10:30:01,090 [  DEBUG] <ForgeTask (web)> running...
+2012-07-25 10:30:01,090 [  DEBUG] <ForgeTask (web)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('web', None, 'run_web', None, None)]
+2012-07-25 10:30:01,090 [  DEBUG] running lint_javascript((), {})
+2012-07-25 10:30:01,091 [   INFO] Checking JavaScript files...
+2012-07-25 10:30:01,261 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-07-25 10:30:01,261 [WARNING]     };
+2012-07-25 10:30:01,261 [WARNING] ....^
+2012-07-25 10:30:01,261 [   INFO] JavaScript check complete
+2012-07-25 10:30:01,262 [  DEBUG] running check_local_config_schema((), {})
+2012-07-25 10:30:01,262 [   INFO] Verifying your configuration settings...
+2012-07-25 10:30:01,262 [   INFO] Configuration settings check complete
+2012-07-25 10:30:01,262 [  DEBUG] running run_web((), {})
+2012-07-25 10:30:01,262 [  DEBUG] Running: npm install
+2012-07-25 10:30:02,245 [  DEBUG] failed to run npm: do you have Node.js installed and on your path? while running run_web((), {})
+2012-07-25 10:30:02,245 [  ERROR] failed to run npm: do you have Node.js installed and on your path?
+2012-07-25 10:30:02,246 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 87, in run_web
+    _npm("install")
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 61, in _npm
+    raise WebError("failed to run npm: do you have Node.js installed and on your path?")
+WebError: failed to run npm: do you have Node.js installed and on your path?
+
+2012-07-25 10:41:23,415 [   INFO] Forge tools running at version 3.3.5
+2012-07-25 10:41:23,650 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-25 10:41:23,650 [  DEBUG] ignoring non-target directory config.json
+2012-07-25 10:41:23,650 [  DEBUG] ignoring non-target directory lib
+2012-07-25 10:41:23,650 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-25 10:41:23,650 [  DEBUG] Enabled platforms: ['web']
+2012-07-25 10:41:23,677 [  DEBUG] Forge build tools version: 3.3.5
+2012-07-25 10:41:23,677 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-25 10:41:23,677 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-07-25 10:41:24,051 [  DEBUG] Checking API response for success or error
+2012-07-25 10:41:24,051 [  DEBUG] already authenticated via cookie - continuing
+2012-07-25 10:41:24,051 [  DEBUG] POST https://trigger.io/api/track/
+2012-07-25 10:41:24,220 [  DEBUG] Checking API response for success or error
+2012-07-25 10:41:24,221 [  DEBUG] <ForgeTask (web)> running...
+2012-07-25 10:41:24,221 [  DEBUG] <ForgeTask (web)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('web', None, 'run_web', None, None)]
+2012-07-25 10:41:24,221 [  DEBUG] running lint_javascript((), {})
+2012-07-25 10:41:24,221 [   INFO] Checking JavaScript files...
+2012-07-25 10:41:24,339 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-07-25 10:41:24,339 [WARNING]     };
+2012-07-25 10:41:24,340 [WARNING] ....^
+2012-07-25 10:41:24,340 [   INFO] JavaScript check complete
+2012-07-25 10:41:24,341 [  DEBUG] running check_local_config_schema((), {})
+2012-07-25 10:41:24,341 [   INFO] Verifying your configuration settings...
+2012-07-25 10:41:24,341 [   INFO] Configuration settings check complete
+2012-07-25 10:41:24,342 [  DEBUG] running run_web((), {})
+2012-07-25 10:41:24,344 [  DEBUG] Running: npm install
+2012-07-25 10:41:25,346 [  DEBUG] failed to run npm: do you have Node.js installed and on your path? while running run_web((), {})
+2012-07-25 10:41:25,354 [  ERROR] failed to run npm: do you have Node.js installed and on your path?
+2012-07-25 10:41:25,355 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 87, in run_web
+    _npm("install")
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 61, in _npm
+    raise WebError("failed to run npm: do you have Node.js installed and on your path?")
+WebError: failed to run npm: do you have Node.js installed and on your path?
+
+2012-07-25 10:42:15,413 [   INFO] Forge tools running at version 3.3.5
+2012-07-25 10:42:15,611 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-25 10:42:15,611 [  DEBUG] ignoring non-target directory config.json
+2012-07-25 10:42:15,611 [  DEBUG] ignoring non-target directory lib
+2012-07-25 10:42:15,611 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-25 10:42:15,611 [  DEBUG] Enabled platforms: ['web']
+2012-07-25 10:42:15,611 [  DEBUG] Forge build tools version: 3.3.5
+2012-07-25 10:42:15,611 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-25 10:42:15,611 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-07-25 10:42:18,545 [  DEBUG] Checking API response for success or error
+2012-07-25 10:42:18,545 [  DEBUG] already authenticated via cookie - continuing
+2012-07-25 10:42:18,545 [  DEBUG] POST https://trigger.io/api/track/
+2012-07-25 10:42:18,664 [  DEBUG] Checking API response for success or error
+2012-07-25 10:42:18,665 [  DEBUG] <ForgeTask (web)> running...
+2012-07-25 10:42:18,665 [  DEBUG] <ForgeTask (web)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('web', None, 'run_web', None, None)]
+2012-07-25 10:42:18,665 [  DEBUG] running lint_javascript((), {})
+2012-07-25 10:42:18,665 [   INFO] Checking JavaScript files...
+2012-07-25 10:42:18,784 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-07-25 10:42:18,784 [WARNING]     };
+2012-07-25 10:42:18,785 [WARNING] ....^
+2012-07-25 10:42:18,785 [   INFO] JavaScript check complete
+2012-07-25 10:42:18,785 [  DEBUG] running check_local_config_schema((), {})
+2012-07-25 10:42:18,785 [   INFO] Verifying your configuration settings...
+2012-07-25 10:42:18,785 [   INFO] Configuration settings check complete
+2012-07-25 10:42:18,785 [  DEBUG] running run_web((), {})
+2012-07-25 10:42:18,785 [  DEBUG] Running: npm install
+2012-07-25 10:42:19,787 [  DEBUG] failed to run npm: do you have Node.js installed and on your path? while running run_web((), {})
+2012-07-25 10:42:19,787 [  ERROR] failed to run npm: do you have Node.js installed and on your path?
+2012-07-25 10:42:19,787 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 87, in run_web
+    _npm("install")
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 61, in _npm
+    raise WebError("failed to run npm: do you have Node.js installed and on your path?")
+WebError: failed to run npm: do you have Node.js installed and on your path?
+
+2012-07-25 10:43:23,497 [   INFO] Forge tools running at version 3.3.5
+2012-07-25 10:43:23,754 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-25 10:43:23,754 [  DEBUG] ignoring non-target directory config.json
+2012-07-25 10:43:23,754 [  DEBUG] ignoring non-target directory lib
+2012-07-25 10:43:23,754 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-25 10:43:23,755 [  DEBUG] Enabled platforms: ['web']
+2012-07-25 10:43:23,772 [  DEBUG] Forge build tools version: 3.3.5
+2012-07-25 10:43:23,784 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-25 10:43:23,784 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-07-25 10:43:24,108 [  DEBUG] Checking API response for success or error
+2012-07-25 10:43:24,108 [  DEBUG] already authenticated via cookie - continuing
+2012-07-25 10:43:24,108 [  DEBUG] POST https://trigger.io/api/track/
+2012-07-25 10:43:24,176 [  DEBUG] Checking API response for success or error
+2012-07-25 10:43:24,176 [  DEBUG] <ForgeTask (web)> running...
+2012-07-25 10:43:24,176 [  DEBUG] <ForgeTask (web)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('web', None, 'run_web', None, None)]
+2012-07-25 10:43:24,177 [  DEBUG] running lint_javascript((), {})
+2012-07-25 10:43:24,177 [   INFO] Checking JavaScript files...
+2012-07-25 10:43:24,348 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-07-25 10:43:24,348 [WARNING]     };
+2012-07-25 10:43:24,348 [WARNING] ....^
+2012-07-25 10:43:24,349 [   INFO] JavaScript check complete
+2012-07-25 10:43:24,349 [  DEBUG] running check_local_config_schema((), {})
+2012-07-25 10:43:24,349 [   INFO] Verifying your configuration settings...
+2012-07-25 10:43:24,349 [   INFO] Configuration settings check complete
+2012-07-25 10:43:24,350 [  DEBUG] running run_web((), {})
+2012-07-25 10:43:24,350 [  DEBUG] Running: npm install
+2012-07-25 10:43:25,335 [  DEBUG] failed to run npm: do you have Node.js installed and on your path? while running run_web((), {})
+2012-07-25 10:43:25,336 [  ERROR] failed to run npm: do you have Node.js installed and on your path?
+2012-07-25 10:43:25,336 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 87, in run_web
+    _npm("install")
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 61, in _npm
+    raise WebError("failed to run npm: do you have Node.js installed and on your path?")
+WebError: failed to run npm: do you have Node.js installed and on your path?
+
+2012-07-25 10:58:42,283 [   INFO] Forge tools running at version 3.3.5
+2012-07-25 10:58:42,542 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-25 10:58:42,542 [  DEBUG] ignoring non-target directory config.json
+2012-07-25 10:58:42,542 [  DEBUG] ignoring non-target directory lib
+2012-07-25 10:58:42,542 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-25 10:58:42,542 [  DEBUG] Enabled platforms: ['web']
+2012-07-25 10:58:42,573 [  DEBUG] Forge build tools version: 3.3.5
+2012-07-25 10:58:42,573 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-25 10:58:42,573 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-07-25 10:58:42,947 [  DEBUG] Checking API response for success or error
+2012-07-25 10:58:42,947 [  DEBUG] already authenticated via cookie - continuing
+2012-07-25 10:58:42,947 [  DEBUG] POST https://trigger.io/api/track/
+2012-07-25 10:58:43,067 [  DEBUG] Checking API response for success or error
+2012-07-25 10:58:43,067 [  DEBUG] <ForgeTask (web)> running...
+2012-07-25 10:58:43,067 [  DEBUG] <ForgeTask (web)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('web', None, 'run_web', None, None)]
+2012-07-25 10:58:43,067 [  DEBUG] running lint_javascript((), {})
+2012-07-25 10:58:43,068 [   INFO] Checking JavaScript files...
+2012-07-25 10:58:43,185 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-07-25 10:58:43,186 [WARNING]     };
+2012-07-25 10:58:43,186 [WARNING] ....^
+2012-07-25 10:58:43,186 [   INFO] JavaScript check complete
+2012-07-25 10:58:43,186 [  DEBUG] running check_local_config_schema((), {})
+2012-07-25 10:58:43,186 [   INFO] Verifying your configuration settings...
+2012-07-25 10:58:43,186 [   INFO] Configuration settings check complete
+2012-07-25 10:58:43,186 [  DEBUG] running run_web((), {})
+2012-07-25 10:58:43,187 [  DEBUG] Running: npm install
+2012-07-25 10:58:44,171 [  DEBUG] failed to run npm: do you have Node.js installed and on your path? while running run_web((), {})
+2012-07-25 10:58:44,172 [  ERROR] failed to run npm: do you have Node.js installed and on your path?
+2012-07-25 10:58:44,172 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 87, in run_web
+    _npm("install")
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 61, in _npm
+    raise WebError("failed to run npm: do you have Node.js installed and on your path?")
+WebError: failed to run npm: do you have Node.js installed and on your path?
+
+2012-07-25 11:27:51,715 [   INFO] Forge tools running at version 3.3.5
+2012-07-25 11:27:51,966 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-25 11:27:51,966 [  DEBUG] ignoring non-target directory config.json
+2012-07-25 11:27:51,966 [  DEBUG] ignoring non-target directory lib
+2012-07-25 11:27:51,966 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-25 11:27:51,966 [  DEBUG] Enabled platforms: ['web']
+2012-07-25 11:27:51,993 [  DEBUG] Forge build tools version: 3.3.5
+2012-07-25 11:27:51,993 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-25 11:27:51,994 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-07-25 11:27:54,214 [  DEBUG] Checking API response for success or error
+2012-07-25 11:27:54,214 [  DEBUG] already authenticated via cookie - continuing
+2012-07-25 11:27:54,214 [  DEBUG] POST https://trigger.io/api/track/
+2012-07-25 11:27:54,486 [  DEBUG] Checking API response for success or error
+2012-07-25 11:27:54,486 [  DEBUG] <ForgeTask (web)> running...
+2012-07-25 11:27:54,487 [  DEBUG] <ForgeTask (web)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('web', None, 'run_web', None, None)]
+2012-07-25 11:27:54,487 [  DEBUG] running lint_javascript((), {})
+2012-07-25 11:27:54,487 [   INFO] Checking JavaScript files...
+2012-07-25 11:27:54,656 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-07-25 11:27:54,656 [WARNING]     };
+2012-07-25 11:27:54,657 [WARNING] ....^
+2012-07-25 11:27:54,657 [   INFO] JavaScript check complete
+2012-07-25 11:27:54,657 [  DEBUG] running check_local_config_schema((), {})
+2012-07-25 11:27:54,657 [   INFO] Verifying your configuration settings...
+2012-07-25 11:27:54,657 [   INFO] Configuration settings check complete
+2012-07-25 11:27:54,657 [  DEBUG] running run_web((), {})
+2012-07-25 11:27:54,657 [  DEBUG] Running: npm install
+2012-07-25 11:27:55,644 [  DEBUG] Running: node ./web.js
+2012-07-25 11:27:55,711 [   INFO] 
+2012-07-25 11:27:55,711 [   INFO] node.js:201
+2012-07-25 11:27:55,711 [   INFO]         throw e; // process.nextTick error, or 'error' event on first tick
+2012-07-25 11:27:55,712 [   INFO]               ^
+2012-07-25 11:27:55,712 [   INFO] Error: Cannot find module 'express'
+2012-07-25 11:27:55,712 [   INFO]     at Function._resolveFilename (module.js:334:11)
+2012-07-25 11:27:55,712 [   INFO]     at Function._load (module.js:279:25)
+2012-07-25 11:27:55,712 [   INFO]     at Module.require (module.js:357:17)
+2012-07-25 11:27:55,712 [   INFO]     at require (module.js:368:17)
+2012-07-25 11:27:55,712 [   INFO]     at Object.<anonymous> (/Users/jdavis1002/Code/JotLocale/development/web/web.js:1:77)
+2012-07-25 11:27:55,712 [   INFO]     at Module._compile (module.js:432:26)
+2012-07-25 11:27:55,712 [   INFO]     at Object..js (module.js:450:10)
+2012-07-25 11:27:55,712 [   INFO]     at Module.load (module.js:351:31)
+2012-07-25 11:27:55,713 [   INFO]     at Function._load (module.js:310:12)
+2012-07-25 11:27:55,713 [   INFO]     at Array.0 (module.js:470:10)
+2012-07-25 11:27:56,647 [  DEBUG] Failed when running node: 
+node.js:201
+        throw e; // process.nextTick error, or 'error' event on first tick
+              ^
+Error: Cannot find module 'express'
+    at Function._resolveFilename (module.js:334:11)
+    at Function._load (module.js:279:25)
+    at Module.require (module.js:357:17)
+    at require (module.js:368:17)
+    at Object.<anonymous> (/Users/jdavis1002/Code/JotLocale/development/web/web.js:1:77)
+    at Module._compile (module.js:432:26)
+    at Object..js (module.js:450:10)
+    at Module.load (module.js:351:31)
+    at Function._load (module.js:310:12)
+    at Array.0 (module.js:470:10)
+ while running run_web((), {})
+2012-07-25 11:27:56,648 [  ERROR] Something went wrong that we didn't expect:
+2012-07-25 11:27:56,648 [  ERROR] Failed when running node: 
+node.js:201
+        throw e; // process.nextTick error, or 'error' event on first tick
+              ^
+Error: Cannot find module 'express'
+    at Function._resolveFilename (module.js:334:11)
+    at Function._load (module.js:279:25)
+    at Module.require (module.js:357:17)
+    at require (module.js:368:17)
+    at Object.<anonymous> (/Users/jdavis1002/Code/JotLocale/development/web/web.js:1:77)
+    at Module._compile (module.js:432:26)
+    at Object..js (module.js:450:10)
+    at Module.load (module.js:351:31)
+    at Function._load (module.js:310:12)
+    at Array.0 (module.js:470:10)
+
+2012-07-25 11:27:56,648 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 102, in run_web
+    run_shell("node", "./web.js", command_log_level=logging.INFO, check_for_interrupt=True, env=dict(os.environ, PORT=str(port), FORGE_DEBUG='1'))
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/utils.py", line 212, in run_shell
+    output=state.output.getvalue()
+ShellError: Failed when running node: 
+node.js:201
+        throw e; // process.nextTick error, or 'error' event on first tick
+              ^
+Error: Cannot find module 'express'
+    at Function._resolveFilename (module.js:334:11)
+    at Function._load (module.js:279:25)
+    at Module.require (module.js:357:17)
+    at require (module.js:368:17)
+    at Object.<anonymous> (/Users/jdavis1002/Code/JotLocale/development/web/web.js:1:77)
+    at Module._compile (module.js:432:26)
+    at Object..js (module.js:450:10)
+    at Module.load (module.js:351:31)
+    at Function._load (module.js:310:12)
+    at Array.0 (module.js:470:10)
+
+
+2012-07-25 11:27:56,648 [  ERROR] See /Users/jdavis1002/Code/JotLocale/forge-error.log for more details
+2012-07-25 11:27:56,648 [  ERROR] Please contact support@trigger.io
+2012-07-25 12:29:58,866 [   INFO] Forge tools running at version 3.3.5
+2012-07-25 12:29:59,141 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-25 12:29:59,141 [  DEBUG] ignoring non-target directory config.json
+2012-07-25 12:29:59,141 [  DEBUG] ignoring non-target directory lib
+2012-07-25 12:29:59,141 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-25 12:29:59,141 [  DEBUG] Enabled platforms: ['web']
+2012-07-25 12:29:59,176 [  DEBUG] Forge build tools version: 3.3.5
+2012-07-25 12:29:59,176 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-25 12:29:59,176 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-07-25 12:30:16,415 [  DEBUG] Checking API response for success or error
+2012-07-25 12:30:16,415 [  DEBUG] already authenticated via cookie - continuing
+2012-07-25 12:30:16,415 [  DEBUG] POST https://trigger.io/api/track/
+2012-07-25 12:30:19,945 [  DEBUG] Checking API response for success or error
+2012-07-25 12:30:19,945 [  DEBUG] <ForgeTask (web)> running...
+2012-07-25 12:30:19,945 [  DEBUG] <ForgeTask (web)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('web', None, 'run_web', None, None)]
+2012-07-25 12:30:19,945 [  DEBUG] running lint_javascript((), {})
+2012-07-25 12:30:19,945 [   INFO] Checking JavaScript files...
+2012-07-25 12:30:20,124 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-07-25 12:30:20,124 [WARNING]     };
+2012-07-25 12:30:20,125 [WARNING] ....^
+2012-07-25 12:30:20,125 [   INFO] JavaScript check complete
+2012-07-25 12:30:20,125 [  DEBUG] running check_local_config_schema((), {})
+2012-07-25 12:30:20,125 [   INFO] Verifying your configuration settings...
+2012-07-25 12:30:20,125 [   INFO] Configuration settings check complete
+2012-07-25 12:30:20,125 [  DEBUG] running run_web((), {})
+2012-07-25 12:30:20,125 [  DEBUG] Running: npm install
+2012-07-25 12:30:21,115 [  DEBUG] Running: node ./web.js
+2012-07-25 12:30:21,232 [   INFO] 
+2012-07-25 12:30:21,232 [   INFO] node.js:201
+2012-07-25 12:30:21,232 [   INFO]         throw e; // process.nextTick error, or 'error' event on first tick
+2012-07-25 12:30:21,232 [   INFO]               ^
+2012-07-25 12:30:21,233 [   INFO] Error: Cannot find module 'express'
+2012-07-25 12:30:21,233 [   INFO]     at Function._resolveFilename (module.js:334:11)
+2012-07-25 12:30:21,233 [   INFO]     at Function._load (module.js:279:25)
+2012-07-25 12:30:21,233 [   INFO]     at Module.require (module.js:357:17)
+2012-07-25 12:30:21,233 [   INFO]     at require (module.js:368:17)
+2012-07-25 12:30:21,233 [   INFO]     at Object.<anonymous> (/Users/jdavis1002/Code/JotLocale/development/web/web.js:1:77)
+2012-07-25 12:30:21,233 [   INFO]     at Module._compile (module.js:432:26)
+2012-07-25 12:30:21,233 [   INFO]     at Object..js (module.js:450:10)
+2012-07-25 12:30:21,234 [   INFO]     at Module.load (module.js:351:31)
+2012-07-25 12:30:21,234 [   INFO]     at Function._load (module.js:310:12)
+2012-07-25 12:30:21,234 [   INFO]     at Array.0 (module.js:470:10)
+2012-07-25 12:30:22,117 [  DEBUG] Failed when running node: 
+node.js:201
+        throw e; // process.nextTick error, or 'error' event on first tick
+              ^
+Error: Cannot find module 'express'
+    at Function._resolveFilename (module.js:334:11)
+    at Function._load (module.js:279:25)
+    at Module.require (module.js:357:17)
+    at require (module.js:368:17)
+    at Object.<anonymous> (/Users/jdavis1002/Code/JotLocale/development/web/web.js:1:77)
+    at Module._compile (module.js:432:26)
+    at Object..js (module.js:450:10)
+    at Module.load (module.js:351:31)
+    at Function._load (module.js:310:12)
+    at Array.0 (module.js:470:10)
+ while running run_web((), {})
+2012-07-25 12:30:22,117 [  ERROR] Something went wrong that we didn't expect:
+2012-07-25 12:30:22,117 [  ERROR] Failed when running node: 
+node.js:201
+        throw e; // process.nextTick error, or 'error' event on first tick
+              ^
+Error: Cannot find module 'express'
+    at Function._resolveFilename (module.js:334:11)
+    at Function._load (module.js:279:25)
+    at Module.require (module.js:357:17)
+    at require (module.js:368:17)
+    at Object.<anonymous> (/Users/jdavis1002/Code/JotLocale/development/web/web.js:1:77)
+    at Module._compile (module.js:432:26)
+    at Object..js (module.js:450:10)
+    at Module.load (module.js:351:31)
+    at Function._load (module.js:310:12)
+    at Array.0 (module.js:470:10)
+
+2012-07-25 12:30:22,117 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 102, in run_web
+    run_shell("node", "./web.js", command_log_level=logging.INFO, check_for_interrupt=True, env=dict(os.environ, PORT=str(port), FORGE_DEBUG='1'))
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/utils.py", line 212, in run_shell
+    output=state.output.getvalue()
+ShellError: Failed when running node: 
+node.js:201
+        throw e; // process.nextTick error, or 'error' event on first tick
+              ^
+Error: Cannot find module 'express'
+    at Function._resolveFilename (module.js:334:11)
+    at Function._load (module.js:279:25)
+    at Module.require (module.js:357:17)
+    at require (module.js:368:17)
+    at Object.<anonymous> (/Users/jdavis1002/Code/JotLocale/development/web/web.js:1:77)
+    at Module._compile (module.js:432:26)
+    at Object..js (module.js:450:10)
+    at Module.load (module.js:351:31)
+    at Function._load (module.js:310:12)
+    at Array.0 (module.js:470:10)
+
+
+2012-07-25 12:30:22,118 [  ERROR] See /Users/jdavis1002/Code/JotLocale/forge-error.log for more details
+2012-07-25 12:30:22,118 [  ERROR] Please contact support@trigger.io
+2012-07-25 13:53:57,286 [   INFO] Forge tools running at version 3.3.5
+2012-07-25 13:53:57,565 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-25 13:53:57,565 [  DEBUG] ignoring non-target directory config.json
+2012-07-25 13:53:57,565 [  DEBUG] ignoring non-target directory lib
+2012-07-25 13:53:57,565 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-25 13:53:57,565 [  DEBUG] Enabled platforms: ['web']
+2012-07-25 13:53:57,587 [  DEBUG] Forge build tools version: 3.3.5
+2012-07-25 13:53:57,587 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-25 13:53:57,587 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-07-25 13:53:59,269 [  DEBUG] Checking API response for success or error
+2012-07-25 13:53:59,269 [  DEBUG] already authenticated via cookie - continuing
+2012-07-25 13:53:59,269 [  DEBUG] POST https://trigger.io/api/track/
+2012-07-25 13:53:59,745 [  DEBUG] Checking API response for success or error
+2012-07-25 13:53:59,745 [  DEBUG] <ForgeTask (web)> running...
+2012-07-25 13:53:59,745 [  DEBUG] <ForgeTask (web)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('web', None, 'run_web', None, None)]
+2012-07-25 13:53:59,745 [  DEBUG] running lint_javascript((), {})
+2012-07-25 13:53:59,745 [   INFO] Checking JavaScript files...
+2012-07-25 13:53:59,914 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-07-25 13:53:59,915 [WARNING]     };
+2012-07-25 13:53:59,915 [WARNING] ....^
+2012-07-25 13:53:59,916 [   INFO] JavaScript check complete
+2012-07-25 13:53:59,923 [  DEBUG] running check_local_config_schema((), {})
+2012-07-25 13:53:59,923 [   INFO] Verifying your configuration settings...
+2012-07-25 13:53:59,928 [   INFO] Configuration settings check complete
+2012-07-25 13:53:59,929 [  DEBUG] running run_web((), {})
+2012-07-25 13:53:59,929 [  DEBUG] Running: npm install
+2012-07-25 13:54:00,930 [  DEBUG] failed to run npm: do you have Node.js installed and on your path? while running run_web((), {})
+2012-07-25 13:54:00,938 [  ERROR] failed to run npm: do you have Node.js installed and on your path?
+2012-07-25 13:54:00,939 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 87, in run_web
+    _npm("install")
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 61, in _npm
+    raise WebError("failed to run npm: do you have Node.js installed and on your path?")
+WebError: failed to run npm: do you have Node.js installed and on your path?
+
+2012-07-25 13:59:16,504 [   INFO] Forge tools running at version 3.3.5
+2012-07-25 13:59:16,723 [  DEBUG] ignoring non-target directory __init__.py
+2012-07-25 13:59:16,723 [  DEBUG] ignoring non-target directory config.json
+2012-07-25 13:59:16,723 [  DEBUG] ignoring non-target directory lib
+2012-07-25 13:59:16,723 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-07-25 13:59:16,723 [  DEBUG] Enabled platforms: ['web']
+2012-07-25 13:59:16,723 [  DEBUG] Forge build tools version: 3.3.5
+2012-07-25 13:59:16,724 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-07-25 13:59:16,724 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-07-25 13:59:18,456 [  DEBUG] Checking API response for success or error
+2012-07-25 13:59:18,456 [  DEBUG] already authenticated via cookie - continuing
+2012-07-25 13:59:18,457 [  DEBUG] POST https://trigger.io/api/track/
+2012-07-25 13:59:18,828 [  DEBUG] Checking API response for success or error
+2012-07-25 13:59:18,828 [  DEBUG] <ForgeTask (web)> running...
+2012-07-25 13:59:18,828 [  DEBUG] <ForgeTask (web)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('web', None, 'run_web', None, None)]
+2012-07-25 13:59:18,828 [  DEBUG] running lint_javascript((), {})
+2012-07-25 13:59:18,828 [   INFO] Checking JavaScript files...
+2012-07-25 13:59:18,945 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-07-25 13:59:18,946 [WARNING]     };
+2012-07-25 13:59:18,946 [WARNING] ....^
+2012-07-25 13:59:18,946 [   INFO] JavaScript check complete
+2012-07-25 13:59:18,946 [  DEBUG] running check_local_config_schema((), {})
+2012-07-25 13:59:18,946 [   INFO] Verifying your configuration settings...
+2012-07-25 13:59:18,947 [   INFO] Configuration settings check complete
+2012-07-25 13:59:18,947 [  DEBUG] running run_web((), {})
+2012-07-25 13:59:18,947 [  DEBUG] Running: npm install
+2012-07-25 13:59:19,948 [  DEBUG] failed to run npm: do you have Node.js installed and on your path? while running run_web((), {})
+2012-07-25 13:59:19,948 [  ERROR] failed to run npm: do you have Node.js installed and on your path?
+2012-07-25 13:59:19,948 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 87, in run_web
+    _npm("install")
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 61, in _npm
+    raise WebError("failed to run npm: do you have Node.js installed and on your path?")
+WebError: failed to run npm: do you have Node.js installed and on your path?
+
+2012-08-09 21:09:32,421 [   INFO] Forge tools running at version 3.3.9
+2012-08-09 21:09:32,424 [  DEBUG] Forge build tools version: 3.3.9
+2012-08-09 21:09:32,424 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-08-09 21:09:32,432 [  DEBUG] GET https://trigger.io/api/version_check/3/3/9/
+2012-08-09 21:09:32,856 [  DEBUG] Checking API response for success or error
+2012-08-09 21:09:32,856 [   INFO] Update result: you already have the latest tools
+2012-08-09 21:09:32,856 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-08-09 21:09:32,974 [  DEBUG] Checking API response for success or error
+2012-08-09 21:09:41,057 [   INFO] authenticating as "maderalabs"
+2012-08-09 21:09:41,057 [  DEBUG] GET https://trigger.io/api/auth/hello
+2012-08-09 21:09:41,175 [  DEBUG] Checking API response for success or error
+2012-08-09 21:09:41,175 [  DEBUG] POST https://trigger.io/api/auth/verify
+2012-08-09 21:09:41,293 [  DEBUG] Checking API response for success or error
+2012-08-09 21:09:41,293 [  ERROR] Something went wrong that we didn't expect:
+2012-08-09 21:09:41,293 [  ERROR] Forge API call to auth/verify went wrong: Incorrect login details
+2012-08-09 21:09:41,293 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 323, in development_build
+    reload_result = remote.create_buildevent(app_config)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 594, in create_buildevent
+    self._authenticate()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 251, in _authenticate
+    self.login(email, password)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 524, in login
+    self._api_post('auth/verify', data=credentials)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 196, in _api_post
+    _check_api_response_for_error(url, 'POST', resp)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 67, in _check_api_response_for_error
+    raise RequestError(resp, error_message, errors=errors)
+RequestError: Forge API call to auth/verify went wrong: Incorrect login details
+
+2012-08-09 21:09:41,293 [  ERROR] See /Users/jdavis1002/Code/JotLocale/forge-error.log for more details
+2012-08-09 21:09:41,293 [  ERROR] Please contact support@trigger.io
+2012-08-09 21:09:47,655 [   INFO] Forge tools running at version 3.3.9
+2012-08-09 21:09:47,658 [  DEBUG] Forge build tools version: 3.3.9
+2012-08-09 21:09:47,658 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-08-09 21:09:47,662 [  DEBUG] GET https://trigger.io/api/version_check/3/3/9/
+2012-08-09 21:09:47,988 [  DEBUG] Checking API response for success or error
+2012-08-09 21:09:47,989 [   INFO] Update result: you already have the latest tools
+2012-08-09 21:09:47,989 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-08-09 21:09:48,057 [  DEBUG] Checking API response for success or error
+2012-08-09 21:09:55,170 [   INFO] authenticating as "maderalabs"
+2012-08-09 21:09:55,170 [  DEBUG] GET https://trigger.io/api/auth/hello
+2012-08-09 21:09:55,238 [  DEBUG] Checking API response for success or error
+2012-08-09 21:09:55,238 [  DEBUG] POST https://trigger.io/api/auth/verify
+2012-08-09 21:09:55,306 [  DEBUG] Checking API response for success or error
+2012-08-09 21:09:55,306 [  ERROR] Something went wrong that we didn't expect:
+2012-08-09 21:09:55,306 [  ERROR] Forge API call to auth/verify went wrong: Incorrect login details
+2012-08-09 21:09:55,306 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 323, in development_build
+    reload_result = remote.create_buildevent(app_config)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 594, in create_buildevent
+    self._authenticate()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 251, in _authenticate
+    self.login(email, password)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 524, in login
+    self._api_post('auth/verify', data=credentials)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 196, in _api_post
+    _check_api_response_for_error(url, 'POST', resp)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 67, in _check_api_response_for_error
+    raise RequestError(resp, error_message, errors=errors)
+RequestError: Forge API call to auth/verify went wrong: Incorrect login details
+
+2012-08-09 21:09:55,306 [  ERROR] See /Users/jdavis1002/Code/JotLocale/forge-error.log for more details
+2012-08-09 21:09:55,307 [  ERROR] Please contact support@trigger.io
+2012-08-09 21:10:01,638 [   INFO] Forge tools running at version 3.3.9
+2012-08-09 21:10:01,641 [  DEBUG] Forge build tools version: 3.3.9
+2012-08-09 21:10:01,641 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-08-09 21:10:01,649 [  DEBUG] GET https://trigger.io/api/version_check/3/3/9/
+2012-08-09 21:10:02,024 [  DEBUG] Checking API response for success or error
+2012-08-09 21:10:02,024 [   INFO] Update result: you already have the latest tools
+2012-08-09 21:10:02,024 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-08-09 21:10:02,091 [  DEBUG] Checking API response for success or error
+2012-08-09 21:10:08,358 [   INFO] authenticating as "justin@maderalabs.com"
+2012-08-09 21:10:08,358 [  DEBUG] GET https://trigger.io/api/auth/hello
+2012-08-09 21:10:08,426 [  DEBUG] Checking API response for success or error
+2012-08-09 21:10:08,426 [  DEBUG] POST https://trigger.io/api/auth/verify
+2012-08-09 21:10:08,494 [  DEBUG] Checking API response for success or error
+2012-08-09 21:10:08,494 [  ERROR] Something went wrong that we didn't expect:
+2012-08-09 21:10:08,494 [  ERROR] Forge API call to auth/verify went wrong: Incorrect login details
+2012-08-09 21:10:08,494 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 323, in development_build
+    reload_result = remote.create_buildevent(app_config)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 594, in create_buildevent
+    self._authenticate()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 251, in _authenticate
+    self.login(email, password)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 524, in login
+    self._api_post('auth/verify', data=credentials)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 196, in _api_post
+    _check_api_response_for_error(url, 'POST', resp)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 67, in _check_api_response_for_error
+    raise RequestError(resp, error_message, errors=errors)
+RequestError: Forge API call to auth/verify went wrong: Incorrect login details
+
+2012-08-09 21:10:08,494 [  ERROR] See /Users/jdavis1002/Code/JotLocale/forge-error.log for more details
+2012-08-09 21:10:08,495 [  ERROR] Please contact support@trigger.io
+2012-08-09 21:10:11,901 [   INFO] Forge tools running at version 3.3.9
+2012-08-09 21:10:11,904 [  DEBUG] Forge build tools version: 3.3.9
+2012-08-09 21:10:11,905 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-08-09 21:10:11,913 [  DEBUG] GET https://trigger.io/api/version_check/3/3/9/
+2012-08-09 21:10:12,237 [  DEBUG] Checking API response for success or error
+2012-08-09 21:10:12,237 [   INFO] Update result: you already have the latest tools
+2012-08-09 21:10:12,237 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-08-09 21:10:12,304 [  DEBUG] Checking API response for success or error
+2012-08-09 21:10:18,678 [   INFO] authenticating as "justin@maderalabs.com"
+2012-08-09 21:10:18,678 [  DEBUG] GET https://trigger.io/api/auth/hello
+2012-08-09 21:10:18,713 [  DEBUG] Checking API response for success or error
+2012-08-09 21:10:18,713 [  DEBUG] POST https://trigger.io/api/auth/verify
+2012-08-09 21:10:18,831 [  DEBUG] Checking API response for success or error
+2012-08-09 21:10:18,831 [  ERROR] Something went wrong that we didn't expect:
+2012-08-09 21:10:18,832 [  ERROR] Forge API call to auth/verify went wrong: Incorrect login details
+2012-08-09 21:10:18,832 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 323, in development_build
+    reload_result = remote.create_buildevent(app_config)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 594, in create_buildevent
+    self._authenticate()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 251, in _authenticate
+    self.login(email, password)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 524, in login
+    self._api_post('auth/verify', data=credentials)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 196, in _api_post
+    _check_api_response_for_error(url, 'POST', resp)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 67, in _check_api_response_for_error
+    raise RequestError(resp, error_message, errors=errors)
+RequestError: Forge API call to auth/verify went wrong: Incorrect login details
+
+2012-08-09 21:10:18,832 [  ERROR] See /Users/jdavis1002/Code/JotLocale/forge-error.log for more details
+2012-08-09 21:10:18,832 [  ERROR] Please contact support@trigger.io
+2012-08-16 18:01:41,035 [   INFO] Forge tools running at version 3.3.11
+2012-08-16 18:01:41,183 [  DEBUG] ignoring non-target directory __init__.py
+2012-08-16 18:01:41,183 [  DEBUG] ignoring non-target directory config.json
+2012-08-16 18:01:41,183 [  DEBUG] ignoring non-target directory lib
+2012-08-16 18:01:41,183 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-08-16 18:01:41,183 [  DEBUG] Enabled platforms: ['android']
+2012-08-16 18:01:41,200 [  DEBUG] Forge build tools version: 3.3.11
+2012-08-16 18:01:41,200 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-08-16 18:01:41,200 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-08-16 18:01:41,520 [  DEBUG] Checking API response for success or error
+2012-08-16 18:01:41,521 [  DEBUG] already authenticated via cookie - continuing
+2012-08-16 18:01:41,521 [  DEBUG] POST https://trigger.io/api/track/
+2012-08-16 18:01:41,689 [  DEBUG] Checking API response for success or error
+2012-08-16 18:01:41,690 [  DEBUG] <ForgeTask (android)> running...
+2012-08-16 18:01:41,690 [  DEBUG] <ForgeTask (android)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('android',
+  None,
+  'run_android',
+  ('/Users/jdavis1002/Code/JotLocale/development', None, None, True, None),
+  None)]
+2012-08-16 18:01:41,690 [  DEBUG] running lint_javascript((), {})
+2012-08-16 18:01:41,690 [   INFO] Checking JavaScript files...
+2012-08-16 18:01:41,808 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-08-16 18:01:41,809 [WARNING]     };
+2012-08-16 18:01:41,809 [WARNING] ....^
+2012-08-16 18:01:41,809 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/views/views.js(222): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-08-16 18:01:41,809 [WARNING] });
+2012-08-16 18:01:41,809 [WARNING] ^
+2012-08-16 18:01:41,809 [   INFO] JavaScript check complete
+2012-08-16 18:01:41,810 [  DEBUG] running check_local_config_schema((), {})
+2012-08-16 18:01:41,810 [   INFO] Verifying your configuration settings...
+2012-08-16 18:01:41,810 [   INFO] Configuration settings check complete
+2012-08-16 18:01:41,810 [  DEBUG] running run_android(('/Users/jdavis1002/Code/JotLocale/development', None, None, True, None), {})
+2012-08-16 18:01:41,810 [   INFO] Starting ADB if not running
+2012-08-16 18:01:41,810 [  DEBUG] Running detached: /Applications/android-sdk-macosx/platform-tools/adb start-server
+2012-08-16 18:01:44,881 [  DEBUG] * daemon not running. starting it now on port 5037 *
+2012-08-16 18:01:44,881 [  DEBUG] * daemon started successfully *
+2012-08-16 18:01:44,881 [   INFO] Looking for Android device
+2012-08-16 18:01:44,899 [   INFO] No android device specified, defaulting to HT14PS015341
+2012-08-16 18:01:44,934 [  DEBUG] Java not found: Java must be installed and available in your path in order to run Android while running run_android(('/Users/jdavis1002/Code/JotLocale/development', None, None, True, None), {})
+2012-08-16 18:01:44,934 [  ERROR] Java not found: Java must be installed and available in your path in order to run Android
+2012-08-16 18:01:44,935 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/android_tasks.py", line 614, in run_android
+    create_apk(build, sdk, out_apk_name, interactive=interactive)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/android_tasks.py", line 554, in create_apk
+    jre = _get_jre()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/android_tasks.py", line 543, in _get_jre
+    raise AndroidError("Java not found: Java must be installed and available in your path in order to run Android")
+AndroidError: Java not found: Java must be installed and available in your path in order to run Android
+
+2012-08-21 08:22:59,243 [   INFO] Forge tools running at version 3.3.11
+2012-08-21 08:22:59,410 [  DEBUG] ignoring non-target directory __init__.py
+2012-08-21 08:22:59,410 [  DEBUG] ignoring non-target directory config.json
+2012-08-21 08:22:59,410 [  DEBUG] ignoring non-target directory lib
+2012-08-21 08:22:59,411 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-08-21 08:22:59,411 [  DEBUG] Enabled platforms: ['web']
+2012-08-21 08:22:59,411 [  DEBUG] Forge build tools version: 3.3.11
+2012-08-21 08:22:59,411 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-08-21 08:22:59,411 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-08-21 08:23:04,739 [  ERROR] Something went wrong that we didn't expect:
+2012-08-21 08:23:04,739 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/auth/loggedin
+2012-08-21 08:23:04,739 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 119, in run_app
+    log_build(build_to_run, "run")
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 32, in log_build
+    remote._authenticate()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 242, in _authenticate
+    resp = self._api_get('auth/loggedin')
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 208, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 176, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/auth/loggedin
+
+2012-08-21 08:23:04,739 [  ERROR] See /Users/jdavis1002/Code/JotLocale/forge-error.log for more details
+2012-08-21 08:23:04,739 [  ERROR] Please contact support@trigger.io
+2012-08-21 09:41:10,019 [   INFO] Forge tools running at version 3.3.11
+2012-08-21 09:41:10,022 [  DEBUG] Forge build tools version: 3.3.11
+2012-08-21 09:41:10,022 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-08-21 09:41:10,030 [  DEBUG] GET https://trigger.io/api/version_check/3/3/11/
+2012-08-21 09:41:14,255 [  ERROR] Something went wrong that we didn't expect:
+2012-08-21 09:41:14,255 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/11/
+2012-08-21 09:41:14,256 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 313, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 271, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 208, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 176, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/11/
+
+2012-08-21 09:41:14,256 [  ERROR] See /Users/jdavis1002/Code/JotLocale/forge-error.log for more details
+2012-08-21 09:41:14,256 [  ERROR] Please contact support@trigger.io
+2012-08-27 21:11:07,166 [   INFO] Forge tools running at version 3.3.11
+2012-08-27 21:11:07,334 [  DEBUG] ignoring non-target directory __init__.py
+2012-08-27 21:11:07,335 [  DEBUG] ignoring non-target directory config.json
+2012-08-27 21:11:07,335 [  DEBUG] ignoring non-target directory lib
+2012-08-27 21:11:07,335 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-08-27 21:11:07,335 [  DEBUG] Enabled platforms: ['web']
+2012-08-27 21:11:07,335 [  DEBUG] Forge build tools version: 3.3.11
+2012-08-27 21:11:07,335 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-08-27 21:11:07,335 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-08-27 21:11:07,912 [  DEBUG] Checking API response for success or error
+2012-08-27 21:11:07,913 [  DEBUG] already authenticated via cookie - continuing
+2012-08-27 21:11:07,913 [  DEBUG] POST https://trigger.io/api/track/
+2012-08-27 21:11:08,083 [  DEBUG] Checking API response for success or error
+2012-08-27 21:11:08,083 [  DEBUG] <ForgeTask (web)> running...
+2012-08-27 21:11:08,083 [  DEBUG] <ForgeTask (web)> script:
+[('all', None, 'lint_javascript', None, None),
+ ('all', None, 'check_local_config_schema', None, None),
+ ('web', None, 'run_web', None, None)]
+2012-08-27 21:11:08,083 [  DEBUG] running lint_javascript((), {})
+2012-08-27 21:11:08,083 [   INFO] Checking JavaScript files...
+2012-08-27 21:11:08,202 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/cloudmine.js(752): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-08-27 21:11:08,202 [WARNING]     };
+2012-08-27 21:11:08,202 [WARNING] ....^
+2012-08-27 21:11:08,203 [WARNING] /Users/jdavis1002/Code/JotLocale/src/js/views/views.js(288): warning: trailing comma is not legal in ECMA-262 object initializers
+2012-08-27 21:11:08,203 [WARNING] });
+2012-08-27 21:11:08,203 [WARNING] ^
+2012-08-27 21:11:08,203 [   INFO] JavaScript check complete
+2012-08-27 21:11:08,203 [  DEBUG] running check_local_config_schema((), {})
+2012-08-27 21:11:08,203 [   INFO] Verifying your configuration settings...
+2012-08-27 21:11:08,203 [   INFO] Configuration settings check complete
+2012-08-27 21:11:08,204 [  DEBUG] running run_web((), {})
+2012-08-27 21:11:08,204 [  DEBUG] Running: npm install
+2012-08-27 21:11:08,626 [  DEBUG] npm WARN package.json forge-web@0.0.1 No README.md file found!
+2012-08-27 21:11:09,201 [  DEBUG] Running: node ./web.js
+2012-08-27 21:11:09,321 [   INFO] 
+2012-08-27 21:11:09,321 [   INFO] module.js:340
+2012-08-27 21:11:09,321 [   INFO]     throw err;
+2012-08-27 21:11:09,321 [   INFO]           ^
+2012-08-27 21:11:09,322 [   INFO] Error: Cannot find module 'connect'
+2012-08-27 21:11:09,322 [   INFO]     at Function.Module._resolveFilename (module.js:338:15)
+2012-08-27 21:11:09,322 [   INFO]     at Function.Module._load (module.js:280:25)
+2012-08-27 21:11:09,322 [   INFO]     at Module.require (module.js:362:17)
+2012-08-27 21:11:09,322 [   INFO]     at require (module.js:378:17)
+2012-08-27 21:11:09,322 [   INFO]     at Object.<anonymous> (/Users/jdavis1002/Code/JotLocale/development/web/node_modules/express/lib/express.js:12:15)
+2012-08-27 21:11:09,323 [   INFO]     at Module._compile (module.js:449:26)
+2012-08-27 21:11:09,323 [   INFO]     at Object.Module._extensions..js (module.js:467:10)
+2012-08-27 21:11:09,323 [   INFO]     at Module.load (module.js:356:32)
+2012-08-27 21:11:09,323 [   INFO]     at Function.Module._load (module.js:312:12)
+2012-08-27 21:11:09,323 [   INFO]     at Module.require (module.js:362:17)
+2012-08-27 21:11:10,208 [  DEBUG] Failed when running node: 
+module.js:340
+    throw err;
+          ^
+Error: Cannot find module 'connect'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.Module._load (module.js:280:25)
+    at Module.require (module.js:362:17)
+    at require (module.js:378:17)
+    at Object.<anonymous> (/Users/jdavis1002/Code/JotLocale/development/web/node_modules/express/lib/express.js:12:15)
+    at Module._compile (module.js:449:26)
+    at Object.Module._extensions..js (module.js:467:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Module.require (module.js:362:17)
+ while running run_web((), {})
+2012-08-27 21:11:10,208 [  ERROR] Something went wrong that we didn't expect:
+2012-08-27 21:11:10,208 [  ERROR] Failed when running node: 
+module.js:340
+    throw err;
+          ^
+Error: Cannot find module 'connect'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.Module._load (module.js:280:25)
+    at Module.require (module.js:362:17)
+    at require (module.js:378:17)
+    at Object.<anonymous> (/Users/jdavis1002/Code/JotLocale/development/web/node_modules/express/lib/express.js:12:15)
+    at Module._compile (module.js:449:26)
+    at Object.Module._extensions..js (module.js:467:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Module.require (module.js:362:17)
+
+2012-08-27 21:11:10,208 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 398, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/customer_goals.py", line 120, in run_app
+    build_to_run.run()
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 338, in run
+    self._run_task(func_name, args, kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/build.py", line 293, in _run_task
+    self.tasks[func_name](self, *args, **kw)
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/web_tasks.py", line 102, in run_web
+    run_shell("node", "./web.js", command_log_level=logging.INFO, check_for_interrupt=True, env=dict(os.environ, PORT=str(port), FORGE_DEBUG='1'))
+  File "/Users/jdavis1002/Code/JotLocale/.template/generate_dynamic/utils.py", line 212, in run_shell
+    output=state.output.getvalue()
+ShellError: Failed when running node: 
+module.js:340
+    throw err;
+          ^
+Error: Cannot find module 'connect'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.Module._load (module.js:280:25)
+    at Module.require (module.js:362:17)
+    at require (module.js:378:17)
+    at Object.<anonymous> (/Users/jdavis1002/Code/JotLocale/development/web/node_modules/express/lib/express.js:12:15)
+    at Module._compile (module.js:449:26)
+    at Object.Module._extensions..js (module.js:467:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Module.require (module.js:362:17)
+
+
+2012-08-27 21:11:10,208 [  ERROR] See /Users/jdavis1002/Code/JotLocale/forge-error.log for more details
+2012-08-27 21:11:10,208 [  ERROR] Please contact support@trigger.io
+2012-09-20 20:32:47,725 [   INFO] Forge tools running at version 3.3.13
+2012-09-20 20:32:47,728 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-20 20:32:47,728 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-20 20:32:47,736 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-20 20:32:48,312 [  DEBUG] Checking API response for success or error
+2012-09-20 20:32:48,312 [   INFO] Update result: you already have the latest tools
+2012-09-20 20:32:48,312 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-20 20:32:48,430 [  DEBUG] Checking API response for success or error
+2012-09-20 20:32:48,430 [  DEBUG] already authenticated via cookie - continuing
+2012-09-20 20:32:48,430 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-20 20:32:48,548 [  DEBUG] Checking API response for success or error
+2012-09-20 20:32:48,721 [  DEBUG] configuration has not changed
+2012-09-20 20:32:48,722 [  DEBUG] already authenticated - continuing
+2012-09-20 20:32:48,722 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-20 20:32:49,298 [  DEBUG] Checking API response for success or error
+2012-09-20 20:32:49,298 [  ERROR] Target required for 'forge build', e.g. 'forge build android'
+2012-09-20 20:32:49,298 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 358, in development_build
+    raise ForgeError(FORGE_BUILD_NEEDS_TARGET)
+ForgeError: Target required for 'forge build', e.g. 'forge build android'
+
+2012-09-20 22:00:52,653 [   INFO] Forge tools running at version 3.3.13
+2012-09-20 22:00:52,656 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-20 22:00:52,656 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-20 22:00:52,664 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-20 22:00:53,243 [  DEBUG] Checking API response for success or error
+2012-09-20 22:00:53,243 [   INFO] Update result: you already have the latest tools
+2012-09-20 22:00:53,243 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-20 22:00:53,362 [  DEBUG] Checking API response for success or error
+2012-09-20 22:00:53,362 [  DEBUG] already authenticated via cookie - continuing
+2012-09-20 22:00:53,362 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-20 22:00:53,530 [  DEBUG] Checking API response for success or error
+2012-09-20 22:00:53,657 [  DEBUG] configuration has not changed
+2012-09-20 22:00:53,657 [  DEBUG] already authenticated - continuing
+2012-09-20 22:00:53,657 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-20 22:00:53,928 [  DEBUG] Checking API response for success or error
+2012-09-20 22:00:53,928 [  ERROR] Target required for 'forge build', e.g. 'forge build android'
+2012-09-20 22:00:53,928 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 358, in development_build
+    raise ForgeError(FORGE_BUILD_NEEDS_TARGET)
+ForgeError: Target required for 'forge build', e.g. 'forge build android'
+
+2012-09-20 22:33:42,385 [   INFO] Forge tools running at version 3.3.13
+2012-09-20 22:33:42,388 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-20 22:33:42,389 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-20 22:33:42,398 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-20 22:33:42,975 [  DEBUG] Checking API response for success or error
+2012-09-20 22:33:42,975 [   INFO] Update result: you already have the latest tools
+2012-09-20 22:33:42,976 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-20 22:33:43,094 [  DEBUG] Checking API response for success or error
+2012-09-20 22:33:43,094 [  DEBUG] already authenticated via cookie - continuing
+2012-09-20 22:33:43,094 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-20 22:33:43,223 [  DEBUG] Checking API response for success or error
+2012-09-20 22:33:43,347 [  DEBUG] configuration has not changed
+2012-09-20 22:33:43,347 [  DEBUG] already authenticated - continuing
+2012-09-20 22:33:43,347 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-20 22:33:43,670 [  DEBUG] Checking API response for success or error
+2012-09-20 22:33:43,670 [  ERROR] Target required for 'forge build', e.g. 'forge build android'
+2012-09-20 22:33:43,670 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 358, in development_build
+    raise ForgeError(FORGE_BUILD_NEEDS_TARGET)
+ForgeError: Target required for 'forge build', e.g. 'forge build android'
+
+2012-09-22 13:19:46,192 [   INFO] Forge tools running at version 3.3.13
+2012-09-22 13:19:46,195 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-22 13:19:46,195 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-22 13:19:46,214 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-22 13:19:46,641 [  DEBUG] Checking API response for success or error
+2012-09-22 13:19:46,641 [   INFO] Update result: you already have the latest tools
+2012-09-22 13:19:46,641 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-22 13:19:46,709 [  DEBUG] Checking API response for success or error
+2012-09-22 13:20:02,199 [   INFO] authenticating as "jdavis1002@gmail.com"
+2012-09-22 13:20:02,200 [  DEBUG] GET https://trigger.io/api/auth/hello
+2012-09-22 13:20:02,267 [  DEBUG] Checking API response for success or error
+2012-09-22 13:20:02,267 [  DEBUG] POST https://trigger.io/api/auth/verify
+2012-09-22 13:20:02,335 [  DEBUG] Checking API response for success or error
+2012-09-22 13:20:02,335 [  ERROR] Something went wrong that we didn't expect:
+2012-09-22 13:20:02,335 [  ERROR] Forge API call to auth/verify went wrong: Incorrect login details
+2012-09-22 13:20:02,335 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 330, in development_build
+    should_rebuild = remote.server_says_should_rebuild()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 523, in server_says_should_rebuild
+    self._authenticate()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 264, in _authenticate
+    self.login(email, password)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 543, in login
+    self._api_post('auth/verify', data=credentials)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 209, in _api_post
+    _check_api_response_for_error(url, 'POST', resp)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 80, in _check_api_response_for_error
+    raise RequestError(resp, error_message, errors=errors)
+RequestError: Forge API call to auth/verify went wrong: Incorrect login details
+
+2012-09-22 13:20:02,335 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-09-22 13:20:02,336 [  ERROR] Please contact support@trigger.io
+2012-09-22 14:47:20,654 [   INFO] Forge tools running at version 3.3.13
+2012-09-22 14:47:20,657 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-22 14:47:20,657 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-22 14:47:20,660 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-22 14:47:20,937 [  DEBUG] Checking API response for success or error
+2012-09-22 14:47:20,938 [   INFO] Update result: you already have the latest tools
+2012-09-22 14:47:20,938 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-22 14:47:21,058 [  DEBUG] Checking API response for success or error
+2012-09-22 14:47:21,058 [  DEBUG] already authenticated via cookie - continuing
+2012-09-22 14:47:21,058 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-22 14:47:21,128 [  DEBUG] Checking API response for success or error
+2012-09-22 14:47:21,275 [  DEBUG] configuration has not changed
+2012-09-22 14:47:21,275 [  DEBUG] already authenticated - continuing
+2012-09-22 14:47:21,275 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-22 14:47:21,496 [  DEBUG] Checking API response for success or error
+2012-09-22 14:47:21,496 [  ERROR] Target required for 'forge build', e.g. 'forge build android'
+2012-09-22 14:47:21,497 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 358, in development_build
+    raise ForgeError(FORGE_BUILD_NEEDS_TARGET)
+ForgeError: Target required for 'forge build', e.g. 'forge build android'
+
+2012-09-22 17:57:34,786 [   INFO] Forge tools running at version 3.3.13
+2012-09-22 17:57:34,790 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-22 17:57:34,790 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-22 17:57:34,799 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-22 17:57:35,121 [  DEBUG] Checking API response for success or error
+2012-09-22 17:57:35,121 [   INFO] Update result: you already have the latest tools
+2012-09-22 17:57:35,121 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-22 17:57:35,188 [  DEBUG] Checking API response for success or error
+2012-09-22 17:57:35,188 [  DEBUG] already authenticated via cookie - continuing
+2012-09-22 17:57:35,188 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-22 17:57:35,307 [  DEBUG] Checking API response for success or error
+2012-09-22 17:57:35,427 [  DEBUG] configuration has not changed
+2012-09-22 17:57:35,427 [  DEBUG] already authenticated - continuing
+2012-09-22 17:57:35,427 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-22 17:57:35,749 [  DEBUG] Checking API response for success or error
+2012-09-22 17:57:35,749 [  ERROR] Target required for 'forge build', e.g. 'forge build android'
+2012-09-22 17:57:35,749 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 358, in development_build
+    raise ForgeError(FORGE_BUILD_NEEDS_TARGET)
+ForgeError: Target required for 'forge build', e.g. 'forge build android'
+
+2012-09-22 18:01:58,326 [   INFO] Forge tools running at version 3.3.13
+2012-09-22 18:01:58,330 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-22 18:01:58,330 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-22 18:01:58,339 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-22 18:01:58,712 [  DEBUG] Checking API response for success or error
+2012-09-22 18:01:58,712 [   INFO] Update result: you already have the latest tools
+2012-09-22 18:01:58,713 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-22 18:01:58,747 [  DEBUG] Checking API response for success or error
+2012-09-22 18:01:58,747 [  DEBUG] already authenticated via cookie - continuing
+2012-09-22 18:01:58,747 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-22 18:01:58,877 [  DEBUG] Checking API response for success or error
+2012-09-22 18:01:58,998 [  DEBUG] configuration has not changed
+2012-09-22 18:01:58,998 [  DEBUG] already authenticated - continuing
+2012-09-22 18:01:58,998 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-22 18:01:59,270 [  DEBUG] Checking API response for success or error
+2012-09-22 18:01:59,271 [   INFO] Your app configuration has changed since your last build of this platform, performing a remote build of your app. Once this is downloaded future builds will be faster.
+2012-09-22 18:01:59,271 [   INFO] Starting new build
+2012-09-22 18:01:59,271 [  DEBUG] already authenticated - continuing
+2012-09-22 18:01:59,271 [   INFO] This could take a while, but will only happen again if you modify config.json
+2012-09-22 18:01:59,271 [  DEBUG] POST https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/build
+2012-09-22 18:01:59,388 [  DEBUG] Checking API response for success or error
+2012-09-22 18:01:59,389 [  ERROR] Something went wrong that we didn't expect:
+2012-09-22 18:01:59,389 [  ERROR] Forge API call to app/84ba256cba7811e1897412313d1adcbe/build went wrong: Target 'we' is not enabled for this application.
+2012-09-22 18:01:59,389 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 376, in development_build
+    build = remote.build(config=reload_config, target=target)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 507, in build
+    build = self._request_development_build(config, target, id=build.get('id', None))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 484, in _request_development_build
+    return self._api_post(url, data=data)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 209, in _api_post
+    _check_api_response_for_error(url, 'POST', resp)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 101, in _check_api_response_for_error
+    raise RequestError(resp, error_message, errors=errors)
+RequestError: Forge API call to app/84ba256cba7811e1897412313d1adcbe/build went wrong: Target 'we' is not enabled for this application.
+
+2012-09-22 18:01:59,389 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-09-22 18:01:59,389 [  ERROR] Please contact support@trigger.io
+2012-09-22 18:07:33,325 [   INFO] Forge tools running at version 3.3.13
+2012-09-22 18:07:33,328 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-22 18:07:33,328 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-22 18:07:33,337 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-22 18:07:33,660 [  DEBUG] Checking API response for success or error
+2012-09-22 18:07:33,660 [   INFO] Update result: you already have the latest tools
+2012-09-22 18:07:33,661 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-22 18:07:33,778 [  DEBUG] Checking API response for success or error
+2012-09-22 18:07:33,779 [  DEBUG] already authenticated via cookie - continuing
+2012-09-22 18:07:33,779 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-22 18:07:33,964 [  DEBUG] Checking API response for success or error
+2012-09-22 18:07:34,141 [  DEBUG] configuration has not changed
+2012-09-22 18:07:34,141 [  DEBUG] already authenticated - continuing
+2012-09-22 18:07:34,141 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-22 18:07:34,362 [  DEBUG] Checking API response for success or error
+2012-09-22 18:07:34,362 [  ERROR] Target required for 'forge build', e.g. 'forge build android'
+2012-09-22 18:07:34,362 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 358, in development_build
+    raise ForgeError(FORGE_BUILD_NEEDS_TARGET)
+ForgeError: Target required for 'forge build', e.g. 'forge build android'
+
+2012-09-22 18:47:49,253 [   INFO] Forge tools running at version 3.3.13
+2012-09-22 18:47:49,255 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-22 18:47:49,255 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-22 18:47:49,260 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-22 18:47:49,741 [  DEBUG] Checking API response for success or error
+2012-09-22 18:47:49,742 [   INFO] Update result: you already have the latest tools
+2012-09-22 18:47:49,742 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-22 18:47:49,860 [  DEBUG] Checking API response for success or error
+2012-09-22 18:47:49,860 [  DEBUG] already authenticated via cookie - continuing
+2012-09-22 18:47:49,860 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-22 18:47:49,990 [  DEBUG] Checking API response for success or error
+2012-09-22 18:47:50,128 [  DEBUG] configuration has not changed
+2012-09-22 18:47:50,128 [  DEBUG] already authenticated - continuing
+2012-09-22 18:47:50,128 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-22 18:47:50,401 [  DEBUG] Checking API response for success or error
+2012-09-22 18:47:50,401 [  ERROR] Target required for 'forge build', e.g. 'forge build android'
+2012-09-22 18:47:50,401 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 358, in development_build
+    raise ForgeError(FORGE_BUILD_NEEDS_TARGET)
+ForgeError: Target required for 'forge build', e.g. 'forge build android'
+
+2012-09-22 21:26:14,716 [   INFO] Forge tools running at version 3.3.13
+2012-09-22 21:26:14,720 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-22 21:26:14,720 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-22 21:26:14,729 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-22 21:26:15,052 [  DEBUG] Checking API response for success or error
+2012-09-22 21:26:15,052 [   INFO] Update result: you already have the latest tools
+2012-09-22 21:26:15,052 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-22 21:26:15,119 [  DEBUG] Checking API response for success or error
+2012-09-22 21:26:15,119 [  DEBUG] already authenticated via cookie - continuing
+2012-09-22 21:26:15,119 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-22 21:26:15,242 [  DEBUG] Checking API response for success or error
+2012-09-22 21:26:15,401 [  DEBUG] configuration has not changed
+2012-09-22 21:26:15,402 [  DEBUG] already authenticated - continuing
+2012-09-22 21:26:15,402 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-22 21:26:15,621 [  DEBUG] Checking API response for success or error
+2012-09-22 21:26:15,621 [  ERROR] Target required for 'forge build', e.g. 'forge build android'
+2012-09-22 21:26:15,621 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 358, in development_build
+    raise ForgeError(FORGE_BUILD_NEEDS_TARGET)
+ForgeError: Target required for 'forge build', e.g. 'forge build android'
+
+2012-09-22 22:11:47,609 [   INFO] Forge tools running at version 3.3.13
+2012-09-22 22:11:47,612 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-22 22:11:47,612 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-22 22:11:47,621 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-22 22:11:48,047 [  DEBUG] Checking API response for success or error
+2012-09-22 22:11:48,048 [   INFO] Update result: you already have the latest tools
+2012-09-22 22:11:48,048 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-22 22:11:48,115 [  DEBUG] Checking API response for success or error
+2012-09-22 22:11:48,115 [  DEBUG] already authenticated via cookie - continuing
+2012-09-22 22:11:48,115 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-22 22:11:48,242 [  DEBUG] Checking API response for success or error
+2012-09-22 22:11:48,382 [  DEBUG] configuration has not changed
+2012-09-22 22:11:48,382 [  DEBUG] already authenticated - continuing
+2012-09-22 22:11:48,382 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-22 22:11:48,654 [  DEBUG] Checking API response for success or error
+2012-09-22 22:11:48,654 [  ERROR] Target required for 'forge build', e.g. 'forge build android'
+2012-09-22 22:11:48,655 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 358, in development_build
+    raise ForgeError(FORGE_BUILD_NEEDS_TARGET)
+ForgeError: Target required for 'forge build', e.g. 'forge build android'
+
+2012-09-22 22:14:29,615 [   INFO] Forge tools running at version 3.3.13
+2012-09-22 22:14:29,619 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-22 22:14:29,619 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-22 22:14:29,628 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-22 22:14:29,951 [  DEBUG] Checking API response for success or error
+2012-09-22 22:14:29,951 [   INFO] Update result: you already have the latest tools
+2012-09-22 22:14:29,952 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-22 22:14:30,019 [  DEBUG] Checking API response for success or error
+2012-09-22 22:14:30,020 [  DEBUG] already authenticated via cookie - continuing
+2012-09-22 22:14:30,020 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-22 22:14:30,138 [  DEBUG] Checking API response for success or error
+2012-09-22 22:14:30,262 [  DEBUG] configuration has not changed
+2012-09-22 22:14:30,262 [  DEBUG] already authenticated - continuing
+2012-09-22 22:14:30,262 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-22 22:14:30,534 [  DEBUG] Checking API response for success or error
+2012-09-22 22:14:30,534 [  ERROR] Target required for 'forge build', e.g. 'forge build android'
+2012-09-22 22:14:30,534 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 358, in development_build
+    raise ForgeError(FORGE_BUILD_NEEDS_TARGET)
+ForgeError: Target required for 'forge build', e.g. 'forge build android'
+
+2012-09-22 23:00:17,341 [   INFO] Forge tools running at version 3.3.13
+2012-09-22 23:00:17,345 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-22 23:00:17,345 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-22 23:00:17,361 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-22 23:00:17,682 [  DEBUG] Checking API response for success or error
+2012-09-22 23:00:17,682 [   INFO] Update result: you already have the latest tools
+2012-09-22 23:00:17,682 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-22 23:00:17,750 [  DEBUG] Checking API response for success or error
+2012-09-22 23:00:17,750 [  DEBUG] already authenticated via cookie - continuing
+2012-09-22 23:00:17,750 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-22 23:00:17,848 [  DEBUG] Checking API response for success or error
+2012-09-22 23:00:18,036 [  DEBUG] configuration has not changed
+2012-09-22 23:00:18,036 [  DEBUG] already authenticated - continuing
+2012-09-22 23:00:18,036 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-22 23:00:18,359 [  DEBUG] Checking API response for success or error
+2012-09-22 23:00:18,359 [  ERROR] Target required for 'forge build', e.g. 'forge build android'
+2012-09-22 23:00:18,359 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 358, in development_build
+    raise ForgeError(FORGE_BUILD_NEEDS_TARGET)
+ForgeError: Target required for 'forge build', e.g. 'forge build android'
+
+2012-09-22 23:00:21,387 [   INFO] Forge tools running at version 3.3.13
+2012-09-22 23:00:21,392 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-22 23:00:21,392 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-22 23:00:21,405 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-22 23:00:21,728 [  DEBUG] Checking API response for success or error
+2012-09-22 23:00:21,728 [   INFO] Update result: you already have the latest tools
+2012-09-22 23:00:21,728 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-22 23:00:21,795 [  DEBUG] Checking API response for success or error
+2012-09-22 23:00:21,795 [  DEBUG] already authenticated via cookie - continuing
+2012-09-22 23:00:21,795 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-22 23:00:21,913 [  DEBUG] Checking API response for success or error
+2012-09-22 23:00:22,087 [  DEBUG] configuration has not changed
+2012-09-22 23:00:22,088 [  DEBUG] already authenticated - continuing
+2012-09-22 23:00:22,088 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-22 23:00:22,306 [  DEBUG] Checking API response for success or error
+2012-09-22 23:00:22,307 [   INFO] Your app configuration has changed since your last build of this platform, performing a remote build of your app. Once this is downloaded future builds will be faster.
+2012-09-22 23:00:22,308 [   INFO] Starting new build
+2012-09-22 23:00:22,308 [  DEBUG] already authenticated - continuing
+2012-09-22 23:00:22,308 [   INFO] This could take a while, but will only happen again if you modify config.json
+2012-09-22 23:00:22,308 [  DEBUG] POST https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/build
+2012-09-22 23:00:22,427 [  DEBUG] Checking API response for success or error
+2012-09-22 23:00:22,428 [  ERROR] Something went wrong that we didn't expect:
+2012-09-22 23:00:22,428 [  ERROR] Forge API call to app/84ba256cba7811e1897412313d1adcbe/build went wrong: Target 'we' is not enabled for this application.
+2012-09-22 23:00:22,428 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 376, in development_build
+    build = remote.build(config=reload_config, target=target)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 507, in build
+    build = self._request_development_build(config, target, id=build.get('id', None))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 484, in _request_development_build
+    return self._api_post(url, data=data)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 209, in _api_post
+    _check_api_response_for_error(url, 'POST', resp)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 101, in _check_api_response_for_error
+    raise RequestError(resp, error_message, errors=errors)
+RequestError: Forge API call to app/84ba256cba7811e1897412313d1adcbe/build went wrong: Target 'we' is not enabled for this application.
+
+2012-09-22 23:00:22,428 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-09-22 23:00:22,428 [  ERROR] Please contact support@trigger.io
+2012-09-22 23:19:34,376 [   INFO] Forge tools running at version 3.3.13
+2012-09-22 23:19:34,378 [  DEBUG] Forge build tools version: 3.3.13
+2012-09-22 23:19:34,378 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-09-22 23:19:34,390 [  DEBUG] GET https://trigger.io/api/version_check/3/3/13/
+2012-09-22 23:19:34,968 [  DEBUG] Checking API response for success or error
+2012-09-22 23:19:34,968 [   INFO] Update result: you already have the latest tools
+2012-09-22 23:19:34,968 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-09-22 23:19:35,086 [  DEBUG] Checking API response for success or error
+2012-09-22 23:19:35,087 [  DEBUG] already authenticated via cookie - continuing
+2012-09-22 23:19:35,087 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-09-22 23:19:35,276 [  DEBUG] Checking API response for success or error
+2012-09-22 23:19:35,481 [  DEBUG] configuration has not changed
+2012-09-22 23:19:35,481 [  DEBUG] already authenticated - continuing
+2012-09-22 23:19:35,482 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-09-22 23:19:35,805 [  DEBUG] Checking API response for success or error
+2012-09-22 23:19:35,805 [  ERROR] Target required for 'forge build', e.g. 'forge build android'
+2012-09-22 23:19:35,805 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 358, in development_build
+    raise ForgeError(FORGE_BUILD_NEEDS_TARGET)
+ForgeError: Target required for 'forge build', e.g. 'forge build android'
+
