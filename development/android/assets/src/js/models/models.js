@@ -60,9 +60,9 @@ window.Place = Backbone.Model.extend({
 		var self=this;
 		self.vid = self.get("id");
 		this.userPlaceKey = window.App.User.get("id")+self.vid; //this creates the id for the object, a hash of the user and the place.s
-		window.ws.destroy(self.userPlaceKey).on('success', function(){
-			alert("Deleted!");
-			App.navigate("#myplaces", {trigger:true})
+		window.ws.update(this.userPlaceKey, {"status": "deleted"}).on('success', function(){
+			console.log("deleted");
+			App.navigate("#myplaces", {trigger:true});
 		});
 	},
 	

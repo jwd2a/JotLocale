@@ -60,7 +60,7 @@ window.LoginView = Backbone.View.extend({
 	}
 });
 
-/* registration */
+/* Registration View */
 
 window.RegisterView = Backbone.View.extend({
 	
