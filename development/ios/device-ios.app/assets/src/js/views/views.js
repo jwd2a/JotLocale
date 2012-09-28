@@ -4,6 +4,46 @@
 
 /*The loginView View displays the login form*/
 
+window.TempFBLogin = Backbone.View.extend({
+	
+	initialize: function() {
+		this.template = _.template($('#fblogin-template').html());
+		forge.tabbar.hide();
+	},
+	
+	render: function() {
+		var renderedContent = this.template();
+		$(this.el).html(renderedContent);
+		return this;
+	},
+	
+	events: {
+		"click #facebook" : "loginWithFacebook"
+	},
+	
+	loginWithFacebook: function() {
+		window.console.log("Ok, let's head to Facebook...");
+		forge.facebook.authorize(
+			function(token){
+				window.console.log("success");
+				window.console.log(token);
+			},
+			function(content){
+				window.console.log("error");
+				window.console.log(content)
+			});
+	},
+	
+	testAPI: function() {
+		forge.facebook.api("me/posts", function(success){
+			window.console.log(success);
+		},
+		function(error){
+			window.console.log(error);
+		});
+	}
+});
+
 window.LoginView = Backbone.View.extend({
 	
 	initialize: function() {
@@ -23,7 +63,8 @@ window.LoginView = Backbone.View.extend({
 	events: {
 		"click #submit" : "login",
 		"click #loginForm>input" : "clearHints",
-		"blur #loginForm>input" : "writeHints"
+		"blur #loginForm>input" : "writeHints",
+		"click #regButton" : "goRegister"
 	},
 		
 		
@@ -57,10 +98,14 @@ window.LoginView = Backbone.View.extend({
 		var password = $("#password").val();
 		var response = user.login(email, password);
 		window.console.log(response);
+	},
+	
+	goRegister: function() {
+		App.navigate("#register", {trigger: "true"});
 	}
 });
 
-/* registration */
+/* Registration View */
 
 window.RegisterView = Backbone.View.extend({
 	
@@ -78,7 +123,7 @@ window.RegisterView = Backbone.View.extend({
 	},
 	
 	events: {
-		"click #submit" : "processRegistration"
+		"click #submitRegistration" : "processRegistration"
 	},
 	
 	processRegistration: function(e){
@@ -88,7 +133,7 @@ window.RegisterView = Backbone.View.extend({
 		var email = $("#email").val();
 		var password = $("#password").val();
 		var response = user.register(email, password);
-		window.console.log(response);
+		
 	}
 	
 })
@@ -144,11 +189,16 @@ window.MyLocationDetailView = window.LocationDetailView.extend({
 	},
 	
 	events: {
-		"click #removePlace" : "removePlace"
+		"click #removePlace" : "removePlace",
+		"click #triedPlace" : "markAsDone"
 	},
 	
 	removePlace: function () {
 		this.model.del();
+	},
+	
+	markAsDone: function() {
+		this.model.markAsDone();
 	}
 
 })
@@ -168,6 +218,8 @@ window.MyPlacesView = Backbone.View.extend({
 	},
 	
 	render: function() {
+		forge.topbar.setTitle("JotLocale");
+		forge.topbar.removeButtons();
 		var self = this;
 		var renderedContent = this.template();		
 		self.list = "";
@@ -177,12 +229,12 @@ window.MyPlacesView = Backbone.View.extend({
 		if(this.collection.sortMode == "state") {
 		this.collection.bind("reset", function(collection) {
 				collection.each(function(place) {
-					if (place.get("city") != self.currentCity) {
-						self.currentCity = place.get("city");
-						self.list += "<li><h2>"+self.currentCity+", "+place.get("state")+"</h2></li>";
+					if (place.get("location")["city"] != self.currentCity) {
+						self.currentCity = place.get("location")["city"];
+						self.list += "<li><h2>"+self.currentCity+", "+place.get("location")["state"]+"</h2></li>";
 					}
 
-					self.list += self.renderListItem(place);	
+					self.list += self.renderStandardListItem(place);	
 				});
 				
 				$("ul#placeList").append(self.list).listview("refresh");
@@ -194,9 +246,25 @@ window.MyPlacesView = Backbone.View.extend({
 		
 		if(this.collection.sortMode == "distance") {
 			this.collection.bind("reset", function(collection) {
+				var distanceMarker = null;
 				collection.each(function(place) {
-					//add logic to check for inside 25 mi radius
-					self.list += self.renderListItem(place);
+					
+					if (place.get("distance") < 25) {
+						if (distanceMarker == null) {
+							distanceMarker = "near";
+							self.list += "<li><h2>Nearby (within 25 miles)</h2></li>";
+						}
+						self.list += self.renderNearDistanceListItem(place);
+					}
+					
+					if (place.get("distance") > 25) {
+						if (distanceMarker == "near"){
+							distanceMarker = "far";
+							self.list += "<li><h2>Far away (more than 25 miles away)</h2></li>";
+						}
+						self.list += self.renderFarDistanceListItem(place);
+					}
+										
 				});
 				
 				$("ul#placeList").append(self.list).listview("refresh");
@@ -209,8 +277,18 @@ window.MyPlacesView = Backbone.View.extend({
 		
 	},
 	
-	renderListItem: function(place) {
-		return "<li><a href='#mylocation/"+place.get("id")+"' data-transition='slide'><span class='listingName'>" + place.get("name") +"</span><span class='listingDetail'>" + place.get("address") + "</span><span class='listingDetail'>" + place.get("category") + "</span></a></li>";
+	renderStandardListItem: function(place) {
+		window.place = place;
+		return "<li><a href='#mylocation/"+place.get("id")+"' data-transition='slide'><span class='listingName'>" + place.get("name") +"</span><span class='listingDetail'>" + place.get("location")["address"] + "</span><span class='listingDetail'>" + place.get("category") + "</span></a></li>";
+	},
+	
+	renderNearDistanceListItem: function(place) {
+		var distance = Math.round(place.get("distance")*10)/10;
+		return "<li><a href='#mylocation/"+place.get("id")+"' data-transition='slide'><span class='distance'>"+distance+" mi</span><span class='listingName'>" + place.get("name") +"</span><span class='listingDetail'>" + place.get("location")["address"] + "</span><span class='listingDetail'>" + place.get("category") + "</span></a></li>";
+	},
+	
+	renderFarDistanceListItem: function(place) {
+		return "<li><a href='#mylocation/"+place.get("id")+"' data-transition='slide'><span class='distance'>"+place.get("location")["city"]+", "+place.get("location")["state"]+"</span><span class='listingName'>" + place.get("name") +"</span><span class='listingDetail'>" + place.get("location")["address"] + "</span><span class='listingDetail'>" + place.get("category") + "</span></a></li>";
 	},
 	
 	sortCity: function(){
@@ -229,6 +307,12 @@ window.AddItemView = Backbone.View.extend({
 	},
 	
 	render: function() {
+		forge.topbar.setTitle(this.model.get("name"));
+		forge.topbar.addButton({
+				text: "Back",
+				position: "left",
+				type: "back"
+			});
 		var renderedContent = this.template();
 		$(this.el).html(renderedContent);
 		console.log(this.model.get("name"));
@@ -261,6 +345,12 @@ window.FindPlaceView = Backbone.View.extend({
 		var renderedContent = this.template();
 		$(this.el).html(renderedContent);
 		$(this.el).on('load', function() { console.log("loaded"); $("#searchBox").focus(); });
+		var input = $('#location', this.el).get(0);
+		var options = {
+		  types: ['(cities)']
+		};
+		autocomplete = new google.maps.places.Autocomplete(input, options);
+		$('#location', this.el).val(window.App.User.get("city")+", "+window.App.User.get("state"));
 		return this;
 	},
 	
@@ -280,8 +370,8 @@ window.FindPlaceView = Backbone.View.extend({
 			window.searchresults = collection;
 			window.testplace = collection[0];
 			collection.each(function(place){
-				if (!(place.address = place.get("location")["address"])){
-					place.address = "";
+				if (!(place.get("location")["address"] = place.get("location")["address"])){
+					place.get("location")["address"] = "";
 				}
 				
 				if (place.get("categories").length == 0){
@@ -293,7 +383,7 @@ window.FindPlaceView = Backbone.View.extend({
 					place.category = place.get("categories")[0]["name"];
 				}
 				
-				$("ul#resultsList").append("<li class='result'><input type='hidden' id='modelID' value='"+place.get('id')+"'/></input><span class='listingName'>" + place.get("name") +"</span><span class='listingDetail'>" + place.address + "</span><span class='listingDetail'>" + place.category + "</span></li>");
+				$("ul#resultsList").append("<li class='result' data-id='"+place.get('id')+"'><span class='listingName'>" + place.get("name") +"</span><span class='listingDetail'>" + place.get("location")["address"] + "</span><span class='listingDetail'>" + place.category + "</span></li>");
 			});
 			$("ul#resultsList").listview("refresh");
 	},
@@ -318,8 +408,9 @@ window.FindPlaceView = Backbone.View.extend({
 		});
 	},
 	
-	saveItem: function(events, selector, data, handler) {
-	 window.newplace = this.collection.get($("#modelID", selector).val());
+	saveItem: function(e) {
+	 var item = $(e.currentTarget).data("id");
+	 window.newplace = this.collection.get(item);
 	 App.navigate("#add", {trigger:true});
 	},
 	

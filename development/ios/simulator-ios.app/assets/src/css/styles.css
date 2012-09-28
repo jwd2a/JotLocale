@@ -204,3 +204,18 @@ span.locationDistance {
 	padding: 10px;
 	height: 50px;
 }
+
+.distance {
+	font-size: .8em;
+	font-weight: normal;
+	color: #9F9F9F;
+	height: 40px;
+	text-align: right;
+	float: right;
+	margin-right: 20px;
+}
+
+.pac-item {
+	height: 40px;
+	padding-top:20px;
+}

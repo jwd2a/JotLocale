@@ -1,28 +1,33 @@
 {
-	"author": "jdavis1002@gmail.com", 
-	"config_version": "2", 
-	"description": "An empty app created by default", 
-	"modules": {
-		"contact": true, 
-		"file": true, 
-		"is": true, 
-		"logging": {
-			"level": "DEBUG"
-		}, 
-		"geolocation" : true,
-		"media": true, 
-		"prefs": true, 
-		"request": {
-			"permissions": [
-				"http://*/*", 
-				"https://*/*"
-			]
-		}, 
-		"tools": true, 
-		"topbar": true,
-		"tabbar": true
-	}, 
-	"name": "JotLocale Hub", 
-	"platform_version": "v1.3", 
-	"version": "0.1"
+    "config_version": "3", 
+    "uuid": "84ba256cba7811e1897412313d1adcbe", 
+    "author": "jdavis1002@gmail.com", 
+    "modules": {
+        "geolocation": true, 
+        "logging": {
+            "level": "DEBUG"
+        }, 
+        "file": true, 
+        "media": true, 
+        "is": true, 
+        "request": {
+            "permissions": [
+                "http://*/*", 
+                "https://*/*"
+            ]
+        }, 
+        "reload": true, 
+        "contact": true, 
+        "facebook": {
+            "appid": "173569276105298"
+        }, 
+        "tabbar": true, 
+        "prefs": true, 
+        "tools": true, 
+        "topbar": true
+    }, 
+    "name": "JotLocale Hub", 
+    "platform_version": "v1.4", 
+    "version": "0.1", 
+    "description": "An empty app created by default"
 }

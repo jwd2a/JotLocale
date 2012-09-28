@@ -4,6 +4,46 @@
 
 /*The loginView View displays the login form*/
 
+window.TempFBLogin = Backbone.View.extend({
+	
+	initialize: function() {
+		this.template = _.template($('#fblogin-template').html());
+		forge.tabbar.hide();
+	},
+	
+	render: function() {
+		var renderedContent = this.template();
+		$(this.el).html(renderedContent);
+		return this;
+	},
+	
+	events: {
+		"click #facebook" : "loginWithFacebook"
+	},
+	
+	loginWithFacebook: function() {
+		window.console.log("Ok, let's head to Facebook...");
+		forge.facebook.authorize(
+			function(token){
+				window.console.log("success");
+				window.console.log(token);
+			},
+			function(content){
+				window.console.log("error");
+				window.console.log(content)
+			});
+	},
+	
+	testAPI: function() {
+		forge.facebook.api("me/posts", function(success){
+			window.console.log(success);
+		},
+		function(error){
+			window.console.log(error);
+		});
+	}
+});
+
 window.LoginView = Backbone.View.extend({
 	
 	initialize: function() {
@@ -60,7 +100,7 @@ window.LoginView = Backbone.View.extend({
 	}
 });
 
-/* registration */
+/* Registration View */
 
 window.RegisterView = Backbone.View.extend({
 	

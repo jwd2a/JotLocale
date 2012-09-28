@@ -18,6 +18,10 @@ window.JotLocale = Backbone.Router.extend({
 		this.loginView = new LoginView({});
 	},
 	
+	tempFB: function() {
+		this.changePage(new TempFBLogin({}));
+	},
+	
 	checkLogin: function() {
 		window.App.User = new User({});
 		window.console.log("checking login");

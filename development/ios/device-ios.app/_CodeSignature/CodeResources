@@ -4,69 +4,221 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Default-568h@2x~iphone.png</key>
+		<data>
+		jwZsw54NRVsjbepTxI8Z9/Pb7zU=
+		</data>
+		<key>Default-Landscape@2x~ipad.png</key>
+		<data>
+		OiC4y5ggNNJ0NUPfALgC2V5eEhU=
+		</data>
 		<key>Default-Landscape~ipad.png</key>
 		<data>
-		cCSujlXk81QqSkDBFJlfY2NHqas=
+		WCjlX9DUMIwTUYTJtHU55XAvRXg=
+		</data>
+		<key>Default-Portrait@2x~ipad.png</key>
+		<data>
+		WQ/X53pSSHWzVJPDrQG4Oz/M7sQ=
+		</data>
+		<key>Default-Portrait~ipad.png</key>
+		<data>
+		rkzx3BU5Lb6Tp4G12Acc+/7JWAc=
 		</data>
 		<key>Default@2x~iphone.png</key>
 		<data>
-		+SKlvuNjYXH1TOJ4yUALkzIf2oM=
-		</data>
-		<key>Default~ipad.png</key>
-		<data>
-		j+ln67KxZeWiiXSY3AASJzkcG0c=
+		5IrALBDiFPR+/nBqL1U9VUcJAEY=
 		</data>
 		<key>Default~iphone.png</key>
 		<data>
-		OHN8NzfFWhiNGyaEXIQyv5BowKE=
+		hH1IPFXQKFLhyDMg0+5/pTNUMto=
+		</data>
+		<key>FBDialog.bundle/images/close.png</key>
+		<data>
+		lPlIbbW7NpLV1mLzR5iSJbYh4Do=
+		</data>
+		<key>FBDialog.bundle/images/close@2x.png</key>
+		<data>
+		i9lYZZOBgyVfCZZ5Vlclzb5W9II=
+		</data>
+		<key>FBDialog.bundle/images/fbicon.png</key>
+		<data>
+		O10PJ3vPkAdypNUGk3PgmTOlWLg=
+		</data>
+		<key>ForgeCore.bundle/templateappViewController.nib</key>
+		<data>
+		qQuJ41Q+9V8hO38jb79pWlerkh0=
 		</data>
 		<key>PkgInfo</key>
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
 		</data>
+		<key>app_config.json</key>
+		<data>
+		W5/rkomLGxEH73wpP+dNElNZIyI=
+		</data>
 		<key>assets/forge/all.js</key>
 		<data>
-		5gmqvrG2pVrInfYA+ohiu2jUUb8=
+		PrpZVQpwIRrQR8ZDF+E04uJbRWw=
 		</data>
 		<key>assets/forge/disable-frames.js</key>
 		<data>
 		RFpNg2VFXYA1QqmbCRZdX4PrPhk=
 		</data>
-		<key>assets/forge/form.css</key>
+		<key>assets/src/.DS_Store</key>
 		<data>
-		CEBTtk9N2bZ7YL46mBSv2O0WSsU=
+		X2sceP0FJK5iL355n3/ea+uzy+M=
 		</data>
-		<key>assets/forge/reset.css</key>
+		<key>assets/src/.html.html</key>
 		<data>
-		jB/Ijp19dFHnnOb+dQ7xCafF8dI=
+		cezLSO/CoWazc4tRxxfU8PsX14s=
+		</data>
+		<key>assets/src/config.json.bak</key>
+		<data>
+		i5Q+7tnJDFLfHpbyJyUW+s9mcNw=
+		</data>
+		<key>assets/src/css/.DS_Store</key>
+		<data>
+		R6JNTEh8ecL0YJhNfqxjFyDth2s=
+		</data>
+		<key>assets/src/css/jquery.mobile-1.1.0.min.css</key>
+		<data>
+		u9lywPzFZKO8MyVwfNQ2/dDkwo0=
+		</data>
+		<key>assets/src/css/styles.css</key>
+		<data>
+		qXnqIOg7YnGSJ1rXmcH7XhBdiok=
+		</data>
+		<key>assets/src/img/.DS_Store</key>
+		<data>
+		3y++sUAKzaCQmjLBz2v0kvESHgc=
+		</data>
+		<key>assets/src/img/icon_list_bullets.png</key>
+		<data>
+		0y/roU66BShBnT9pu2/s4cABvL0=
+		</data>
+		<key>assets/src/img/icon_magnify_glass.png</key>
+		<data>
+		8uBVdNRtwhW6oKNSqX7ahju27xA=
+		</data>
+		<key>assets/src/img/icon_settings.png</key>
+		<data>
+		QsrVSTCh0ddnMD7528hHw0jE4n0=
+		</data>
+		<key>assets/src/index.html</key>
+		<data>
+		bqaHLuKifIW0nYwsRAYyflUrepQ=
+		</data>
+		<key>assets/src/js/.DS_Store</key>
+		<data>
+		32aDjx2LSnUXsgCp7DKTpnEtzoo=
+		</data>
+		<key>assets/src/js/cloudmine.js</key>
+		<data>
+		EYA+Pi3z9sN+/1R3TdudYly7kdA=
+		</data>
+		<key>assets/src/js/collections/collections.js</key>
+		<data>
+		aoiLgrs4b9lB/NsVrMmtym4glqo=
+		</data>
+		<key>assets/src/js/custom.js</key>
+		<data>
+		fI9BRhp1urEJzfTHxOyGt+ke75Q=
+		</data>
+		<key>assets/src/js/libs/backbone.js</key>
+		<data>
+		jq+RnRb4QTAOam5bVIKOqUb5wHM=
+		</data>
+		<key>assets/src/js/libs/base64.js</key>
+		<data>
+		/HaSQx5Bt59VeBpD3VxCUB6JOS8=
+		</data>
+		<key>assets/src/js/libs/cloudmine.js</key>
+		<data>
+		BmGLbf5F++EG1E36AHkCL2s+DlY=
+		</data>
+		<key>assets/src/js/libs/jquery-1.5.1.min.js</key>
+		<data>
+		Sl3BOJqtBQpE7l6BQII4oxerNBM=
+		</data>
+		<key>assets/src/js/libs/jquery-1.7.1.min.js</key>
+		<data>
+		nrmsWV6bVUTi3Hn/980tC0te9x8=
+		</data>
+		<key>assets/src/js/libs/jquery.mobile-1.1.0.min.js</key>
+		<data>
+		uCoLwheGMCuDGAogCLrRQsMBQDw=
+		</data>
+		<key>assets/src/js/libs/jquery_cookie.js</key>
+		<data>
+		OZJeBQ/Yaq+kA/+Qe3SwmzrKNWA=
+		</data>
+		<key>assets/src/js/libs/modernizr-1.6.min.js</key>
+		<data>
+		/CjFoksT8SIvj+gbWd1hJQjm0SQ=
+		</data>
+		<key>assets/src/js/libs/underscore.js</key>
+		<data>
+		nWwRdFGWZKbDknMOV4W43hJIgOE=
+		</data>
+		<key>assets/src/js/libs/zepto.js</key>
+		<data>
+		YjWrYk6vvfG9NbfetTaeUl6eBs0=
+		</data>
+		<key>assets/src/js/main.js</key>
+		<data>
+		VCfVszo/ciUrFmttbJa8P1OOuO0=
+		</data>
+		<key>assets/src/js/models/models.js</key>
+		<data>
+		nhRoktR6ZZWp3cvcT929tLhbcg4=
+		</data>
+		<key>assets/src/js/router.js</key>
+		<data>
+		/fYaAjUtm7OoeKkIhGX8q9mtPZI=
+		</data>
+		<key>assets/src/js/ter.js</key>
+		<data>
+		8CUexyjw6xd9NJGMSMWeWoK+0wU=
+		</data>
+		<key>assets/src/js/views/views.js</key>
+		<data>
+		5EPVo+x1VI9pN2RUSC2gUeIpurU=
+		</data>
+		<key>assets/src/sandbox.html</key>
+		<data>
+		Nf9n/moCg9rY61oSKjfxr4q9Ek8=
+		</data>
+		<key>assets/src/templates/templates.js</key>
+		<data>
+		p7OAthLK0xPxkJQV6zfd/yU/wx0=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		97c7h18vVFYqjblz8H9G31JVCCY=
+		p8+ba+MyVWHneCrYzhf09/7F+ZA=
 		</data>
 		<key>en.lproj/InfoPlist.strings</key>
 		<data>
 		zmV6UqBSo6r1NOz798vd5O4zTBA=
 		</data>
-		<key>en.lproj/templateappViewController.nib</key>
+		<key>ipad-retina.png</key>
 		<data>
-		9eN9uVkSv/URTc1El1UKOWn7qyo=
+		fqwfxcmI7nuAeG+Q3K7VXpAeXYc=
 		</data>
 		<key>ipad.png</key>
 		<data>
-		mrnSCMZ5CpLcVmd75581bBKrChM=
+		cQqPv/6IEDUGu98JDEuft9evxT4=
 		</data>
 		<key>normal.png</key>
 		<data>
-		wbzbxc6ww2yzva3xQLO5Ah4PbYs=
+		LKLkIWA7MhD7tsDdrmCdlgpdiPY=
 		</data>
 		<key>retina.png</key>
 		<data>
-		uVnbQjlMyPCSk9bxQxg1z2c8e+I=
+		WRg7bbVKawPWJWfnEZQ07j1F1qA=
 		</data>
 		<key>tabs_modalWebViewController.nib</key>
 		<data>
-		jDVBtvr3UR+3hj9SYK2QRWPakyU=
+		d930otrUO02uOqA4L5xno4lVvpw=
 		</data>
 	</dict>
 	<key>rules</key>

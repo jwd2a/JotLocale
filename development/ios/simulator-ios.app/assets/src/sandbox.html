@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+
 
 <style>
 
@@ -14,6 +16,10 @@ body {
 	border: 1px solid black;
 }
 
+.pac-item {
+	height: 40px;
+	padding-top:20px;
+}
 
 </style>
 
@@ -22,9 +28,7 @@ body {
 </head>
 <body>
 		<div id="container">
-			<form id="searchBar">
-				<input type="search" name="search" id="searchBox" value="" />
-			</form>
+		<input type="text" id="location"></input>
 			
 		</div>
 
@@ -32,7 +36,15 @@ body {
 
 <script type="text/javascript" language="JavaScript">
 
-
+$(document).ready(function() {
+	console.log("ready");
+	var input = $('#location').get(0);
+	var options = {
+	  types: ['(cities)']
+	};
+	autocomplete = new google.maps.places.Autocomplete(input, options);
+	
+});
 
 </script>
 

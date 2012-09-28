@@ -13,6 +13,22 @@
 	
 	<!--<script src="js/templates.js"></script>	-->
 	
+	<script type="text/template" id="fblogin-template">
+	
+		<div id="loginContainer" class="centered">
+			<div id="logo">
+			<p>JotLocale</p>
+			</div>
+			This is the FB login page.
+			<button id="facebook">Sign in with Facebook</button>
+			<div id="signUp">
+			<hr/>
+			<p>First time? Start Jotting!<p>
+			<button class="bigButton" id="regButton" href="#register">Register now!</button>
+			</div>
+		</div>
+	</script>
+	
 	<script type="text/template" id="login-template">
 	
 		<div id="loginContainer" class="centered">
@@ -43,7 +59,7 @@
 				<label>...and a password:</label>
 				<input type="text" id="password" name="password" />
 			</form>
-			<p id="submit">Click me to register</p>
+			<button class="bigButton" id="submitRegistration">Register</button>
 		</div>
 	</script>
 	
@@ -83,7 +99,7 @@
 		<span class="locationImage"><%= photo %></span>
 		<span class="locationData">
 			<h1><%= name %></h1>
-			<h2><%= address %><br/><%= city %>, <%= state %></h2>
+			<h2><%= location.address %><br/><%= location.city %>, <%= location.state %></h2>
 			<span class="locationPhoneType"><h2><%= category %></h2></span>
 		</span>
 	</div>
@@ -94,6 +110,7 @@
 		<label for="notes">Notes:</label>
 		<p><%= notes %></p>
 	</div>
+	<button id="triedPlace">Tried it!</button>
 	<button id="removePlace">Remove this place</button>
 	</script>
 	
@@ -126,7 +143,7 @@
 		<div id="findContainer">
 			<form id="searchBar">
 				<input type="search" name="search" id="searchBox" value=""></input>
-				<input type="text" name="location" id="location" value="Tampa,  FL"></input>
+				<input type="text" name="location" id="location"></input>
 				<input type="submit" value="Submit" />
 			</form>	
 			<ul data-role="listview" id="resultsList"></ul>
@@ -136,6 +153,7 @@
 	
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<script src="js/libs/cloudmine.js"></script>
 	<script src="js/libs/modernizr-1.6.min.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/libs/base64.js"></script>
@@ -143,17 +161,22 @@
 	<script src="js/libs/zepto.js"></script>
     <script src="js/libs/underscore.js"></script>
     <script src="js/libs/backbone.js"></script>
-	<script src="js/router.js"></script>
 	<script src="js/models/models.js"></script>
+	<script src="js/router.js"></script>
 	<script src="js/collections/collections.js"></script>
 	<script src="js/views/views.js"></script>	
 	<script src="js/main.js"></script>
-	<script src="https://trigger.io/catalyst/target/target-script-min.js#66D2FBD8-85DF-4E45-BF87-B56BB6357000"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+	<!--<script src="https://trigger.io/catalyst/target/target-script-min.js#66D2FBD8-85DF-4E45-BF87-B56BB6357000"></script>-->
 	
 	<script type="application/javascript">
 	
-	$(function() {
+	$(document).ready(function() {
 		window.App = new JotLocale();
+		window.ws = new cloudmine.WebService({
+			appid: "6189edefd59c4f4b99717c2aaae23f60",
+			apikey: "b0237dff1dbd4dd18e966a5cccfb06d1"
+		});
 		Backbone.history.start();
 		//forge.enableDebug();
 	});
@@ -167,7 +190,7 @@
 	$.mobile.transitionFallbacks.slide = "none"; 
 	$('div[data-role="page"]').live('pagehide', function (event, ui) { 
 				$(event.currentTarget).remove(); 
-			}); //this kills the DOM zombies, however, isn't going to unbind the views, so still some zombies...
+			}); //this kills the DOM zombies, however, may not unbind the views, so still some zombies? 
 	
 	
 	</script>

@@ -12,69 +12,67 @@ window.Place = Backbone.Model.extend({
 	},
 	
 	defaults: {
-		"photo" : "test"
+		"type" : "userplace",
+		"category" : "",
+		"photo" : "test",
+		"location" : {
+			"__type__": 'geopoint',
+			"address": "",
+			"city" : "",
+			"state" : "",
+			"zip" : "",
+			"lat" : "",
+			"lng" : ""
+		}		
 	},
 	
 	save: function() {
 		var self=this;
 		self.vid = self.get("id");
 		this.userPlaceKey = window.App.User.get("id")+self.vid; //this creates the id for the object, a hash of the user and the place.
-		APIdata = {};	
-		APIdata[this.userPlaceKey] = {}; //this key has to be unique to prevent overwriting
-		APIdata[this.userPlaceKey] = 
-			{
-				"type" : "userplace",
-				"userID" : window.App.User.get("id"),
-				"id" : self.vid,
-				"name" : self.get("name"),
-				"category" : self.get("categories")[0].name,
+		window.place = self;
+		window.ws.update(this.userPlaceKey,{
+			"type" : "userplace",
+			"userID" : window.App.User.get("id"),
+			"id" : self.vid,
+			"name" : self.get("name"),
+			"category" : self.get("categories")[0].name,
+			"location" : {
+				__type__: "geopoint",
 				"address" : self.get("location").address,
 				"city" : self.get("location").city,
 				"state" : self.get("location").state,
 				"zip" : self.get("location").postalCode,
-				"lat" : self.get("location").lat,
-				"long" : self.get("location").lng, 
-				"notes" : $("#notes").val(), 
-				"referrer" : $("#recommendedBy").val(),
-				"savedDate" : new Date().toJSON(),
-				"updatedDate" : new Date().toJSON()
-			};
-
-		$.ajax({
-			url: "https://api.cloudmine.me/v1/app/6189edefd59c4f4b99717c2aaae23f60/text",
-			type: "PUT",
-			contentType: "application/json",
-			data: JSON.stringify(APIdata),
-			processData: false,
-			headers: {
-				"X-CloudMine-ApiKey": "b0237dff1dbd4dd18e966a5cccfb06d1"
-			},
-			success: function() {
-				App.navigate("#myplaces", {trigger:true});
-			},
-			error: function() {
-				
-			}
-		});
+				"latitude" : self.get("location").lat,
+				"longitude" : self.get("location").lng
+			 },
+			"notes" : $("#notes").val(), 
+			"referrer" : $("#recommendedBy").val(),
+			"savedDate" : new Date().toJSON(),
+			"updatedDate" : new Date().toJSON(),
+			"status" : "not_tried"			
+		}).on('success', function() {
+			App.navigate("#myplaces", {trigger:true});
+			});
 	},
 	
 	del: function() {
 		var self=this;
-		$.ajax({
-			url: "https://api.cloudmine.me/v1/app/6189edefd59c4f4b99717c2aaae23f60/data?keys="+self.userPlaceKey,
-			type: "DELETE",
-			contentType: "application/json",
-			processData: false,
-			headers: {
-				"X-CloudMine-ApiKey": "b0237dff1dbd4dd18e966a5cccfb06d1"
-			},
-			success: function() {
-				alert("Deleted!");
-				App.navigate("#myplaces", {trigger:true});
-			},
-			error: function() {
-				
-			}
+		self.vid = self.get("id");
+		this.userPlaceKey = window.App.User.get("id")+self.vid; //this creates the id for the object, a hash of the user and the place.s
+		window.ws.update(this.userPlaceKey, {"status": "deleted"}).on('success', function(){
+			console.log("deleted");
+			App.navigate("#myplaces", {trigger:true});
+		});
+	},
+	
+	markAsDone: function() {
+		var self=this;
+		self.vid = self.get("id");
+		this.userPlaceKey = window.App.User.get("id")+self.vid; //this creates the id for the object, a hash of the user and the place.
+		window.ws.update(this.userPlaceKey, {"status": "tried"}).on('success', function(){
+			console.log("updated");
+			App.navigate("#myplaces", {trigger:true});
 		});
 	},
 	
@@ -123,24 +121,11 @@ window.User = Backbone.Model.extend({
 	
 	register: function(email, password){
 		var self=this;
+		self.email=email;
+		self.password=password;
 		window.console.log("starting to register");
-		var registerResponse = $.ajax({
-			url: "https://api.cloudmine.me/v1/app/6189edefd59c4f4b99717c2aaae23f60/account/create",
-			type: "POST",
-			contentType: "application/json",
-			data: JSON.stringify({
-				"credentials" : {
-					"email" : email,
-					"password" : password
-					}
-			}),
-			processData: false,
-			headers: {
-				"X-CloudMine-ApiKey": "b0237dff1dbd4dd18e966a5cccfb06d1"
-			},
-			success: function() {
-				
-			}
+		window.ws.createUser(email, password).on("success", function(data, response){
+			self.login(self.email, self.password);
 		});
 	},
 	
@@ -158,7 +143,10 @@ window.User = Backbone.Model.extend({
 				"Authorization" : loginstring
 			},
 			success: function(r) {
-				$.cookie("sess_token", r.session_token, {expires: 14})
+				window.r = r;
+				console.log(r.session_token);
+				window.localStorage.setItem("jl_sess_token", r.session_token);
+			//	$.cookie("sess_token", r.session_token, {expires: 14})
 				window.App.User.set({"id" : r.profile.__id__});
 				window.App.navigate("#home", {trigger: true});
 			}
@@ -167,7 +155,7 @@ window.User = Backbone.Model.extend({
 	
 	checkLoginStatus: function() {
 		var self=this;
-		this.sess_token = $.cookie("sess_token");
+		this.sess_token = window.localStorage.getItem("jl_sess_token");
 		$.ajax({
 			url: "https://api.cloudmine.me/v1/app/6189edefd59c4f4b99717c2aaae23f60/account/mine",
 			type: "GET",

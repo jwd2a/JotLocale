@@ -48,8 +48,6 @@ app.post(/^\/_forge\/proxy\//, function(request, response) {
 		return;
 	}
 	
-	var headers = request.body.headers;
-	
 	// Unmunge cookies on user->proxy->url
 	Object.keys(request.headers).forEach(function (header) {
 		if (header.toLowerCase() == 'cookie') {
@@ -74,6 +72,14 @@ app.post(/^\/_forge\/proxy\//, function(request, response) {
 			request.body.headers['cookie'] = cookies.join("; ");
 		}
 	});
+	
+	if (!request.body.headers['x-forwarded-for']) {
+		request.body.headers['x-forwarded-for'] = request.connection.remoteAddress + (request.headers['x-forwarded-for'] ? ', ' + request.headers['x-forwarded-for'] : '');
+	}
+
+	if (!request.body.headers['user-agent']) {
+		request.body.headers['user-agent'] = request.headers['user-agent'];
+	}
 	
 	var options = {
 		host: url.hostname,

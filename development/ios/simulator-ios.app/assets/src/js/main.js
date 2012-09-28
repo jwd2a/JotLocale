@@ -9,11 +9,6 @@
 	//});//end getJSON
 // });//end submit binding
 
-forge.topbar.addButton({
-	text: "Search",
-	position: "left"
-});
-
 util = {};	
 util.rgeocode = function(lat,lon){
 	$.ajax({

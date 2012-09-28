@@ -18,14 +18,14 @@ window.JotLocale = Backbone.Router.extend({
 		this.loginView = new LoginView({});
 	},
 	
-	checkLogin: function() {
-		window.App.User = new User({});
-		console.log("checking login");
-		var loggedIn = window.App.User.checkLoginStatus();
+	tempFB: function() {
+		this.changePage(new TempFBLogin({}));
 	},
 	
-	home: function() {
-		this.changePage(window.homeview = new HomeView({model:User}));
+	checkLogin: function() {
+		window.App.User = new User({});
+		window.console.log("checking login");
+		var loggedIn = window.App.User.checkLoginStatus();
 	},
 	
 	login: function() {
@@ -43,6 +43,7 @@ window.JotLocale = Backbone.Router.extend({
 	},
 	
 	myplaces: function() {
+		console.log("myplaces route");
 		var myPlaceList = new SavedPlaces();
 		myPlaceList.fetch({
 			type:"GET",

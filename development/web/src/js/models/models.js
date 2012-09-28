@@ -60,9 +60,9 @@ window.Place = Backbone.Model.extend({
 		var self=this;
 		self.vid = self.get("id");
 		this.userPlaceKey = window.App.User.get("id")+self.vid; //this creates the id for the object, a hash of the user and the place.s
-		window.ws.destroy(self.userPlaceKey).on('success', function(){
-			alert("Deleted!");
-			App.navigate("#myplaces", {trigger:true})
+		window.ws.update(this.userPlaceKey, {"status": "deleted"}).on('success', function(){
+			console.log("deleted");
+			App.navigate("#myplaces", {trigger:true});
 		});
 	},
 	
@@ -121,24 +121,11 @@ window.User = Backbone.Model.extend({
 	
 	register: function(email, password){
 		var self=this;
+		self.email=email;
+		self.password=password;
 		window.console.log("starting to register");
-		var registerResponse = $.ajax({
-			url: "https://api.cloudmine.me/v1/app/6189edefd59c4f4b99717c2aaae23f60/account/create",
-			type: "POST",
-			contentType: "application/json",
-			data: JSON.stringify({
-				"credentials" : {
-					"email" : email,
-					"password" : password
-					}
-			}),
-			processData: false,
-			headers: {
-				"X-CloudMine-ApiKey": "b0237dff1dbd4dd18e966a5cccfb06d1"
-			},
-			success: function() {
-				
-			}
+		window.ws.createUser(email, password).on("success", function(data, response){
+			self.login(self.email, self.password);
 		});
 	},
 	

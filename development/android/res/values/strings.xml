@@ -1,6 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">JotLocale Hub</string>
-    <string name="package_name">io.trigger.forge84ba256cba7811e1897412313d1adcbe</string>
+    <string name="uuid">84ba256cba7811e1897412313d1adcbe</string>
+    <string name="config_hash">10c648e860f39f575becf26d274bf34784b93b34</string>
+    <string name="trigger_domain">https://trigger.io</string>
     <string name="payments_publicKey">PAYMENTS_PUBLIC_KEY_HERE</string>
+    <string name="splashimage">SPLASH_IMAGE_HERE</string>
+    <string name="splashimage_landscape">SPLASH_IMAGE_LANDSCAPE_HERE</string>
+    <string name="facebook_appid">173569276105298</string>
+    <string name="disable_ics_acceleration">no</string>
+    <string-array name="modules">
+        <item>io.trigger.forge.android.modules.topbar</item><item>io.trigger.forge.android.modules.tools</item><item>io.trigger.forge.android.modules.tabbar</item><item>io.trigger.forge.android.modules.request</item><item>io.trigger.forge.android.modules.reload</item><item>io.trigger.forge.android.modules.prefs</item><item>io.trigger.forge.android.modules.media</item><item>io.trigger.forge.android.modules.file</item><item>io.trigger.forge.android.modules.facebook</item><item>io.trigger.forge.android.modules.contact</item><item>io.trigger.forge.android.modules.internal</item>
+        <item>io.trigger.forge.android.modules.logging</item>
+        <item>io.trigger.forge.android.modules.launchimage</item>
+        <item>io.trigger.forge.android.modules.event</item>
+    </string-array>
 </resources>

@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html>
-	<head><script src='file:///android_asset/forge/all.js'></script>
+	<head><script src='/forge/all.js'></script>
 	<title>Hello World!</title>
 	<link rel="stylesheet" href="css/styles.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
@@ -12,6 +12,22 @@
 	
 	
 	<!--<script src="js/templates.js"></script>	-->
+	
+	<script type="text/template" id="fblogin-template">
+	
+		<div id="loginContainer" class="centered">
+			<div id="logo">
+			<p>JotLocale</p>
+			</div>
+			This is the FB login page.
+			<button id="facebook">Sign in with Facebook</button>
+			<div id="signUp">
+			<hr/>
+			<p>First time? Start Jotting!<p>
+			<button class="bigButton" id="regButton" href="#register">Register now!</button>
+			</div>
+		</div>
+	</script>
 	
 	<script type="text/template" id="login-template">
 	

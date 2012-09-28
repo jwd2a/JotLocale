@@ -2,7 +2,7 @@
 
 window.JotLocale = Backbone.Router.extend({
 	routes: {
-	'' : 'checkLogin',
+	'' : 'tempFB',
 	'searchresults/:query/location/:location' : 'searchresults',
 	'home' : 'myplaces',
 	'locationdetail/:id' : 'locationdetail',
@@ -16,6 +16,10 @@ window.JotLocale = Backbone.Router.extend({
 	
 	initialize: function() {
 		this.loginView = new LoginView({});
+	},
+	
+	tempFB: function() {
+		this.changePage(new TempFBLogin({}));
 	},
 	
 	checkLogin: function() {
