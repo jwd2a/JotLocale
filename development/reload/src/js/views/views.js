@@ -315,7 +315,6 @@ window.AddItemView = Backbone.View.extend({
 			});
 		var renderedContent = this.template();
 		$(this.el).html(renderedContent);
-		console.log(this.model.get("name"));
 		$(this.el).find("input#placeName").val(this.model.get("name"));
 		return this;
 	},

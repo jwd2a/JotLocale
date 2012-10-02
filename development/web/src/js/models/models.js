@@ -53,6 +53,7 @@ window.Place = Backbone.Model.extend({
 			"status" : "not_tried"			
 		}).on('success', function() {
 			App.navigate("#myplaces", {trigger:true});
+			window.newplace = null;
 			});
 	},
 	

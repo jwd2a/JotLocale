@@ -220,8 +220,7 @@ window.MyPlacesView = Backbone.View.extend({
 	render: function() {		
 		forge.topbar.setTitle("JotLocale");
 		forge.topbar.removeButtons();
-		var self = this;
-		$.mobile.showPageLoadingMsg();		
+		var self = this;	
 		var renderedContent = this.template();		
 		self.list = "";
 		self.currentCity = "";
@@ -229,7 +228,6 @@ window.MyPlacesView = Backbone.View.extend({
 		
 		if(this.collection.sortMode == "state") {
 		this.collection.bind("reset", function(collection) {
-			$.mobile.hidePageLoadingMsg();
 				collection.each(function(place) {
 					if (place.get("location")["city"] != self.currentCity) {
 						self.currentCity = place.get("location")["city"];
@@ -248,7 +246,6 @@ window.MyPlacesView = Backbone.View.extend({
 		
 		if(this.collection.sortMode == "distance") {
 			this.collection.bind("reset", function(collection) {
-				$.mobile.hidePageLoadingMsg();
 				var distanceMarker = null;
 				collection.each(function(place) {
 					
@@ -318,7 +315,6 @@ window.AddItemView = Backbone.View.extend({
 			});
 		var renderedContent = this.template();
 		$(this.el).html(renderedContent);
-		console.log(this.model.get("name"));
 		$(this.el).find("input#placeName").val(this.model.get("name"));
 		return this;
 	},
