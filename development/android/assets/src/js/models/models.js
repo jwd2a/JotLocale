@@ -121,24 +121,11 @@ window.User = Backbone.Model.extend({
 	
 	register: function(email, password){
 		var self=this;
+		self.email=email;
+		self.password=password;
 		window.console.log("starting to register");
-		var registerResponse = $.ajax({
-			url: "https://api.cloudmine.me/v1/app/6189edefd59c4f4b99717c2aaae23f60/account/create",
-			type: "POST",
-			contentType: "application/json",
-			data: JSON.stringify({
-				"credentials" : {
-					"email" : email,
-					"password" : password
-					}
-			}),
-			processData: false,
-			headers: {
-				"X-CloudMine-ApiKey": "b0237dff1dbd4dd18e966a5cccfb06d1"
-			},
-			success: function() {
-				
-			}
+		window.ws.createUser(email, password).on("success", function(data, response){
+			self.login(self.email, self.password);
 		});
 	},
 	

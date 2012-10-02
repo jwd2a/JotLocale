@@ -63,7 +63,8 @@ window.LoginView = Backbone.View.extend({
 	events: {
 		"click #submit" : "login",
 		"click #loginForm>input" : "clearHints",
-		"blur #loginForm>input" : "writeHints"
+		"blur #loginForm>input" : "writeHints",
+		"click #regButton" : "goRegister"
 	},
 		
 		
@@ -97,6 +98,10 @@ window.LoginView = Backbone.View.extend({
 		var password = $("#password").val();
 		var response = user.login(email, password);
 		window.console.log(response);
+	},
+	
+	goRegister: function() {
+		App.navigate("#register", {trigger: "true"});
 	}
 });
 
@@ -118,7 +123,7 @@ window.RegisterView = Backbone.View.extend({
 	},
 	
 	events: {
-		"click #submit" : "processRegistration"
+		"click #submitRegistration" : "processRegistration"
 	},
 	
 	processRegistration: function(e){
@@ -128,7 +133,7 @@ window.RegisterView = Backbone.View.extend({
 		var email = $("#email").val();
 		var password = $("#password").val();
 		var response = user.register(email, password);
-		window.console.log(response);
+		
 	}
 	
 })
@@ -212,10 +217,10 @@ window.MyPlacesView = Backbone.View.extend({
 		
 	},
 	
-	render: function() {
+	render: function() {		
 		forge.topbar.setTitle("JotLocale");
 		forge.topbar.removeButtons();
-		var self = this;
+		var self = this;	
 		var renderedContent = this.template();		
 		self.list = "";
 		self.currentCity = "";
@@ -302,6 +307,12 @@ window.AddItemView = Backbone.View.extend({
 	},
 	
 	render: function() {
+		forge.topbar.setTitle(this.model.get("name"));
+		forge.topbar.addButton({
+				text: "Back",
+				position: "left",
+				type: "back"
+			});
 		var renderedContent = this.template();
 		$(this.el).html(renderedContent);
 		console.log(this.model.get("name"));

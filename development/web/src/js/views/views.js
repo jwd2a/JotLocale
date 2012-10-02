@@ -63,7 +63,8 @@ window.LoginView = Backbone.View.extend({
 	events: {
 		"click #submit" : "login",
 		"click #loginForm>input" : "clearHints",
-		"blur #loginForm>input" : "writeHints"
+		"blur #loginForm>input" : "writeHints",
+		"click #regButton" : "goRegister"
 	},
 		
 		
@@ -97,6 +98,10 @@ window.LoginView = Backbone.View.extend({
 		var password = $("#password").val();
 		var response = user.login(email, password);
 		window.console.log(response);
+	},
+	
+	goRegister: function() {
+		App.navigate("#register", {trigger: "true"});
 	}
 });
 
@@ -128,7 +133,7 @@ window.RegisterView = Backbone.View.extend({
 		var email = $("#email").val();
 		var password = $("#password").val();
 		var response = user.register(email, password);
-		window.console.log(response);
+		
 	}
 	
 })
@@ -212,10 +217,11 @@ window.MyPlacesView = Backbone.View.extend({
 		
 	},
 	
-	render: function() {
+	render: function() {		
 		forge.topbar.setTitle("JotLocale");
 		forge.topbar.removeButtons();
 		var self = this;
+		$.mobile.showPageLoadingMsg();		
 		var renderedContent = this.template();		
 		self.list = "";
 		self.currentCity = "";
@@ -223,6 +229,7 @@ window.MyPlacesView = Backbone.View.extend({
 		
 		if(this.collection.sortMode == "state") {
 		this.collection.bind("reset", function(collection) {
+			$.mobile.hidePageLoadingMsg();
 				collection.each(function(place) {
 					if (place.get("location")["city"] != self.currentCity) {
 						self.currentCity = place.get("location")["city"];
@@ -241,6 +248,7 @@ window.MyPlacesView = Backbone.View.extend({
 		
 		if(this.collection.sortMode == "distance") {
 			this.collection.bind("reset", function(collection) {
+				$.mobile.hidePageLoadingMsg();
 				var distanceMarker = null;
 				collection.each(function(place) {
 					

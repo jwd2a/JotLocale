@@ -217,10 +217,10 @@ window.MyPlacesView = Backbone.View.extend({
 		
 	},
 	
-	render: function() {
+	render: function() {		
 		forge.topbar.setTitle("JotLocale");
 		forge.topbar.removeButtons();
-		var self = this;
+		var self = this;	
 		var renderedContent = this.template();		
 		self.list = "";
 		self.currentCity = "";

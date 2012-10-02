@@ -174,7 +174,8 @@
 	<script src="js/models/models.js"></script>
 	<script src="js/router.js"></script>
 	<script src="js/collections/collections.js"></script>
-	<script src="js/views/views.js"></script>	
+	<script src="js/views/views.js"></script>
+	<script src="js/libs/spin.js"></script>	
 	<script src="js/main.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
 	<!--<script src="https://trigger.io/catalyst/target/target-script-min.js#66D2FBD8-85DF-4E45-BF87-B56BB6357000"></script>-->
@@ -187,6 +188,14 @@
 			appid: "6189edefd59c4f4b99717c2aaae23f60",
 			apikey: "b0237dff1dbd4dd18e966a5cccfb06d1"
 		});
+		
+	$("#container").ajaxStart(function(){
+		console.log("ajax started...");
+	});
+	
+	$("#container").ajaxStop(function(){
+		console.log("ajax stopped...");
+	});
 		Backbone.history.start();
 		//forge.enableDebug();
 	});
@@ -201,6 +210,7 @@
 	$('div[data-role="page"]').live('pagehide', function (event, ui) { 
 				$(event.currentTarget).remove(); 
 			}); //this kills the DOM zombies, however, may not unbind the views, so still some zombies? 
+			
 	
 	
 	</script>

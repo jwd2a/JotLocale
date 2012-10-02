@@ -21,7 +21,7 @@ window.Places = Backbone.Collection.extend({
 	}
 });
 
-window.SavedPlaces = Backbone.Collection.extend({
+window.SavedPlaces = 	Backbone.Collection.extend({
 	initialize: function(models, options){
 		this.userID = window.App.User.get("id");
 		if (window.App.User.get("city")) { //fallback feature to handle instance where device has no geolocation (should this be lat?)

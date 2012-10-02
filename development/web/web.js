@@ -95,16 +95,19 @@ app.post(/^\/_forge\/proxy\//, function(request, response) {
 		response.statusCode = res.statusCode;
 		Object.keys(res.headers).forEach(function (header) {
 			if (header.toLowerCase() == 'set-cookie') {
-				// Munge cookies on url->proxy->user
-				var cookie = new Cookie().parse(res.headers[header].toString());
-				cookie.value = JSON.stringify({
-					value: cookie.value,
-					domain: cookie.domain || url.hostname,
-					path: cookie.path
+				var cookies = res.headers[header].toString().split(',');
+				cookies.forEach(function (cookieStr) {
+					// Munge cookies on url->proxy->user
+					var cookie = new Cookie().parse(cookieStr);
+					cookie.value = JSON.stringify({
+						value: cookie.value,
+						domain: cookie.domain || url.hostname,
+						path: cookie.path
+					});
+					cookie.path = '/_forge/proxy/'+(cookie.domain || url.hostname).split("").reverse().join("").replace(/\./g, "/");
+					delete cookie.domain;
+					response.setHeader("Set-Cookie", cookie.toString());
 				});
-				cookie.path = '/_forge/proxy/'+(cookie.domain || url.hostname).split("").reverse().join("").replace(/\./g, "/");
-				delete cookie.domain;
-				response.setHeader("Set-Cookie", cookie.toString());
 			} else {
 				response.setHeader(header, res.headers[header]);
 			}

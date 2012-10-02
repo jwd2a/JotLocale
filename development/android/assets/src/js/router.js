@@ -2,7 +2,7 @@
 
 window.JotLocale = Backbone.Router.extend({
 	routes: {
-	'' : 'tempFB',
+	'' : 'checkLogin',
 	'searchresults/:query/location/:location' : 'searchresults',
 	'home' : 'myplaces',
 	'locationdetail/:id' : 'locationdetail',
