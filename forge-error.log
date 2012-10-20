@@ -3266,3 +3266,539 @@ ShellError: Failed when running /usr/bin/codesign: /Users/jdavis1002/Code/JotLoc
 
 2012-09-27 21:13:19,839 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
 2012-09-27 21:13:19,839 [  ERROR] Please contact support@trigger.io
+2012-10-02 09:13:06,779 [   INFO] Forge tools running at version 3.3.17
+2012-10-02 09:13:06,786 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-02 09:13:06,786 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-02 09:13:06,810 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-02 09:13:06,828 [  ERROR] Something went wrong that we didn't expect:
+2012-10-02 09:13:06,829 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+2012-10-02 09:13:06,829 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 319, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 310, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+
+2012-10-02 09:13:06,829 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-02 09:13:06,829 [  ERROR] Please contact support@trigger.io
+2012-10-03 22:47:14,242 [   INFO] Forge tools running at version 3.3.17
+2012-10-03 22:47:14,244 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-03 22:47:14,244 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-03 22:47:14,265 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-03 22:47:16,591 [  DEBUG] Checking API response for success or error
+2012-10-03 22:47:16,591 [   INFO] Update result: you already have the latest tools
+2012-10-03 22:47:16,591 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-10-03 22:47:16,658 [  DEBUG] Checking API response for success or error
+2012-10-03 22:47:16,658 [  DEBUG] already authenticated via cookie - continuing
+2012-10-03 22:47:16,658 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-10-03 22:47:16,846 [  DEBUG] Checking API response for success or error
+2012-10-03 22:47:17,238 [  DEBUG] configuration is identical to last run
+2012-10-03 22:47:17,238 [  DEBUG] already authenticated - continuing
+2012-10-03 22:47:17,238 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-10-03 22:47:17,508 [  DEBUG] Checking API response for success or error
+2012-10-03 22:47:17,508 [  ERROR] Target required for 'forge build', e.g. 'forge build android'
+2012-10-03 22:47:17,508 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 358, in development_build
+    raise ForgeError(FORGE_BUILD_NEEDS_TARGET)
+ForgeError: Target required for 'forge build', e.g. 'forge build android'
+
+2012-10-07 22:33:25,185 [   INFO] Forge tools running at version 3.3.17
+2012-10-07 22:33:25,188 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-07 22:33:25,188 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-07 22:33:25,213 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-07 22:33:25,690 [  DEBUG] Checking API response for success or error
+2012-10-07 22:33:25,690 [   INFO] Update result: you already have the latest tools
+2012-10-07 22:33:25,691 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-10-07 22:33:25,725 [  DEBUG] Checking API response for success or error
+2012-10-07 22:33:38,946 [   INFO] authenticating as "jdavis1002@gmail.com"
+2012-10-07 22:33:38,946 [  DEBUG] GET https://trigger.io/api/auth/hello
+2012-10-07 22:33:39,012 [  DEBUG] Checking API response for success or error
+2012-10-07 22:33:39,013 [  DEBUG] POST https://trigger.io/api/auth/verify
+2012-10-07 22:33:39,130 [  DEBUG] Checking API response for success or error
+2012-10-07 22:33:39,130 [  ERROR] Something went wrong that we didn't expect:
+2012-10-07 22:33:39,130 [  ERROR] Forge API call to auth/verify went wrong: Incorrect login details
+2012-10-07 22:33:39,130 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 330, in development_build
+    should_rebuild = remote.server_says_should_rebuild()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 523, in server_says_should_rebuild
+    self._authenticate()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 264, in _authenticate
+    self.login(email, password)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 543, in login
+    self._api_post('auth/verify', data=credentials)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 209, in _api_post
+    _check_api_response_for_error(url, 'POST', resp)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 80, in _check_api_response_for_error
+    raise RequestError(resp, error_message, errors=errors)
+RequestError: Forge API call to auth/verify went wrong: Incorrect login details
+
+2012-10-07 22:33:39,130 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-07 22:33:39,130 [  ERROR] Please contact support@trigger.io
+2012-10-09 11:29:20,417 [   INFO] Forge tools running at version 3.3.17
+2012-10-09 11:29:20,422 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-09 11:29:20,422 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-09 11:29:20,448 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-09 11:29:20,822 [  ERROR] Something went wrong that we didn't expect:
+2012-10-09 11:29:20,822 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+2012-10-09 11:29:20,823 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 319, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 310, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+
+2012-10-09 11:29:20,823 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-09 11:29:20,823 [  ERROR] Please contact support@trigger.io
+2012-10-09 11:29:29,198 [   INFO] Forge tools running at version 3.3.17
+2012-10-09 11:29:29,202 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-09 11:29:29,202 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-09 11:29:29,217 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-09 11:29:29,221 [  ERROR] Something went wrong that we didn't expect:
+2012-10-09 11:29:29,221 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+2012-10-09 11:29:29,221 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 319, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 310, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+
+2012-10-09 11:29:29,221 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-09 11:29:29,221 [  ERROR] Please contact support@trigger.io
+2012-10-09 11:29:48,425 [   INFO] Forge tools running at version 3.3.17
+2012-10-09 11:29:48,429 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-09 11:29:48,429 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-09 11:29:48,446 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-09 11:29:48,450 [  ERROR] Something went wrong that we didn't expect:
+2012-10-09 11:29:48,450 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+2012-10-09 11:29:48,450 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 319, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 310, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+
+2012-10-09 11:29:48,450 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-09 11:29:48,450 [  ERROR] Please contact support@trigger.io
+2012-10-09 11:30:43,825 [   INFO] Forge tools running at version 3.3.17
+2012-10-09 11:30:43,828 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-09 11:30:43,828 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-09 11:30:43,843 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-09 11:30:43,846 [  ERROR] Something went wrong that we didn't expect:
+2012-10-09 11:30:43,846 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+2012-10-09 11:30:43,846 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 319, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 310, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+
+2012-10-09 11:30:43,846 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-09 11:30:43,847 [  ERROR] Please contact support@trigger.io
+2012-10-09 12:34:34,432 [   INFO] Forge tools running at version 3.3.17
+2012-10-09 12:34:34,695 [  DEBUG] ignoring non-target directory __init__.py
+2012-10-09 12:34:34,695 [  DEBUG] ignoring non-target directory config.json
+2012-10-09 12:34:34,695 [  DEBUG] ignoring non-target directory lib
+2012-10-09 12:34:34,695 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-10-09 12:34:34,695 [  DEBUG] ignoring non-target directory reload
+2012-10-09 12:34:34,695 [  DEBUG] Enabled platforms: ['android']
+2012-10-09 12:34:34,696 [  DEBUG] Using configuration file value u'/Applications/android-sdk-macosx' for android.sdk
+2012-10-09 12:34:34,718 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-09 12:34:34,718 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-09 12:34:34,719 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-10-09 12:35:04,735 [  ERROR] Something went wrong that we didn't expect:
+2012-10-09 12:35:04,735 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/auth/loggedin
+2012-10-09 12:35:04,736 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 437, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocaleHub/.template/generate_dynamic/customer_goals.py", line 123, in run_app
+    log_build(build_to_run, "run")
+  File "/Users/jdavis1002/Code/JotLocaleHub/.template/generate_dynamic/customer_goals.py", line 32, in log_build
+    remote._authenticate()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 255, in _authenticate
+    resp = self._api_get('auth/loggedin')
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/auth/loggedin
+
+2012-10-09 12:35:04,736 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-09 12:35:04,736 [  ERROR] Please contact support@trigger.io
+2012-10-09 13:30:07,792 [   INFO] Forge tools running at version 3.3.17
+2012-10-09 13:30:08,119 [  DEBUG] ignoring non-target directory __init__.py
+2012-10-09 13:30:08,119 [  DEBUG] ignoring non-target directory config.json
+2012-10-09 13:30:08,119 [  DEBUG] ignoring non-target directory lib
+2012-10-09 13:30:08,119 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-10-09 13:30:08,119 [  DEBUG] ignoring non-target directory reload
+2012-10-09 13:30:08,119 [  DEBUG] Enabled platforms: ['ios']
+2012-10-09 13:30:08,119 [  DEBUG] Using configuration file value u'simulator' for ios.device
+2012-10-09 13:30:08,119 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-09 13:30:08,119 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-09 13:30:08,120 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-10-09 13:30:29,714 [  ERROR] Something went wrong that we didn't expect:
+2012-10-09 13:30:29,714 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/auth/loggedin
+2012-10-09 13:30:29,714 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 437, in run
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocaleHub/.template/generate_dynamic/customer_goals.py", line 123, in run_app
+    log_build(build_to_run, "run")
+  File "/Users/jdavis1002/Code/JotLocaleHub/.template/generate_dynamic/customer_goals.py", line 32, in log_build
+    remote._authenticate()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 255, in _authenticate
+    resp = self._api_get('auth/loggedin')
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/auth/loggedin
+
+2012-10-09 13:30:29,714 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-09 13:30:29,714 [  ERROR] Please contact support@trigger.io
+2012-10-09 13:46:19,602 [   INFO] Forge tools running at version 3.3.17
+2012-10-09 13:46:19,604 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-09 13:46:19,604 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-09 13:46:19,623 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-09 13:46:22,102 [  ERROR] Something went wrong that we didn't expect:
+2012-10-09 13:46:22,102 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+2012-10-09 13:46:22,102 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 319, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 310, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+
+2012-10-09 13:46:22,102 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-09 13:46:22,102 [  ERROR] Please contact support@trigger.io
+2012-10-09 13:46:28,303 [   INFO] Forge tools running at version 3.3.17
+2012-10-09 13:46:28,306 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-09 13:46:28,307 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-09 13:46:28,324 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-09 13:46:28,328 [  ERROR] Something went wrong that we didn't expect:
+2012-10-09 13:46:28,328 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+2012-10-09 13:46:28,328 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 319, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 310, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+
+2012-10-09 13:46:28,328 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-09 13:46:28,328 [  ERROR] Please contact support@trigger.io
+2012-10-09 13:46:32,948 [   INFO] Forge tools running at version 3.3.17
+2012-10-09 13:46:32,952 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-09 13:46:32,972 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-09 13:46:32,972 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-09 13:46:32,980 [  ERROR] Something went wrong that we didn't expect:
+2012-10-09 13:46:32,980 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+2012-10-09 13:46:32,980 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 319, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 310, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+
+2012-10-09 13:46:32,980 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-09 13:46:32,980 [  ERROR] Please contact support@trigger.io
+2012-10-10 22:11:06,139 [   INFO] Forge tools running at version 3.3.17
+2012-10-10 22:11:06,145 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-10 22:11:06,145 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-10 22:11:06,170 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-10 22:11:10,547 [  DEBUG] Checking API response for success or error
+2012-10-10 22:11:10,547 [   INFO] Update result: you already have the latest tools
+2012-10-10 22:11:10,548 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-10-10 22:11:10,615 [  DEBUG] Checking API response for success or error
+2012-10-10 22:11:10,616 [  DEBUG] already authenticated via cookie - continuing
+2012-10-10 22:11:10,616 [  DEBUG] GET https://trigger.io/api/app/84ba256cba7811e1897412313d1adcbe/should_rebuild
+2012-10-10 22:11:10,845 [  DEBUG] Checking API response for success or error
+2012-10-10 22:11:11,223 [  DEBUG] configuration is identical to last run
+2012-10-10 22:11:11,224 [  DEBUG] already authenticated - continuing
+2012-10-10 22:11:11,224 [  DEBUG] POST https://trigger.io/api/reload/buildevents/84ba256cba7811e1897412313d1adcbe
+2012-10-10 22:11:35,130 [  DEBUG] Checking API response for success or error
+2012-10-10 22:11:35,247 [  DEBUG] ignoring non-target directory __init__.py
+2012-10-10 22:11:35,247 [  DEBUG] ignoring non-target directory config.json
+2012-10-10 22:11:35,247 [  DEBUG] ignoring non-target directory lib
+2012-10-10 22:11:35,247 [  DEBUG] ignoring non-target directory platform_version.txt
+2012-10-10 22:11:35,247 [  DEBUG] Enabled platforms: ['android']
+2012-10-10 22:11:35,247 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-10 22:11:35,247 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-10 22:11:35,247 [  DEBUG] GET https://trigger.io/api/auth/loggedin
+2012-10-10 22:11:35,368 [  ERROR] Something went wrong that we didn't expect:
+2012-10-10 22:11:35,368 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/auth/loggedin
+2012-10-10 22:11:35,368 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 415, in development_build
+    generator.all('development', defaults.SRC_DIR, extra_args=unhandled_args, config=reload_config_for_local, target=target)
+  File "/Users/jdavis1002/forge-tools/forge/generate.py", line 48, in all
+    build_to_run=build_to_run,
+  File "/Users/jdavis1002/Code/JotLocaleHub/.template/generate_dynamic/customer_goals.py", line 66, in generate_app_from_template
+    log_build(build_to_run, "generate")
+  File "/Users/jdavis1002/Code/JotLocaleHub/.template/generate_dynamic/customer_goals.py", line 32, in log_build
+    remote._authenticate()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 255, in _authenticate
+    resp = self._api_get('auth/loggedin')
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/auth/loggedin
+
+2012-10-10 22:11:35,368 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-10 22:11:35,368 [  ERROR] Please contact support@trigger.io
+2012-10-10 22:11:43,140 [   INFO] Forge tools running at version 3.3.17
+2012-10-10 22:11:43,143 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-10 22:11:43,143 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-10 22:11:43,160 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-10 22:11:43,169 [  ERROR] Something went wrong that we didn't expect:
+2012-10-10 22:11:43,169 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+2012-10-10 22:11:43,169 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 319, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 310, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+
+2012-10-10 22:11:43,169 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-10 22:11:43,170 [  ERROR] Please contact support@trigger.io
+2012-10-10 22:12:20,713 [   INFO] Forge tools running at version 3.3.17
+2012-10-10 22:12:20,720 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-10 22:12:20,720 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-10 22:12:20,744 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-10 22:12:20,763 [  ERROR] Something went wrong that we didn't expect:
+2012-10-10 22:12:20,763 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+2012-10-10 22:12:20,764 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 319, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 310, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+
+2012-10-10 22:12:20,764 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-10 22:12:20,764 [  ERROR] Please contact support@trigger.io
+2012-10-10 22:12:25,343 [   INFO] Forge tools running at version 3.3.17
+2012-10-10 22:12:25,346 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-10 22:12:25,346 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-10 22:12:25,354 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-10 22:12:25,365 [  ERROR] Something went wrong that we didn't expect:
+2012-10-10 22:12:25,365 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+2012-10-10 22:12:25,365 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 319, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 310, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+
+2012-10-10 22:12:25,365 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-10 22:12:25,365 [  ERROR] Please contact support@trigger.io
+2012-10-10 22:13:24,334 [   INFO] Forge tools running at version 3.3.17
+2012-10-10 22:13:24,339 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-10 22:13:24,339 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-10 22:13:24,361 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-10 22:13:30,409 [  ERROR] Something went wrong that we didn't expect:
+2012-10-10 22:13:30,410 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+2012-10-10 22:13:30,410 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 319, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 310, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+
+2012-10-10 22:13:30,410 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-10 22:13:30,410 [  ERROR] Please contact support@trigger.io
+2012-10-10 22:27:07,870 [   INFO] Forge tools running at version 3.3.17
+2012-10-10 22:27:07,873 [  DEBUG] Forge build tools version: 3.3.17
+2012-10-10 22:27:07,873 [  DEBUG] main: {"server": "https://trigger.io/api/"}
+2012-10-10 22:27:07,890 [  DEBUG] GET https://trigger.io/api/version_check/3/3/17/
+2012-10-10 22:28:23,400 [  ERROR] Something went wrong that we didn't expect:
+2012-10-10 22:28:23,401 [  ERROR] HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+2012-10-10 22:28:23,401 [  DEBUG] Traceback (most recent call last):
+  File "/Users/jdavis1002/forge-tools/forge/async.py", line 96, in run
+    result = self._target(*self._args, **self._kwargs)
+  File "/Users/jdavis1002/forge-tools/forge/main.py", line 319, in development_build
+    remote.check_version()
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 310, in check_version
+    'version_check/{version}/'.format(version=forge.get_version().replace('.','/'))
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 221, in _api_get
+    resp = self.__get_or_post(absolute_url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge/remote.py", line 189, in __get_or_post
+    resp = getattr(self.session, method.lower())(url, *args, **kw)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 225, in get
+    return self.request('get', url, **kwargs)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/sessions.py", line 208, in request
+    r.send(prefetch=prefetch)
+  File "/Users/jdavis1002/forge-tools/forge-dependencies/requests/models.py", line 580, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPSConnectionPool(host='trigger.io', port=443): Max retries exceeded with url: /api/version_check/3/3/17/
+
+2012-10-10 22:28:23,401 [  ERROR] See /Users/jdavis1002/Code/JotLocaleHub/forge-error.log for more details
+2012-10-10 22:28:23,402 [  ERROR] Please contact support@trigger.io

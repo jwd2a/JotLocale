@@ -95,7 +95,9 @@ app.post(/^\/_forge\/proxy\//, function(request, response) {
 		response.statusCode = res.statusCode;
 		Object.keys(res.headers).forEach(function (header) {
 			if (header.toLowerCase() == 'set-cookie') {
-				var cookies = res.headers[header].toString().split(',');
+				// broken by commas in cookie values
+				// var cookies = res.headers[header].toString().split(',');
+				var cookies = res.headers[header].toString().split('[^\s],[^\s]');
 				cookies.forEach(function (cookieStr) {
 					// Munge cookies on url->proxy->user
 					var cookie = new Cookie().parse(cookieStr);

@@ -1,0 +1,80 @@
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/css_reset.css" />
+<link rel="stylesheet" href="css/base_styles.css" />
+<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0_noTheme.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+<script src="js/libs/jquery.mobile-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/libs/jquery_1.8.2.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+
+<style>
+#header {
+	height: 44px;
+}
+
+#container {
+	height: 100%;
+}
+</style>
+
+</head>
+<body>
+		<div id="container">
+			
+			<div id="header">
+				
+			</div>
+			
+		
+				
+			<div id="placePhoto">
+				<div id="placeTitleBlock"><div class="placeTitle">Siam Thai</div><div class="placeCategory">Thai Restaurant</div></div>
+				<img src="img/test_photo2.jpg" width="640" height="280" alt="Test Photo">
+			</div>
+				
+			<div id="placeBottom">
+					
+				<div id="placeDetails">
+						
+					<div id="placeDetailsAddress" class="placeDetailComponent">
+						<span class="placeDetailsComponentText">
+							<span class="line1"><%= location.address %></span>
+							<span class="line2"><%= location.city %>, <%= location.state %></span>
+						</span>
+					</div> <!--end placeDetailsAddress -->
+					
+					<div id="placeDetailsPhone" class="placeDetailComponent">
+						<span class="placeDetailsComponentText">123-4567456</span>
+					</div> <!--end #placeDetailsPhone-->
+					
+					<div id="placeDetailsWeb" class="placeDetailComponent">
+							<span class="placeDetailsComponentText">www.siamthai.com</span>
+					</div> <!--end #placeDetailsWeb -->
+						
+				</div><!--end #placeDetails -->
+				
+				<div class="recommendedBy">
+					Recommended By Cristina<img src="img/recommendedByFlag.png" width="13" height="40" alt="RecommendedByFlag">
+				</div> <!--end #recommendedBy -->
+				
+				<div id="placeNotes">
+					Gotta try the crab rangoons. Also, the thai tea is supposed to be awesome!
+				</div> <!--end #placeNotes -->
+				
+				<div id="placeFooter">
+					<span id="addedTime">Added 999 years ago</span>
+					<span id="tryButton">Try it yet?</span>
+				</div>
+					
+			</div><!--end #placeBottom-->
+
+		</div><!--end #container-->
+
+</body>
+
+
+
+
+</html>

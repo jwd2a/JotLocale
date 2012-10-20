@@ -21,12 +21,12 @@
         "facebook": {
             "appid": "173569276105298"
         }, 
-        "tabbar": true, 
+        "tabbar": false, 
         "prefs": true, 
         "tools": true, 
         "topbar": true
     }, 
-    "name": "JotLocale Hub", 
+    "name": "Squirrel", 
     "platform_version": "v1.4", 
     "version": "0.1", 
     "description": "An empty app created by default"

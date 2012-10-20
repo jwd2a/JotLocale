@@ -24,13 +24,6 @@ window.Places = Backbone.Collection.extend({
 window.SavedPlaces = Backbone.Collection.extend({
 	initialize: function(models, options){
 		this.userID = window.App.User.get("id");
-		if (window.App.User.get("city")) { //fallback feature to handle instance where device has no geolocation (should this be lat?)
-			this.getByDistance();
-		}
-		else {
-			this.getByState();
-		}
-		
 	},
 	
 	model: Place,
@@ -38,14 +31,22 @@ window.SavedPlaces = Backbone.Collection.extend({
 	getByState: function() {
 		this.sortMode = "state";
 		this.url = 'https://api.cloudmine.me/v1/app/6189edefd59c4f4b99717c2aaae23f60/search?q=[type="userplace",status != "tried", userID="'+this.userID+'"]&sort=sortableCity';
-		this.fetch();
+		this.fetch({
+			type:"GET",
+			contentType:"application/JSON",
+			headers:{"X-CloudMine-ApiKey": "b0237dff1dbd4dd18e966a5cccfb06d1"}
+		});
 	},
 	
 	getByDistance: function() {
 		this.sortMode = "distance";
 		this.url = 'https://api.cloudmine.me/v1/app/6189edefd59c4f4b99717c2aaae23f60/search?q=[type="userplace",userID="'+this.userID+'",location near ('+window.App.User.get("long")+','+window.App.User.get("lat")+')]&distance=true&units=mi';
 		console.log(this.url);
-		this.fetch();
+		this.fetch({
+			type:"GET",
+			contentType:"application/JSON",
+			headers:{"X-CloudMine-ApiKey": "b0237dff1dbd4dd18e966a5cccfb06d1"}
+		});
 	},
 	
 	parse: function(resp, xhr) {

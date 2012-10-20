@@ -1,52 +1,70 @@
 <html>
 <head><script src='/_forge/all.js'></script>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/css_reset.css" />
+<link rel="stylesheet" href="css/base_styles.css" />
 
-<link rel="stylesheet" href="css/styles.css" />
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
 
 
-<style>
-
-body {
-	width: 320px;
-	height: 480px;
-	border: 1px solid black;
-}
-
-.pac-item {
-	height: 40px;
-	padding-top:20px;
-}
-
-</style>
-
-
-
 </head>
 <body>
 		<div id="container">
-		<input type="text" id="location"></input>
+			
+			<div id="header">
+				
+			</div>
+			
+			<ul class="">
+				<li class="locationDivider"><div class="actAsTableCell verticalCenter">Near by</div></li>
+			
+				<li class="placeListItem">
+					<a href='#' data-transition='slide'>
+						<span class='distance'>3.9 mi</span>
+						<span class='listingName'>Siam Thai</span>
+						<span class='listingDetail'>Thai Restaurant</span>
+						<div class="dblArrow"><img src="img/dbl_arrow.jpg" alt="View this place" /></div>
+						<div class='recommendedBy'><span class="recommendedByName">Recommended by Cristina</span></div>
+					</a>
+				</li>
+				
+				<li class="placeListItem">
+					
+					<a href='#' data-transition='slide'>
+						<span class='distance'>5.3 mi</span>
+						<span class='listingName'>Ausanat's Pacific Thai Cuisine Bar & Lounge</span>
+						<span class='listingDetail'>Thai Restaurant</span>
+						<div class="dblArrow"><img src="img/dbl_arrow.jpg" alt="View this place" /></div>
+						<div class='recommendedBy'><span class="recommendedByName">Recommended by Mom</span><span class="recommendedByFlag"></span></div>
+						<div class="dblArrow"></div>
+					</a>
+					
+				</li>
+				
+				<li class="locationDivider"><div class="actAsTableCell verticalCenter">Near by</div></li>
+				
+				<li class="placeListItem">
+					
+					<a href='#' data-transition='slide'>
+						<span class='listingName'>Sukkothai</span>
+						<span class='listingDetail'>Atlanta, GA</span>
+						<span class='listingDetail'>Thai Restaurant</span>
+						<div class="dblArrow"><img src="img/dbl_arrow.jpg" alt="View this place" /></div>
+						<div class='recommendedBy'><span class="recommendedByName">Recommended by Justin Davis</span><span class="recommendedByFlag"></span></div>
+						<div class="dblArrow"></div>
+					</a>
+					
+				</li>
+				
+			</ul>
 			
 		</div>
 
 </body>
 
-<script type="text/javascript" language="JavaScript">
 
-$(document).ready(function() {
-	console.log("ready");
-	var input = $('#location').get(0);
-	var options = {
-	  types: ['(cities)']
-	};
-	autocomplete = new google.maps.places.Autocomplete(input, options);
-	
-});
-
-</script>
 
 
 </html>

@@ -53,6 +53,7 @@ window.Place = Backbone.Model.extend({
 			"status" : "not_tried"			
 		}).on('success', function() {
 			App.navigate("#myplaces", {trigger:true});
+			window.newplace = null;
 			});
 	},
 	
@@ -98,24 +99,27 @@ window.User = Backbone.Model.extend({
 	defaults: {
 		"id" : null,
 		"email" : null,
-		"password" : null
+		"password" : null,
+		"lat" : 26.2090319,
+		"long" : -81.77077240000001
 	},
 	
 	initialize: function() {
-		if(!(this.get("lat"))) {
-			this.getLocation();
-		}
+	
 	},
 	
 	getLocation: function() {
+		console.log("And, getting location...");
 		var self=this;
 		forge.geolocation.getCurrentPosition(function(position){
 			self.set({
 					"lat" : position.coords.latitude, 
 					"long" : position.coords.longitude
 					});
+			console.log("OK, set the latitude");
+			console.log("I'll prove it: "+ self.get("lat"));
 		
-				util.rgeocode(position.coords.latitude,position.coords.longitude);
+			util.rgeocode(position.coords.latitude,position.coords.longitude);
 		});		
 	},
 	
@@ -165,6 +169,8 @@ window.User = Backbone.Model.extend({
 				"X-CloudMine-SessionToken" : this.sess_token
 			},
 			success: function(c) {
+				console.log("Ok, let's go get the location...");
+				self.getLocation();
 				var obj = c.success[ Object.keys( c.success )[0] ];
 				window.App.User.set({"id" : obj.__id__});
 				window.App.navigate("#home", {trigger: true});

@@ -4,9 +4,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Hello World!</title>
-	<link rel="stylesheet" href="css/styles.css" />
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<title>Squirrel</title>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /> 
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/css_reset.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0_noTheme.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="css/base_styles.css" />
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
 	
@@ -75,53 +78,72 @@
 	</div>
 	</script>
 	
-	<script type="text/template" id="locationDetail-template">
-	<div id="locationContainer">
-		<span class="locationImage"><%= photo %></span>
-		<span class="locationData">
-			<h1><%= name %></h1>
-			<h2><%= location.address %><br/><%= location.city %>, <%= location.state %></h2>
-			<span class="locationPhoneType"><h2><%= contact.formattedPhone %></h2><h2><%= categories[0].name %></h2></span>
-		</span>
-	</div>
-	
-	<div id="commentContainer">
-		<label for="recommendedBy">Who recommended this to you?</label>
-		<input type="text" name="recommendedBy" id="recommendedBy"/>
-		<label for="notes">Notes:</label>
-		<textarea name="notes" id="notes"></textarea>
-	</div>
-	<button id="savePlace">Save this place</button>
-	</script>
-	
 	<script type="text/template" id="myLocationDetail-template">
-	<div id="locationContainer">
-		<span class="locationImage"><%= photo %></span>
-		<span class="locationData">
-			<h1><%= name %></h1>
-			<h2><%= location.address %><br/><%= location.city %>, <%= location.state %></h2>
-			<span class="locationPhoneType"><h2><%= category %></h2></span>
-		</span>
+	
+	<div id="header">
+		<div class="btnLeft back"></div>
+		<div class="btnRight"></div>
+		<div id="logo"></div>
 	</div>
 	
-	<div id="commentContainer">
-		<label for="recommendedBy">Who recommended this to you?</label>
-		<p><%= referrer %></p>
-		<label for="notes">Notes:</label>
-		<p><%= notes %></p>
-	</div>
+	<div id="content">
+	
+		<div id="placePhoto">
+			<div id="placeTitleBlock"><div class="placeTitle"><%= name %></div><div class="placeCategory"><%= category %></div></div>
+			<img src="img/test_photo2.jpg" alt="Test Photo"/>
+		</div>
+		
+		<div id="placeBottom">
+			
+			<div id="placeDetails">
+				
+				<div id="placeDetailsAddress" class="placeDetailComponent">
+					<span class="placeDetailsComponentText">
+						<span class="line1"><%= location.address %></span>
+						<span class="line2"><%= location.city %>, <%= location.state %></span>
+					</span>
+				</div> <!--end placeDetailsAddress -->
+			
+				<div id="placeDetailsPhone" class="placeDetailComponent">
+					<span class="placeDetailsComponentText">123-4567456</span>
+				</div> <!--end #placeDetailsPhone-->
+			
+				<div id="placeDetailsWeb" class="placeDetailComponent">
+					<span class="placeDetailsComponentText">www.siamthai.com</span>
+				</div> <!--end #placeDetailsWeb -->
+				
+			</div><!--end #placeDetails -->
+		
+			<div class="recommendedBy">
+				Recommended by <%= referrer %>
+			</div> <!--end #recommendedBy -->
+		
+			<div id="placeNotes">
+				<%= notes %>
+			</div> <!--end #placeNotes -->
+		
+			<div id="placeFooter">
+				<span id="addedTime">Added 999 years ago</span>
+				<span id="tryButton">Try it yet?</span>
+			</div>
+			
+	</div><!--end #placeBottom-->
+	
 	<button id="triedPlace">Tried it!</button>
 	<button id="removePlace">Remove this place</button>
+	</div> <!--end #content -->
 	</script>
 	
 	<script type="text/template" id="myPlaces-template">
-		<div id="myPlacesHeader">
-			<h1>My Places</h1>
-			<span class="floatRight">
-				<a href="#add" id="add">Add New</a>
-			</span>
+		<div id="header">
+			<div class="btnLeft settings"></div>
+			<div class="btnRight add"></div>
+			<div id="logo"></div>
 		</div>
-		<ul id="placeList" data-role="listview"></ul>
+	
+		<div id="content">
+		<ul id="placeList"></ul>
+		</div>
 	</script>
 	
 	<script type="text/template" id="addItem-template">
@@ -151,10 +173,10 @@
 	</script>
 	
 	
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.js"></script>
 	<script src="js/libs/cloudmine.js"></script>
-	<script src="js/libs/modernizr-1.6.min.js"></script>
+	<script src="js/libs/modernizr-1.6.min.js"></script>	
 	<script src="js/custom.js"></script>
 	<script src="js/libs/base64.js"></script>
 	<script src="js/libs/jquery_cookie.js"></script>
@@ -168,7 +190,7 @@
 	<script src="js/libs/spin.js"></script>	
 	<script src="js/main.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
-	<!--<script src="https://trigger.io/catalyst/target/target-script-min.js#66D2FBD8-85DF-4E45-BF87-B56BB6357000"></script>-->
+	<script src="https://trigger.io/catalyst/target/target-script-min.js#66D2FBD8-85DF-4E45-BF87-B56BB6357000"></script>
 	
 	<script type="application/javascript">
 	
@@ -178,15 +200,9 @@
 			appid: "6189edefd59c4f4b99717c2aaae23f60",
 			apikey: "b0237dff1dbd4dd18e966a5cccfb06d1"
 		});
-		
-	$("#container").ajaxStart(function(){
-		console.log("ajax started...");
-	});
-	
-	$("#container").ajaxStop(function(){
-		console.log("ajax stopped...");
-	});
 		Backbone.history.start();
+		forge.tabbar.hide();
+		forge.topbar.hide();
 		//forge.enableDebug();
 	});
 	
@@ -204,15 +220,27 @@
 	
 	
 	</script>
-	
-	
-	
-	
-	
+
 </head>
 <body>
 <div id="container">
 </div>
+
+<script type="text/javascript">
+
+$("#container").height($(window).height());
+
+$(document).ajaxStart(function(){
+	console.log("ajax started...");
+	window.spinner = new Spinner(spin.opts).spin(document.getElementById('container'));
+});
+
+$(document).ajaxComplete(function(){
+	console.log("ajax finished...");
+	window.spinner.stop();
+});
+
+</script>
 
 </body>
 

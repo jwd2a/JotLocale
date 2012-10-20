@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">JotLocale Hub</string>
+    <string name="app_name">Squirrel</string>
     <string name="uuid">84ba256cba7811e1897412313d1adcbe</string>
-    <string name="config_hash">168cb59c2150c2785dd001a5513fa19aed2c4448</string>
+    <string name="config_hash">89115ba72c1597496381c091e16669653d6ca597</string>
     <string name="trigger_domain">https://trigger.io</string>
     <string name="payments_publicKey">PAYMENTS_PUBLIC_KEY_HERE</string>
     <string name="splashimage">SPLASH_IMAGE_HERE</string>

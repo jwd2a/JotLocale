@@ -1,0 +1,321 @@
+/*Set Basic Styles for the Document*/
+
+body { 
+	font-family: 'Source Sans Pro', sans-serif !important;
+	font-size: 50%;
+}
+
+a {
+	text-decoration: none;
+}
+
+#header {
+	background-color: #eaeaea;
+	height: 44px;
+	top:0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	position: fixed;
+	z-index: 1000;
+}
+
+#content { 
+margin-top: 44px;
+}
+
+#logo {
+	width: 32.1875%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url('../img/title44.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.btnLeft {
+	height: 100%;
+	width: 15.9375%;
+	float: left;
+	background-repeat: no-repeat;
+	background-position: left;
+}
+
+.btnRight {
+	height: 100%;
+	width: 15.9375%;
+	float: right;
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+.back {
+	background-image: url('../img/btn_back44.png');
+}
+
+.settings {
+	background-image: url('../img/btn_settings44.png');
+}
+
+.add {
+	background-image: url('../img/btn_add44.png');
+}
+
+
+img {
+	max-width: 100%;
+}
+
+/*Utility Styles*/
+
+.actAsTableCell {
+	display: table-cell;
+}
+
+.verticalCenter {
+	vertical-align: middle;
+}
+
+/* MyPlaces List Styles */
+
+li.placeListItem {
+	min-height: 20.1041667%;
+	background-color: white;
+	border-bottom: 1px solid rgb(236,236,236);
+	padding-top: 5.625%;
+	padding-bottom: 3.5%;
+}
+
+
+.listingName {
+	font-size: 2.25em;
+	padding-left: 8.90625%;
+	font-weight: 400;
+	color: #1b85b9;
+	display: block;
+	max-width: 61.875%;
+}
+
+.listingDetail {
+	padding-left: 9%;
+	font-size: 1.6875em;
+	font-weight: 200;
+	margin-top:02.1354167%;
+	display: block;
+	color: #515151;
+	text-transform: uppercase;
+}
+
+.locationDivider {
+	padding-top: 01.3541667%;
+	padding-bottom: 01.3541667%;
+	margin-top: 0px;
+	height: 04.7916667%;
+	background-image:url('../img/sorting_label_dot.jpg');
+	background-repeat: repeat;
+	padding-left: 04.6875%;
+	color: rgb(135,135,135);
+	font-size: 1.8125em;
+	display: table;
+	width: 100%;
+}
+
+.recommendedBy {
+	padding-left: 8.90625%;
+	padding-top: 01.0416667%;
+	padding-bottom: 01.0416667%;
+	margin-top:02.1354167%;
+	height: 03.75%;
+	color: white;
+	display: table;
+	background-color: #1b85b9;
+}
+
+.recommendedByName {
+	height: 100%;
+	width: 100%;
+	font-size: 1.625em;
+	font-weight: 300;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.recommendedByFlag {
+	float: left;
+}
+
+.distance {
+	color: #1b85b9;
+	font-size: 1.5625em;
+	float: right;
+	width: 13.28125%;
+	margin-right: 09.375%;
+	text-align: right;
+}
+
+.dblArrow {
+	margin-top: 2.5%;
+	margin-right:9.5%;
+	width: 5.2%;
+	height: 5.2%;
+	float: right;
+	text-align: right;
+}
+
+/*Place Detail Styles*/
+
+#placePhoto {
+	height: 29.1666667%;
+	width:100%;
+	border-top: 1px black solid;
+	border-bottom: 1px black solid;
+}
+
+#placeTitleBlock {
+	color: #fff;
+	position: absolute;
+	width:80%;
+	top: 17%;
+	left: 03.5%;
+}
+
+#placeImg {
+	height: 29.1666667%;
+	width: 100%;
+}
+
+.placeTitle {
+	font-size: 2.5em;
+	display: block;
+}
+
+.placeCategory {
+	font-size: 1.6875em;
+	text-transform: uppercase;
+	display: block;
+}
+
+#placeBottom {
+	background-image: url('../img/placeBGDot.jpg');
+	height: 100%;
+}
+
+#placeDetails {
+	clear: both;
+	color: #606060;
+	font-size: 1.875em;
+	text-transform: uppercase;
+	min-height: 30.5729167%;
+	width: 80%;	
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #e7e8e9; /*change to gradient*/
+	padding-top: 05.5208333%;
+	padding-bottom: 10.0543478%;
+	padding-left: 06.0688406%;
+	padding-right: 06.0688406%;
+	
+}
+
+.placeDetailComponent {
+	background-repeat: no-repeat;
+	background-position: left top;
+	min-height: 9.1993186%;
+	margin-top: 9.5400341%;
+	clear: both;
+}
+
+.placeDetailsComponentText {
+	/*float: left;
+	margin-left: 14.2245073%;*/
+}
+
+.line1, .line2 {
+	display: block;
+}
+
+#placeDetailsAddress>img {
+	float: left;
+	height: 04.7358834%;
+}
+
+#placeDetailsPhone>img {
+	float: left;
+	height: 06.557377%;
+}
+
+#placeDetailsWeb {
+	height: 04.7358834%;
+}
+
+#placeBottom > .recommendedBy {
+	margin-top: -02.778125%;
+	float: left;
+	height: 05.5208333%;
+	font-size: 2.0625em;
+}
+
+#placeNotes {
+	font-size: 1.875em;
+	background-color: #ffffff;
+	padding-top: 09.4373866%;
+	padding-bottom: 06.3520871%;
+	padding-left: 09.375%;
+	padding-right: 09.375%;
+}
+
+#placeFooter { 
+	color: #aeaeaf;
+	font-size: 1.5625em;
+	width: 80%;
+	background-color: #f7f7f7; /*change to gradient*/
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 09.0744102%;
+	padding-bottom: 06.6243194%;
+	padding-left: 06.0688406%;
+	padding-right: 06.0688406%;
+}
+
+
+/*Media Queries for over 640px (Retina Displays)*/
+
+@media screen and (min-width: 640px) {
+	#header {
+		height: 88px;
+	}
+		
+	#content { 
+	margin-top: 88px;
+	}
+	
+	#logo {
+		background-image: url('../img/title88.jpg');
+	}
+	
+	.back {
+
+	}
+
+	.settings {
+		background-image: url('../img/btn_settings88.png');
+	}
+
+	.add {
+		background-image: url('../img/btn_add88.png');
+	}
+	
+	.back {
+		background-image: url('../img/btn_back88.png');
+	}
+
+	#placePhoto {
+		border-top: 2px black solid;
+		border-bottom: 2px black solid;
+	}
+	
+}
+	
+
+

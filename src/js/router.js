@@ -15,7 +15,7 @@ window.JotLocale = Backbone.Router.extend({
 	},
 	
 	initialize: function() {
-		this.loginView = new LoginView({});
+		
 	},
 	
 	tempFB: function() {
@@ -43,13 +43,23 @@ window.JotLocale = Backbone.Router.extend({
 	},
 	
 	myplaces: function() {
+		var self=this;
 		console.log("myplaces route");
+		
+		if (!(window.App.User)){
+			self.checkLogin();
+		}
+		
 		var myPlaceList = new SavedPlaces();
-		myPlaceList.fetch({
-			type:"GET",
-			contentType:"application/JSON",
-			headers:{"X-CloudMine-ApiKey": "b0237dff1dbd4dd18e966a5cccfb06d1"}
-		});
+
+		if (window.App.User.get("lat")) { //fallback feature to handle instance where device has no geolocation (should this be city?)
+			myPlaceList.getByDistance();
+		}
+		else {
+			console.log("no city");
+			myPlaceList.getByState();
+		}
+		
 		this.changePage(new MyPlacesView({collection: myPlaceList}));
 		
 	},
@@ -62,15 +72,10 @@ window.JotLocale = Backbone.Router.extend({
 	},
 	
 	findPlace: function() {
-		//var findPlaceView = new FindPlaceView({});
-		//window.appView.showView(findPlaceView);
 		this.changePage(new FindPlaceView({}), "slide");
 	},
 
 	changePage:function (view, transition) {
-			//if (this.currentView) {
-		    //   this.currentView.close();
-			//}
 			this.currentView = view;
 	        $(view.el).attr('data-role', 'page');
 	        view.render();

@@ -1,14 +1,3 @@
-//$('#placeInput').submit(function(){
-//	console.log("in the submit");
-//	var query= $("input#query").val();
-//	alert("submitted!");
-//	return false;
-	
-	//$.getJSON('https://api.foursquare.com/v2/venues/search?near=Tampa%2CFL&query='+query+'&client_id=AESY1ENXBRKZXCNFDUDR2R1WFGVLM2TQN2301V3FMUGW1BC2&client_secret=T4YY0SSSHX2MGRZHKH5GXC4XZAURILN1BFY2NAXV2ELMPJAC&v=20120621', function(response){
-	//alert("JSON Data:" + response.response.venues[0].name);
-	//});//end getJSON
-// });//end submit binding
-
 util = {};	
 util.rgeocode = function(lat,lon){
 	$.ajax({
@@ -16,8 +5,8 @@ util.rgeocode = function(lat,lon){
 		success: function(r){
 			var locationData = [];
 			window.r = r;
-			locationData["city"] = r.ResultSet.Result.city;
-			locationData["state"] = r.ResultSet.Result.statecode;
+			locationData["city"] = r.ResultSet.Results[0].city;
+			locationData["state"] = r.ResultSet.Results[0].statecode;
 			window.App.User.set({ //this needs to eventually pass back to the user model, to separate concerns
 				"city" : locationData["city"],
 				"state" : locationData["state"]
@@ -37,8 +26,8 @@ Backbone.View.prototype.close = function(){
   }
 }
 
-spinner = {};
-spinner.opts = {
+spin = {};
+spin.opts = {
   lines: 13, // The number of lines to draw
   length: 8, // The length of each line
   width: 3, // The line thickness
@@ -55,4 +44,3 @@ spinner.opts = {
   top: 'auto', // Top position relative to parent in px
   left: 'auto' // Left position relative to parent in px
 };
-spinner.target = $("#container");
