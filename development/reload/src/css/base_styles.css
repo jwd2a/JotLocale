@@ -277,12 +277,12 @@ img#ajaxLoader {
 	margin-top:5%;
 }
 
-.sortCity {
+.sortDistance {
 	border-top-left-radius: 1.5em;
 	border-bottom-left-radius: 1.5em;
 }
 
-.sortDistance {
+.sortCity {
 	border-top-right-radius: 1.5em;
 	border-bottom-right-radius: 1.5em;
 }

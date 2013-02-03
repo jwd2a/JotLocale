@@ -785,7 +785,9 @@ window.SettingsView = Backbone.View.extend({
 	},
 	
 	goBack: function() {
-		window.history.back();
+		App.navigate("#myplaces", {
+			trigger: true
+		});
 	}
 });
 

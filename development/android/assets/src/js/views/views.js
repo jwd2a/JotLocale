@@ -665,14 +665,13 @@ window.FindPlaceView = Backbone.View.extend({
 		});
 		
 		$("ul#resultsList").listview("refresh");
+		$("#searchSubmit").val("Search again");
+		$("#searchSubmit").css("background-color", "#1cbbb4");
 		
 		setTimeout(function(){
 			var findContainerHeight = $("#findContainer").height();
-			console.log($("#findContainer").height());
 			var findContainerTopPadding = $("#findContainer").css("padding-top");
-			console.log(findContainerTopPadding);
 			$("#resultsContainer").css("margin-top", findContainerHeight+parseInt(findContainerTopPadding, 10));
-			console.log($("#resultsContainer"));
 		},0);		
 	},
 
@@ -681,6 +680,8 @@ window.FindPlaceView = Backbone.View.extend({
 		var self = this;
 		this.querystring = $("#searchBox").val(); //get the query
 		this.loc = $("#location").val();
+		$("#searchSubmit").val("Searching...");
+		$("#searchSubmit").css("background-color", "#dddddd");
 		self.runQuery(this.querystring, this.loc);
 
 	},
@@ -784,7 +785,9 @@ window.SettingsView = Backbone.View.extend({
 	},
 	
 	goBack: function() {
-		window.history.back();
+		App.navigate("#myplaces", {
+			trigger: true
+		});
 	}
 });
 

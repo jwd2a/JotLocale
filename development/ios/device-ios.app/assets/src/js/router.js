@@ -60,7 +60,7 @@ window.JotLocale = Backbone.Router.extend({
 		}
 		var myPlaceList = new SavedPlaces();
 		var self=this;
-		myPlaceList.getByCity();
+		myPlaceList.getByDistance();
 		self.changePage(new MyPlacesView({
 			collection: myPlaceList,
 			action:action,
