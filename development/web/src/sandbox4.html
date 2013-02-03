@@ -1,0 +1,34 @@
+<html>
+<head><script src='/_forge/all.js'></script>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/css_reset.css" />
+<link rel="stylesheet" href="css/base_styles.css" />
+<script src="js/libs/jquery_1.8.2.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0_noTheme.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+
+<style>
+
+
+</style>
+
+</head>
+<ul>
+	<div class="add">hey</div>
+</ul>
+
+<script type="text/javascript">
+	$(".add").live('mousedown',function(){
+		var bgImage = $(this).css("backgroundImage");
+		var imageName = bgImage.replace("btn_add","btn_add_active");
+		$(this).css("backgroundImage", imageName);
+	});
+	$(".add").live('mouseup',function(){
+		var bgImage = $(this).css("backgroundImage");
+		var imageName = bgImage.replace("btn_add_active","btn_add");
+		$(this).css("backgroundImage", imageName);
+	});
+</script>
+
+
+</html>

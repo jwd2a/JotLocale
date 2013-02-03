@@ -3,64 +3,71 @@
 window.Places = Backbone.Collection.extend({
 	
 	initialize: function(models, options){
-	this.placeName = options.query;
+	this.placeName = options.searchterm;
 	this.loc = options.loc;
 	},
 	
-	model: Place,
+	model: CompactPlace,
 	
 	url: function() {
 		return "https://api.foursquare.com/v2/venues/search?v=20120321&intent=checkin&query="+this.placeName+"&client_id=AESY1ENXBRKZXCNFDUDR2R1WFGVLM2TQN2301V3FMUGW1BC2&client_secret=T4YY0SSSHX2MGRZHKH5GXC4XZAURILN1BFY2NAXV2ELMPJAC&near="+this.loc;
 	},
 	
 	parse: function(resp, xhr) {
+		console.log("hey");
 		return resp.response.venues
 	},
 	
 	getUsersPlaces: function () {
+			
 	}
 });
 
-window.SavedPlaces = Backbone.Collection.extend({
-	initialize: function(models, options){
-		this.userID = window.App.User.get("id");
-	},
-	
+window.SavedPlaces = Parse.Collection.extend({
+
 	model: Place,
 	
-	getByState: function() {
-		this.sortMode = "state";
-		this.url = 'https://api.cloudmine.me/v1/app/6189edefd59c4f4b99717c2aaae23f60/search?q=[type="userplace",status != "tried", userID="'+this.userID+'"]&sort=sortableCity';
-		this.fetch({
-			type:"GET",
-			contentType:"application/JSON",
-			headers:{"X-CloudMine-ApiKey": "b0237dff1dbd4dd18e966a5cccfb06d1"}
-		});
-	},
-	
 	getByDistance: function() {
+		var self=this;
 		this.sortMode = "distance";
-		this.url = 'https://api.cloudmine.me/v1/app/6189edefd59c4f4b99717c2aaae23f60/search?q=[type="userplace",userID="'+this.userID+'",location near ('+window.App.User.get("long")+','+window.App.User.get("lat")+')]&distance=true&units=mi';
-		console.log(this.url);
-		this.fetch({
-			type:"GET",
-			contentType:"application/JSON",
-			headers:{"X-CloudMine-ApiKey": "b0237dff1dbd4dd18e966a5cccfb06d1"}
+		forge.geolocation.getCurrentPosition({timeout:10000,"enableHighAccuracy": true},
+				function(position){ //success
+					util.rgeocode(position.coords.latitude, position.coords.longitude);
+					Parse.User.current().set({
+									"geopoint" :  new Parse.GeoPoint({
+										latitude: position.coords.latitude, 
+										longitude: position.coords.longitude
+									})
+								});
+				console.log(Parse.User.current().get("geopoint"));
+				var query = new Parse.Query(Place);
+				query.equalTo("user", Parse.User.current());
+				query.equalTo("status", "not_tried");
+				query.near("geo", Parse.User.current().get("geopoint"));
+				self.query = query;
+				self.fetch();
+				},
+				function(error) {
+					console.log("Unable to get location");
+					console.log(error);
+					self.getByCity();
 		});
+		
 	},
 	
-	parse: function(resp, xhr) {
-		var self = this;
-		window.meta = resp.meta;
-		var array = [];
-		_.each(resp.success, function(value, key) {   
-		    array.push(value);
-			if (resp.meta) {
-				var distance = resp.meta[key]["geo"]["distance"];
-			 	value["distance"] = distance;
-			 	}
-		});
-		return array;
+	getByCity: function() {
+		this.sortMode = "city";
+		var query = new Parse.Query(Place);
+		query.equalTo("user", Parse.User.current());
+		query.equalTo("status", "not_tried");
+		query.ascending("sortableCity")
+		this.query = query;
+		this.fetch();
 	}
+	
+});
 
-})
+window.TriedPlaces = Parse.Collection.extend({
+	model: Place,
+	query: (new Parse.Query(Place)).equalTo("status", "tried").equalTo("user", Parse.User.current())
+});

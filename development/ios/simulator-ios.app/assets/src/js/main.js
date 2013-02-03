@@ -7,7 +7,7 @@ util.rgeocode = function(lat,lon){
 			window.r = r;
 			locationData["city"] = r.ResultSet.Results[0].city;
 			locationData["state"] = r.ResultSet.Results[0].statecode;
-			window.App.User.set({ //this needs to eventually pass back to the user model, to separate concerns
+			Parse.User.current().set({ //this needs to eventually pass back to the user model, to separate concerns
 				"city" : locationData["city"],
 				"state" : locationData["state"]
 			});
@@ -16,6 +16,52 @@ util.rgeocode = function(lat,lon){
 			return r.ResultSet.ErrorMessage;
 		}	
 	});
+}
+
+util.randomString = function() {
+	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+	var string_length = 8;
+	var randomstring = '';
+	for (var i=0; i<string_length; i++) {
+		var rnum = Math.floor(Math.random() * chars.length);
+		randomstring += chars.substring(rnum,rnum+1);
+	}
+	return randomstring;
+}
+
+util.cleanUpURL = function(url) {
+	var newurl = url.replace(/.*?:\/\//g, "");
+	var newurl = newurl.replace(/\//, "");
+	return newurl;
+}
+
+util.prepForStackMob = function(object) { //this makes all keys at least 3 char, and everything lowercase, per StackMob restrictions
+	console.log(object);
+	_.each(Object.keys(object.attributes), function(key) {
+			var newkey = key.toLowerCase();
+		    object.attributes[newkey] = object.attributes[key];
+		    delete object.attributes[key];
+	})
+	for (var key in object.attributes) {
+	    if (key.length === 2) {
+	        object.attributes["mod_"+key] = object.attributes[key];
+	        delete object.attributes[key];
+	    }
+	}
+	console.log(object);
+	return object;
+}
+
+util.highlightOnVMouseDown = function(target, imageName) {
+	var bgImage = $(target.currentTarget).css("backgroundImage");
+	var image = bgImage.replace("btn_"+imageName,"btn_"+imageName+"_active");
+	$(target.currentTarget).css("backgroundImage", image);
+}
+
+util.unhighlightOnVMouseUp = function(target, imageName) {
+	var bgImage = $(target.currentTarget).css("backgroundImage");
+	var image = bgImage.replace("btn_"+imageName+"_active","btn_"+imageName);
+	$(target.currentTarget).css("backgroundImage", image);
 }
 
 Backbone.View.prototype.close = function(){

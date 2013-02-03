@@ -138,6 +138,24 @@ def read_file_as_str(filename):
 		unicode_res = file_contents.decode(encoding)
 	return unicode_res
 
+def _shell_quote(word):
+	"""Use single quotes to make the word usable as a single commandline
+	argument on bash, so that debug output can be easily runnable.
+	"""
+	return "'" + word.replace("'", "'\"'\"'") + "'"
+
+def _format_popen_args(args, kwargs, platform):
+	if not args:
+		return "Tried to run a subprocess but didn't specify anything to run!"
+	
+	if kwargs.get('shell'):
+		return "Running shell: %s" % args[0]
+	
+	if sys.platform.startswith("win"):
+		return "Running: %s" % subprocess.list2cmdline(args[0])
+	
+	return "Running: %s" % " ".join(_shell_quote(a) for a in args[0])
+
 # TODO: this is duplicated in build tools, we should figure out a way to share
 # the code between generate_dynamic and build tools sensibly
 class PopenWithoutNewConsole(subprocess.Popen):
@@ -153,6 +171,7 @@ class PopenWithoutNewConsole(subprocess.Popen):
 			startupinfo.wShowWindow = subprocess.SW_HIDE
 			kwargs['startupinfo'] = startupinfo
 
+		LOG.debug(_format_popen_args(args, kwargs, platform=sys.platform))
 		self._old_popen.__init__(self, *args, **kwargs)
 
 

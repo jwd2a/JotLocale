@@ -1,3 +1,4 @@
+from collections import defaultdict
 import socket
 import time
 import errno
@@ -16,6 +17,7 @@ import requests
 
 import lib
 from lib import cd, task
+import utils
 from utils import run_shell, ShellError
 
 
@@ -46,20 +48,54 @@ def _port_available(port):
 		if s is not None:
 			s.close()
 
+def _update_path_for_node(build):
+	'''change sys.path to include the directory which holds node and npm
 
-def _npm(*args, **kw):
+	:param build: :class:`Build` instance
+	'''
+	# configuration setting overrides all
+	manual = build.tool_config.get('web.node_path')
+	path_chunks = os.environ["PATH"].split(os.pathsep)
+	if manual is None:
+		possible_locations = defaultdict(list)
+		possible_locations.update({
+			'darwin': ['/usr/local/bin/']
+		})
+
+		for location in possible_locations[sys.platform]:
+			path_chunks.append(location)
+	else:
+		# override given
+		if not isinstance(manual, list):
+			manual = [manual]
+		for manual_path in manual:
+			abs_manual_path = os.path.abspath(manual_path)
+			if abs_manual_path not in path_chunks:
+				path_chunks.insert(0, abs_manual_path)
+	os.environ["PATH"] = os.pathsep.join(path_chunks)
+
+def _npm(build, *args, **kw):
 	if sys.platform.startswith("win"):
 		npm = "npm.cmd"
 	else:
 		npm = "npm"
+	if not utils.which(npm):
+		raise WebError("""Couldn't find {tool} on your PATH or in likely locations - is it installed?
+
+You can use the 'node_path' setting in your local configuration to set a custom install directory"""
+.format(tool=npm))
 
 	kw['check_for_interrupt'] = True
-	try:
-		run_shell(npm, *args, **kw)
-	except OSError as e:
-		if e.errno == errno.ENOENT:
-			raise WebError("failed to run npm: do you have Node.js installed and on your path?")
+	run_shell(npm, *args, **kw)
 
+def _node(build, *args, **kw):
+	node = "node"
+	if not utils.which(node):
+		raise WebError("couldn't find {tool} on your PATH or in likely "
+				"locations - is it installed?".format(tool=node))
+
+	kw['check_for_interrupt'] = True
+	run_shell(node, *args, **kw)
 
 def _post_kill_signal(port):
 	LOG.debug('POSTING to /kill')
@@ -72,6 +108,7 @@ def run_web(build):
 	"""Run an instance of Node locally"""
 	# TODO: port should be a parameter/configuration
 	port = 3000
+	_update_path_for_node(build)
 
 	def show_local_server():
 		LOG.info("Attempting to open browser at http://localhost:%d/" % port)
@@ -84,7 +121,7 @@ def run_web(build):
 			# launches an instance of node as a subprocess which is the real thing you need to kill!
 			# might be possible to kill npm.cmd in a nicer way, e.g. sending a CTRL_C event, needs
 			# a bit of experimentation
-			_npm("install")
+			_npm(build, "install")
 
 			attempts = 0
 			while not _port_available(port):
@@ -99,7 +136,9 @@ def run_web(build):
 					raise WebError("Port %d seems to be in use, you should specify a different port to use" % port)
 
 			timer = threading.Timer(3, show_local_server).start()
-			run_shell("node", "./web.js", command_log_level=logging.INFO, check_for_interrupt=True, env=dict(os.environ, PORT=str(port), FORGE_DEBUG='1'))
+			_node(build, "./web.js", command_log_level=logging.INFO,
+					check_for_interrupt=True,
+					env=dict(os.environ, PORT=str(port), FORGE_DEBUG='1'))
 
 		finally:
 			if timer:

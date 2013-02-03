@@ -33,6 +33,16 @@
 					"required": false,
 					"description": "either 'simulator', 'device' or a specific device ID"
 				},
+				"simulatorsdk": {
+					"type": "string",
+					"required": false,
+					"description": "SDK version to launch simulator at"
+				},
+				"simulatorfamily": {
+					"type": "string",
+					"required": false,
+					"description": "Device family to launch simulator with, either 'iphone' or 'ipad'"
+				},
 				"profile": {
 					"required": false,
 					"type": "object",
@@ -122,6 +132,12 @@
 			"type": "object",
 			"additionalProperties": false,
 			"properties": {
+				"node_path": {
+					"type": "string",
+					"blank": false,
+					"required": false,
+					"_dirpicker": true
+				},
 				"profile": {
 					"required": false,
 					"type": "object",
@@ -136,6 +152,37 @@
 							"type": "string",
 							"blank": true,
 							"required": false
+						}
+					}
+				}
+			}
+		},
+		"ie": {
+			"required": false,
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"profile": {
+					"required": false,
+					"type": "object",
+					"additionalProperties": false,
+					"properties": {
+						"developer_certificate": {
+							"type": "string",
+							"blank": true,
+							"required": false
+						},
+						"developer_certificate_path": {
+							"type": "string",
+							"blank": true,
+							"required": false,
+							"_filepicker": true
+						},
+						"developer_certificate_password": {
+							"type": "string",
+							"blank": true,
+							"required": false,
+							"_password": true
 						}
 					}
 				}

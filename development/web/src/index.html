@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 	<head><script src='/_forge/all.js'></script>
-	<title>Squirrel</title>
-	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /> 
+	<title>Drawer</title>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" /> 
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/css_reset.css" />
 	<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0_noTheme.css" type="text/css" media="screen" title="no title" charset="utf-8">
@@ -15,24 +15,23 @@
 	
 	
 	<!--<script src="js/templates.js"></script>	-->
-	
-	<script type="text/template" id="fblogin-template">
-	
-		<div id="loginContainer" class="centered">
-			<div id="logo">
-			<p>JotLocale</p>
-			</div>
-			This is the FB login page.
-			<button id="facebook">Sign in with Facebook</button>
-			<div id="signUp">
-			<hr/>
-			<p>First time? Start Jotting!<p>
-			<button class="bigButton" id="regButton" href="#register">Register now!</button>
-			</div>
+	<script type="text/javascript" src="js/libs/energize.js"></script>	
+
+	<script type="text/template" id="login-template">
+		<div id="fb-root"></div>
+		<div id="loginContainer">
+			<div id="radialGrad">
+			
+				<div id="loginLogo"><img src="img/loginLogo.png" /></div>
+				
+			
+				<button data-role="none" id="signInWithFacebookBtn">Sign in with Facebook</button>
+			
+			</div>	
 		</div>
 	</script>
 	
-	<script type="text/template" id="login-template">
+	<script type="text/template" id="Oldlogin-template">
 	
 		<div id="loginContainer" class="centered">
 			<div id="logo">
@@ -65,128 +64,212 @@
 			<button class="bigButton" id="submitRegistration">Register</button>
 		</div>
 	</script>
-	
-	<script type="text/template" id="homeView-template">
-	<div id="searchContainer" class="centered">
-		<h1>Remember this place:</h1>
 
-		            <input type="text" id="query" name="query" class="big"/>
-		            <span>in</span>
-		            <div id="searchLocation" class="searchLocation"><a>Tampa, FL</a></div>
-					<div id="searchLocationInput" class="searchLocation"><input type="text" id="location" value="Tampa, FL" data-role="none"/><button id="setLocation" data-role="none">Set</button></div>
-		<button id="executeSearch" class="bigButton" data-role="none">Find It!</button>
-	</div>
-	</script>
-	
 	<script type="text/template" id="myLocationDetail-template">
 	
-	<div id="placePhoto">
-		<div id="placeTitleBlock"><div class="placeTitle"><%= name %></div><div class="placeCategory"><%= category %></div></div>
-		<img src="img/test_photo2.jpg" alt="Test Photo"/>
+	<div id="header">
+		<div class="btnLeft back"></div>
+		<div class="btnRight edit"></div>
+		<div id="logo"></div>
 	</div>
-		
-	<div id="placeBottom">
+	
+	<div class="clearHeader"></div>
+	
+	<div id="content">
+	
+		<div id="placePhoto">
 			
-		<div id="placeDetails">
-				
-			<div id="placeDetailsAddress" class="placeDetailComponent">
-				<span class="placeDetailsComponentText">
-					<span class="line1"><%= location.address %></span>
-					<span class="line2"><%= location.city %>, <%= location.state %></span>
-				</span>
-			</div> <!--end placeDetailsAddress -->
+			<div id="placeTitleBlock">
+				<div class="placeTitle"><%= name %></div>
+				<div class="placeCategory"><%= categories[0].name %></div>
+			</div>
 			
-			<div id="placeDetailsPhone" class="placeDetailComponent">
-			<span class="placeDetailsComponentText">123-4567456</span>
-			</div> <!--end #placeDetailsPhone-->
-			
-			<div id="placeDetailsWeb" class="placeDetailComponent">
-				<span class="placeDetailsComponentText">www.siamthai.com</span>
-			</div> <!--end #placeDetailsWeb -->
-				
-		</div><!--end #placeDetails -->
+			<img src="img/test_photo2.jpg" alt="Test Photo"/>
 		
-		<div class="recommendedBy">
-			Recommended by <%= referrer %>
-		</div> <!--end #recommendedBy -->
-		
-		<div id="placeNotes">
-			<%= notes %>
-		</div> <!--end #placeNotes -->
-		
-		<div id="placeFooter">
-			<span id="addedTime">Added 999 years ago</span>
-			<span id="tryButton">Try it yet?</span>
 		</div>
+		
+		<div id="placeBottom">
+			
+			<div id="placeDetails">
+				
+				<div id="placeDetailsAddress" class="placeDetailComponent">
+					<span class="placeDetailsComponentText">
+					<a href="http://maps.google.com/maps?q=<%=location.address %> <%=location.city%> <%=location.state%> <%=location.postalcode%>">
+						<span class="line1"><%= location.address %></span>
+						<span class="line2"><%= location.city %>, <%= location.state %></span>
+					</a>
+					</span>
+				</div> <!--end placeDetailsAddress -->
+			
+				<div id="placeDetailsPhone" class="placeDetailComponent">
+					<span class="placeDetailsComponentText"><%= contact.formattedPhone %></span>
+				</div> <!--end #placeDetailsPhone-->
+			
+				<div id="placeDetailsWeb" class="placeDetailComponent">
+					<span class="placeDetailsComponentText"><%= url %></span>
+				</div> <!--end #placeDetailsWeb -->
+				
+			</div><!--end #placeDetails -->
+		
+			<div class="recommendedBy">
+				Recommended by <%= referrer %>
+			</div> <!--end #recommendedBy -->
+		
+			<div id="placeNotes">
+				<%= notes %>
+			</div> <!--end #placeNotes -->
+		
+			<div id="placeFooter">
+				<button data-role="none" class="locationDetailBtn" id="triedPlace">Tried it!</button>
+				<button data-role="none" class="locationDetailBtn" id="removePlace">Remove this place</button>
+			</div>
 			
 	</div><!--end #placeBottom-->
-	
-	<button id="triedPlace">Tried it!</button>
-	<button id="removePlace">Remove this place</button>
+	</div> <!--end #content -->
 	</script>
 	
 	<script type="text/template" id="myPlaces-template">
-		<ul id="placeList"></ul>
+		<div id="header">
+			<div class="btnLeft settings"></div>
+			<div class="btnRight add"></div>
+			<div id="logo"></div>
+		</div>
+		
+		<div id="listSort">
+			<div id="sortControlContainer">
+				<button data-role="none" class="sortControl sortCity sortActive">By City</button>
+				<button data-role="none" class="sortControl sortDistance sortInactive">By Distance</button>
+			</div>
+		</div>
+		
+		<div id="confirmationMessage"><span class="message"></span></div>
+			
+		<div id="content">
+			<div id="myPlacesList">
+				<ul id="placeList"></ul>
+			</div>
+		</div>
 	</script>
 	
 	<script type="text/template" id="addItem-template">
-		<div id="myPlacesHeader">
-			<div id="commentContainer">
-				<h1>Add Place</h1>
-				<label for="placeName">Find a place to save:</label>
-				<input type="text" name="placeName" id="placeName" />
-				<label for="recommendedBy">Who recommended this to you?</label>
-				<input type="text" name="recommendedBy" id="recommendedBy"/>
-				<label for="notes">Notes:</label>
-				<textarea name="notes" id="notes"></textarea>
+	
+		<div id="header">
+			<div class="btnLeft back"></div>
+			<div id="logo"></div>
+		</div>
+		<div class="clearHeader"></div>
+		<div id="content">
+
+			<div id="placeInfo">
+				<img src="img/test_photo2.jpg" alt="Test Photo2"/>
+				<div id="placeInfoDetails">
+		 			<span class="placeName"><%= name %></span>
+					<a href="http://maps.google.com/maps?q=<%=location.address %> <%=location.city%> <%=location.state%> <%=location.postalcode%>">
+		 			<span class="placeDetails address line1"><%= location.address %></span> 
+					<span class="placeDetails city line2"><%= location.city %>, <%= location.state %> <%= location.postalcode %></span>
+					</a>
+					<span class="placeDetails category line1"><%= categories[0].name %></span>
+				</div>
 			</div>
-			<button id="savePlace">Save this place</button>
+			
+			<div id="placeFeedback">
+				<form id="recommendedPlaceFeedback">
+					<label for="recommendedBy">Who recommended this?</label>
+					<input type="text" name="recommendedBy" id="recommendedBy" value="<%=referrer%>">
+
+					<label for="notes">Anything to remember about it?</label>
+					<textarea name="notes" data-role="none" id="notes" ><%=notes%></textarea>
+
+					<input type="submit" class="styledSubmit" data-role="none" value="SAVE TO MY LIST"/>
+				</form>
+			</div>	
 		</div>
 	</script>
 	
 	<script type="text/template" id="findPlace-template">
-		<div id="findContainer">
-			<form id="searchBar">
-				<input type="search" name="search" id="searchBox" value=""></input>
-				<input type="text" name="location" id="location"></input>
-				<input type="submit" value="Submit" />
-			</form>	
-			<ul data-role="listview" id="resultsList"></ul>
+		<div id="header">
+		<div class="btnLeft cancel"></div>
+		<div class="pageTitle">Save Recommendation</div>
 		</div>
+		
+		<div id="content">
+			<div class="clearHeader"></div>
+			<div id="findContainer">
+				<form id="searchBar">
+					<input type="text" name="search" id="searchBox" value="What's the place?"></input>
+					<input type="text" name="location" id="location"></input>
+					<input type="submit" class="styledSubmit" data-role="none" value="FIND IT"/>
+				</form>
+			</div>
+			<div id="resultsContainer">
+				<ul data-role="listview" id="resultsList"></ul>
+			</div>
+
+		</div> <!--end content -->
 	</script>
 	
+	<script type="text/template" id="settings-template">
+		<div id="header">
+		<div class="btnLeft back"></div>
+		<div class="pageTitle">Settings</div>
+		</div>
+		
+		<div id="content">
+			<div class="clearHeader"></div>
+			<ul data-role="listview">
+				<li>Places I've Tried</li>
+				<li>Rate Us</li>
+				<li>Feedback and Support</li>
+				<li>About Drawer</li>
+				<li>Terms of Service</li>
+			</ul>
+			<button id="logOut">Log Out</button>
+		</div> <!--end content -->
+	</script>
 	
-	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.js"></script>
-	<script src="js/libs/cloudmine.js"></script>
-	<script src="js/libs/modernizr-1.6.min.js"></script>	
-	<script src="js/custom.js"></script>
-	<script src="js/libs/base64.js"></script>
-	<script src="js/libs/jquery_cookie.js"></script>
-	<script src="js/libs/zepto.js"></script>
-    <script src="js/libs/underscore.js"></script>
-    <script src="js/libs/backbone.js"></script>
-	<script src="js/models/models.js"></script>
-	<script src="js/router.js"></script>
-	<script src="js/collections/collections.js"></script>
-	<script src="js/views/views.js"></script>
-	<script src="js/libs/spin.js"></script>	
-	<script src="js/main.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/libs/json2.js"></script>
+	<script src="js/libs/underscore.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
+	<script src="http://www.parsecdn.com/js/parse-1.1.14.min.js"></script>	
+	<script type="text/javascript">
+	
+	Parse.initialize("Ycu4dFDO4dmCdm2M06hmVnrNdy8nitlSkb7LPX8R", "YjI2ZmJ9A6zySNp5injUKTiKwm8IKAJ5mTWDi0uY");
+	
+
+	  
+	</script>
+	
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.js"></script>
+	<script type="text/javascript" src="js/libs/modernizr-1.6.min.js"></script>	
+	<script type="text/javascript" src="js/custom.js"></script>
+	<script type="text/javascript" src="js/libs/base64.js"></script>
+	<script type="text/javascript" src="js/libs/jquery_cookie.js"></script>
+	<script type="text/javascript" src="js/models/models.js"></script>
+	<script type="text/javascript" src="js/collections/collections.js"></script>
+	<script type="text/javascript" src="js/router.js"></script>
+	<script type="text/javascript" src="js/views/views.js"></script>
+	<script type="text/javascript" src="js/libs/spin.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+	<script src="js/libs/iscroll.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
-	<script src="https://trigger.io/catalyst/target/target-script-min.js#66D2FBD8-85DF-4E45-BF87-B56BB6357000"></script>
+	<script type="text/javascript" src="https://trigger.io/catalyst/target/target-script-min.js#66D2FBD8-85DF-4E45-BF87-B56BB6357000"></script>
 	
 	<script type="application/javascript">
 	
 	$(document).ready(function() {
 		window.App = new JotLocale();
-		window.ws = new cloudmine.WebService({
-			appid: "6189edefd59c4f4b99717c2aaae23f60",
-			apikey: "b0237dff1dbd4dd18e966a5cccfb06d1"
-		});
 		Backbone.history.start();
 		forge.tabbar.hide();
+		forge.topbar.hide();
 		//forge.enableDebug();
+		
+		if (forge.is.android()){
+			$("#header").height("48px");
+		}
+		
 	});
+
 	
 	$.mobile.ajaxEnabled = false;
 	$.mobile.hashListeningEnabled = false;
@@ -198,10 +281,10 @@
 	$('div[data-role="page"]').live('pagehide', function (event, ui) { 
 				$(event.currentTarget).remove(); 
 			}); //this kills the DOM zombies, however, may not unbind the views, so still some zombies? 
-			
 	
+	new NoClickDelay(document.getElementByTagName('body'));
 	
-	</script>
+</script>
 
 </head>
 <body>
@@ -209,6 +292,10 @@
 </div>
 
 <script type="text/javascript">
+
+$("#logo").click(function(){
+	window.App.navigate("#myplaces", {trigger:true});
+});
 
 $("#container").height($(window).height());
 

@@ -1,0 +1,26 @@
+{
+  "config_hash": "fd03c13eac21c571312338e5966be08236b9d3af", 
+  "disable_ics_acceleration": false, 
+  "facebook_appid": "173569276105298", 
+  "modules": [
+    "internal", 
+    "logging", 
+    "launchimage", 
+    "event", 
+    "contact", 
+    "display", 
+    "facebook", 
+    "file", 
+    "media", 
+    "prefs", 
+    "reload", 
+    "request", 
+    "tools", 
+    "topbar"
+  ], 
+  "payments_publicKey": "PAYMENTS_PUBLIC_KEY_HERE", 
+  "splashimage": "src/img/splash/launch_screen_640x1136_android.png", 
+  "splashimage_landscape": "src/img/splash/launch_screen_640x1136_android.png", 
+  "trigger_domain": "https://trigger.io", 
+  "uuid": "513f8a2c1bf511e2b35812313d1adcbe"
+}

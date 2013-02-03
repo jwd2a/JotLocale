@@ -1,0 +1,48 @@
+<html>
+<head><script src='/_forge/all.js'></script>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/css_reset.css" />
+<link rel="stylesheet" href="css/base_styles.css" />
+<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0_noTheme.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+<script src="js/libs/jquery.mobile-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/libs/jquery_1.8.2.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+
+<style>
+	html,body,container {
+		height: 100%;
+	}
+
+
+</style>
+
+</head>
+<body>
+	<div id="fb-root"></div>
+	<div id="loginContainer">
+		<div id="radialGrad">
+		
+			<div id="loginLogo"><img src="img/loginLogo.png" /></div>
+			
+		
+			<button data-role="none" id="signInWithFacebookBtn">Sign in with Facebook</button>
+		
+		</div>	
+	</div>
+</body>
+
+<script type="text/javascript">
+	$(".sortDistance").click(function(){
+		$(this).addClass("sortActive").removeClass("sortInactive");
+		$(".sortCity").addClass("sortInactive").removeClass("sortActive");
+	});
+	
+	$(".sortCity").click(function(){
+		$(this).addClass("sortActive").removeClass("sortInactive");
+		$(".sortDistance").addClass("sortInactive").removeClass("sortActive");
+	});
+</script>
+
+
+</html>

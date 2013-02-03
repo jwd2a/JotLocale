@@ -10,74 +10,48 @@
 					}
 				}
 			</script><script src='../forge/all.js'></script>
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/css_reset.css" />
-<link rel="stylesheet" href="css/base_styles.css" />
+		
+	<link rel="stylesheet" href="css/css_reset.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0_noTheme.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="css/base_styles.css" />
 
-<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+
+	<script src="js/libs/jquery.mobile-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/libs/jquery_1.8.2.js" type="text/javascript" charset="utf-8"></script>
 
 
 </head>
 <body>
-		<div id="container">
-			
-			<div id="header">
-				<div class="btnLeft settings"></div>
-				<div class="btnRight add"></div>
-				<div id="logo"></div>
-				
-			</div>
-			
-		<div id="content">	
-			<ul class="">
-				<li class="locationDivider"><div class="actAsTableCell verticalCenter">Near by</div></li>
-			
-				<li class="placeListItem">
-					<a href='#' data-transition='slide'>
-						<span class='distance'>3.9 mi</span>
-						<span class='listingName'>Siam Thai</span>
-						<span class='listingDetail'>Thai Restaurant</span>
-						<div class="dblArrow"><img src="img/dbl_arrow.jpg" alt="View this place" /></div>
-						<div class='recommendedBy'><span class="recommendedByName">Recommended by Cristina</span></div>
-					</a>
-				</li>
-				
-				<li class="placeListItem">
-					
-					<a href='#' data-transition='slide'>
-						<span class='distance'>5.3 mi</span>
-						<span class='listingName'>Ausanat's Pacific Thai Cuisine Bar & Lounge</span>
-						<span class='listingDetail'>Thai Restaurant</span>
-						<div class="dblArrow"><img src="img/dbl_arrow.jpg" alt="View this place" /></div>
-						<div class='recommendedBy'><span class="recommendedByName">Recommended by Mom</span><span class="recommendedByFlag"></span></div>
-						<div class="dblArrow"></div>
-					</a>
-					
-				</li>
-				
-				<li class="locationDivider"><div class="actAsTableCell verticalCenter">Near by</div></li>
-				
-				<li class="placeListItem">
-					
-					<a href='#' data-transition='slide'>
-						<span class='listingName'>Sukkothai</span>
-						<span class='listingDetail'>Atlanta, GA</span>
-						<span class='listingDetail'>Thai Restaurant</span>
-						<div class="dblArrow"><img src="img/dbl_arrow.jpg" alt="View this place" /></div>
-						<div class='recommendedBy'><span class="recommendedByName">Recommended by Justin Davis</span><span class="recommendedByFlag"></span></div>
-						<div class="dblArrow"></div>
-					</a>
-					
-				</li>
-				
-			</ul>
-			
-			</div>
-			
-		</div>
 
+	<div id="header">
+		<div class="btnLeft cancel"></div>
+		<div id="logo"></div>
+	</div>
+	
+	<div id="content">
+	
+		<div id="placeInfo">
+			<img src="img/test_photo2.jpg" alt="Test Photo2"/>
+			<div id="placeInfoDetails">
+	 			<span class="placeName">Siam Thai</span>
+	 			<span class="placeDetails line1">9456 Hillsborough Ave.</span> 
+				<span class="placeDetails line2">Tampa, FL 33626</span>
+				<span class="placeDetails line1">Thai Restaurant</span>
+			</div>
+		</div>
+	
+		<div id="placeFeedback">
+			<form id="recommendedPlaceFeedback">
+				<label for="recommendedBy">Who recommended this?</label>
+				<input type="text" name="recommendedBy" id="recommendedBy"/>
+		
+				<label for="notes">Anything to remember about it?</label>
+				<textarea name="notes" id="notes" ></textarea>
+		
+				<input type="submit" data-role="none" value="SAVE TO MY LIST"/>
+			</form>
+		</div>	
+	</div>
 </body>
 
 

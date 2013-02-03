@@ -1,24 +1,23 @@
 {
+    "android": {
+        "profiles": {
+            "DEFAULT": {
+                "keystore": "~/mykeystore.keystore", 
+                "keyalias": "JotLocaleKey"
+            }, 
+            "release": {
+                "keystore": "~/mykeystore.keystore", 
+                "keyalias": "JotLocaleKey"
+            }
+        }, 
+        "sdk": "/Applications/android-sdk-macosx"
+    }, 
     "ios": {
-        "device": "simulator",
-		"profiles" : {
-			"DEFAULT" : {
-				"provisioning_profile": "Development.mobileprovision"
-			}
-		}
-    },
-
-	"android": {
-	    "sdk": "/Applications/android-sdk-macosx",
-	    "profiles": {
-	      "DEFAULT": {
-	        "keystore": "~/mykeystore.keystore",
-	        "keyalias": "JotLocaleKey"
-	      },
-	      "release": {
-	        "keystore": "~/mykeystore.keystore",
-	        "keyalias": "JotLocaleKey"
-	      }
-	    }
-	  }
-	}
+        "device": "simulator", 
+        "profiles": {
+            "DEFAULT": {
+                "provisioning_profile": "Drawer012913.mobileprovision"
+            }
+        }
+    }
+}

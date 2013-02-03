@@ -7,6 +7,7 @@ import re
 import shutil
 import sys
 import uuid
+import json
 
 import android_tasks
 from build import ConfigurationError
@@ -17,6 +18,81 @@ import ios_tasks
 import safari_tasks
 import ie_tasks
 import utils
+import hashlib
+
+from xml.etree import ElementTree
+# Any namespaces must be registered or the parser will rename them
+ElementTree.register_namespace('android', 'http://schemas.android.com/apk/res/android')
+ElementTree.register_namespace('tools', 'http://schemas.android.com/tools')
+	
+@task
+def add_element_to_xml(build, file, tag, attrib={}, text="", to=None, unless=None):
+	'''add new element to an XML file
+
+	:param build: the current build.Build
+	:param file: filename or file object
+	:param tag: name of the new element's tag
+	:param text: content of the new element
+	:param attrib: dictionary containing the new element's attributes
+	:param to: sub element tag name or path we will append to
+	:param unless: don't add anything if this tag name or path already exists
+	'''
+	xml = ElementTree.ElementTree()
+	xml.parse(file)
+	if to is None:
+		el = xml.getroot()
+	else:
+		el = xml.find(to, dict((v,k) for k,v in ElementTree._namespace_map.items()))
+	if not unless or xml.find(unless, dict((v,k) for k,v in ElementTree._namespace_map.items())) is None:
+		new_el = ElementTree.Element(tag, attrib)
+		new_el.text = text
+		el.insert(0, new_el)
+		xml.write(file)
+
+@task
+def set_element_value_xml(build, file, value, element=None):
+	'''set text contents of an XML element
+
+	:param build: the current build.Build
+	:param file: filename or file object
+	:param value: the new element contents (will be templated)
+	:param element: tag name or path to change (defaults to root node)
+	'''
+	xml = ElementTree.ElementTree()
+	xml.parse(file)
+	if element is None:
+		el = xml.getroot()
+	else:
+		el = xml.find(element, dict((v,k) for k,v in ElementTree._namespace_map.items()))
+	el.text = utils.render_string(build.config, value).decode('utf8', errors='replace')
+	xml.write(file)
+
+@task
+def set_attribute_value_xml(build, file, value, attribute, element=None):
+	'''set contents of an XML element's attribute
+
+	:param build: the current build.Build
+	:param file: filename or file object
+	:param value: the new attribute value (will be templated)
+	:param attribute: attribute name
+	:param element: tag name or path to change (defaults to root node)
+	'''
+	xml = ElementTree.ElementTree()
+	xml.parse(file)
+	if element is None:
+		el = xml.getroot()
+	else:
+		el = xml.find(element, dict((v,k) for k,v in ElementTree._namespace_map.items()))
+	
+	# set is not aware of namespaces, so we have to replace "namespace" with "{schema}"
+	namespaces = dict((v,k) for k,v in ElementTree._namespace_map.items())
+	if ":" in attribute:
+		parts = attribute.split(":")
+		attribute = "{%s}%s" % (namespaces[parts[0]], parts[1])
+	
+	el.set(attribute, utils.render_string(build.config, value))
+	
+	xml.write(file)
 
 @task
 def rename_files(build, **kw):
@@ -114,6 +190,8 @@ def find_and_replace(build, *files, **kwargs):
 	:param files: array of glob patterns to select files
 	:param kwargs: must contain ``find`` and ``replace`` keys
 	'''
+	if "in" in kwargs:
+		files = kwargs['in']
 	if "find" not in kwargs:
 		raise ConfigurationError("Find not passed in to find_and_replace")
 	if "replace" not in kwargs:
@@ -156,11 +234,38 @@ def find_and_replace_in_dir(build, root_dir, find, replace, file_suffixes=("html
 					_replace_in_file(build, path.join(root, file_), find_with_fixed_path, replace_with_fixed_path)
 
 def _replace_in_file(build, filename, find, replace):
-	build.log.debug("replacing {find} with {replace} in {filename}".format(**locals()))
+	build.log.debug(u"replacing {find} with {replace} in {filename}".format(**locals()))
 	
 	tmp_file = uuid.uuid4().hex
 	in_file_contents = read_file_as_str(filename)
 	in_file_contents = in_file_contents.replace(find, replace)
+	with codecs.open(tmp_file, 'w', encoding='utf8') as out_file:
+		out_file.write(in_file_contents)
+	os.remove(filename)
+	shutil.move(tmp_file, filename)
+	
+@task
+def remove_lines_in_file(build, filename, containing):
+	build.log.debug("removing lines containing '{containing}' in {filename}".format(**locals()))
+	
+	tmp_file = uuid.uuid4().hex
+	in_file_contents = read_file_as_str(filename)
+	in_file_contents = re.sub(r".*"+re.escape(containing)+r".*\r?\n?", "", in_file_contents)
+	with codecs.open(tmp_file, 'w', encoding='utf8') as out_file:
+		out_file.write(in_file_contents)
+	os.remove(filename)
+	shutil.move(tmp_file, filename)
+
+@task
+def regex_replace_in_file(build, filename, find, replace, template=False):
+	build.log.debug("regex replace in {filename}".format(**locals()))
+	
+	if template:
+		replace = utils.render_string(build.config, replace)
+	
+	tmp_file = uuid.uuid4().hex
+	in_file_contents = read_file_as_str(filename)
+	in_file_contents = re.sub(find, replace, in_file_contents)
 	with codecs.open(tmp_file, 'w', encoding='utf8') as out_file:
 		out_file.write(in_file_contents)
 	os.remove(filename)
@@ -171,9 +276,10 @@ def set_in_biplist(build, filename, key, value):
 	# biplist import must be done here, as in the server context, biplist doesn't exist
 	import biplist
 	
-	value = utils.render_string(build.config, value)
+	if isinstance(value, str):
+		value = utils.render_string(build.config, value)
 	
-	build.log.debug("settings {key} to {value} in {files}".format(
+	build.log.debug("setting {key} to {value} in {files}".format(
 		key=key, value=value, files=filename
 	))
 	
@@ -182,8 +288,54 @@ def set_in_biplist(build, filename, key, value):
 		build.log.warning('No files were found to match pattern "%s"' % filename)
 	for found_file in found_files:
 		plist = biplist.readPlist(found_file)
-		plist[key] = value
+		plist = utils.transform(plist, key, lambda _: value, allow_set=True)
 		biplist.writePlist(plist, found_file)
+
+@task
+def set_in_info_plist(build, key, value):
+	set_in_biplist(build, "ios/ForgeTemplate/ForgeTemplate/ForgeTemplate-Info.plist", key, value)
+
+@task
+def set_in_json(build, filename, key, value):
+	if isinstance(value, str):
+		value = utils.render_string(build.config, value)
+	
+	build.log.debug("setting {key} to {value} in {files}".format(
+		key=key, value=value, files=filename
+	))
+	
+	found_files = glob.glob(filename)
+	if len(found_files) == 0:
+		build.log.warning('No files were found to match pattern "%s"' % filename)
+	for found_file in found_files:
+		file_json = {}
+		with open(found_file, "r") as opened_file:
+			file_json = json.load(opened_file)
+			# TODO: . separated keys?
+			file_json[key] = value
+		with open(found_file, "w") as opened_file:
+			json.dump(file_json, opened_file, indent=2, sort_keys=True)
+
+@task
+def add_to_json_array(build, filename, key, value):
+	if isinstance(value, str):
+		value = utils.render_string(build.config, value)
+	
+	build.log.debug("adding '{value}' to '{key}' in {files}".format(
+		key=key, value=value, files=filename
+	))
+	
+	found_files = glob.glob(filename)
+	if len(found_files) == 0:
+		build.log.warning('No files were found to match pattern "%s"' % filename)
+	for found_file in found_files:
+		file_json = {}
+		with open(found_file, "r") as opened_file:
+			file_json = json.load(opened_file)
+			# TODO: . separated keys?
+			file_json[key].append(value)
+		with open(found_file, "w") as opened_file:
+			json.dump(file_json, opened_file, indent=2, sort_keys=True)
 
 @task
 def resolve_urls(build, *url_locations):
@@ -255,22 +407,24 @@ def run_hook(build, **kw):
 			cwd = os.getcwd()
 			os.chdir(kw['dir'])
 			
+			target = iter(build.enabled_platforms).next()
+			
 			# Get the extension
 			ext = os.path.splitext(file)[-1][1:]
-			
+
 			proc = None
 			if ext == "py":
 				build.log.info('Running (Python) hook: '+file)
-				proc = lib.PopenWithoutNewConsole(["python", os.path.join(cwd, 'hooks', kw['hook'], file)])
+				proc = lib.PopenWithoutNewConsole(["python", os.path.join(cwd, 'hooks', kw['hook'], file), target])
 			elif ext == "js":
 				build.log.info('Running (node) hook: '+file)
-				proc = lib.PopenWithoutNewConsole(["node", os.path.join(cwd, 'hooks', kw['hook'], file)])
+				proc = lib.PopenWithoutNewConsole(["node", os.path.join(cwd, 'hooks', kw['hook'], file), target])
 			elif ext == "bat" and sys.platform.startswith('win'):
 				build.log.info('Running (Windows Batch file) hook: '+file)
-				proc = lib.PopenWithoutNewConsole([os.path.join(cwd, 'hooks', kw['hook'], file)])
+				proc = lib.PopenWithoutNewConsole([os.path.join(cwd, 'hooks', kw['hook'], file), target])
 			elif ext == "sh" and not sys.platform.startswith('win'):
 				build.log.info('Running (shell) hook: '+file)
-				proc = lib.PopenWithoutNewConsole([os.path.join(cwd, 'hooks', kw['hook'], file)])
+				proc = lib.PopenWithoutNewConsole([os.path.join(cwd, 'hooks', kw['hook'], file), target])
 			
 			if proc != None:
 				proc.wait()
@@ -302,3 +456,36 @@ def populate_package_names(build):
 	build.config["modules"]["package_names"]["ios"] = ios_tasks._generate_package_name(build)
 	build.config["modules"]["package_names"]["ie"] = ie_tasks._generate_package_name(build)
 
+@task	
+def populate_trigger_domain(build):
+	from forge import build_config
+	config = build_config.load()
+	build.config['trigger_domain'] = config['main']['server'][:-5]
+
+@task
+def make_dir(build, dir):
+	os.makedirs(dir)
+
+@task
+def generate_sha1_manifest(build, input_folder, output_file):
+	with open(output_file, 'w') as out:
+		manifest = dict()
+		for root, dirs, files in os.walk(input_folder):
+			for filename in files:
+				filename = os.path.join(root, filename)
+				with open(filename, 'rb') as file:
+					hash = hashlib.sha1(file.read()).hexdigest()
+					manifest[hash]  = filename[len(input_folder)+1:].replace('\\','/')
+		json.dump(manifest, out)
+
+@task
+def check_index_html(build, src='src'):
+	index_path = os.path.join(src, 'index.html')
+	if not os.path.isfile(index_path):
+		raise Exception("Missing index.html in source directory, index.html is required by Forge.")
+
+	with open(index_path) as index_file:
+		index_html = index_file.read()
+
+		if index_html.find("<head>") == -1:
+			raise Exception("index.html does not contain '<head>', this is required to add the Forge javascript library.")

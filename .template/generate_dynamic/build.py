@@ -3,8 +3,10 @@ import logging
 import os
 from os import path
 from pprint import pformat
-
 import lib
+import modules
+import pkgutil
+import sys
 
 class ConfigurationError(lib.BASE_EXCEPTION):
 	'''Indicates there is a problem with a command.'''
@@ -206,7 +208,7 @@ class ToolConfig(dict):
 			return value
 		elif key in self._defaults:
 			value = self._defaults[key]
-			self.log.debug("Using configuration file value {value} for {key}".format(key=key, value=value))
+			self.log.debug("Using configuration file value {value} for {key}".format(key=key, value=repr(value)))
 			return value
 		else:
 			raise KeyError("No tool configuration found for key {key}: you must supply "
@@ -273,57 +275,47 @@ class Build(object):
 	def add_steps(self, steps):
 		'''Append a number of steps to the script that this runner will execute
 		
-		:param steps: a list of 5-tuple commands
+		:param steps: a list of dict commands
 		'''
 		self.script += steps
-		
-	def _run_task(self, func_name, args, kw):
-		'run an individual task'
-		if func_name == 'debug':
-			import pdb
-			pdb.set_trace()
-			return
-		if func_name not in self.tasks:
-			raise ConfigurationError("{func_name} has not been registered as a task".format(func_name=func_name))
-			
-		args = args or ()
-		kw = kw or {}
-		self.log.debug('running %s(%s, %s)' % (func_name, args, kw))
-		try:
-			self.tasks[func_name](self, *args, **kw)
-		except Exception, e:
-			self.log.debug('%s while running %s(%s, %s)' % (e, func_name, args, kw))
-			raise
 	
-	def _get_predicate_functions(self, predicate_str):
-		'convert a comma-separated string of predicate names to an array of functions'
-		# predicate_str can be None - meaning do in any situation
-		# or a comma-separated list of predicate names to invoke
-		predicate_meths = []
-		if predicate_str:
-			for pred_name in [p.strip() for p in predicate_str.split(',')]:
-				if pred_name not in self.predicates:
-					raise ConfigurationError(
-							"{pred_name} has not been registered as "
-							"a predicate".format(pred_name=pred_name))
-				predicate_meths.append(self.predicates[pred_name])
-		return predicate_meths
+	def add_module_steps(self, phase_name):
+		'''Add steps from any modules which include the given phase'''
+		for _, name, _ in pkgutil.walk_packages(modules.__path__, modules.__name__ + '.'):
+			__import__(name)
+			module = sys.modules[name]
+			func = getattr(module, phase_name, None)
+			# Only include if the .py file exists
+			if func and path.exists(path.join(modules.__path__[0], name.split(".")[-1] + '.py')):
+				self.add_steps(func(self))
+	
+	def _call_with_params(self, method, params):
+		if isinstance(params, dict):
+			return method(self, **params)
+		elif isinstance(params, tuple):
+			return method(self, *params)
+		else:
+			return method(self, params)
 	
 	def _preprocess_script(self, script):
-		"""Pad tuples out to 5 elements and filter by predicate and platform"""
+		"""Filter by predicate and platform"""
 		result = []
 		for raw_command in script:
-			# pad incomplete command with Nones (e.g. no kw supplied)
-			# 5 is expected length: platform , predicate , func_name , (args) , {kw}
-			command = list(raw_command) + [None]*(5-len(raw_command))
-			platform , predicate = command[:2]
-			
-			# "all" platform is wildcard
-			# can also configure >1 platform, comma separated, e.g. android,ios
-			if platform == 'all' or (set(platform.split(',')) & set(self.enabled_platforms)):
-				predicate_meths = self._get_predicate_functions(predicate)
-				if all(pred(self) for pred in predicate_meths):
-					result.append(tuple(command))
+			ret_value = True
+			if "when" in raw_command:
+				# Command has predicates, filter on them
+				for pred_str in raw_command['when']:
+					pred_method = self.predicates[pred_str]
+					pred_args = raw_command['when'][pred_str]
+					ret_value = ret_value and self._call_with_params(pred_method, pred_args)
+
+					if not ret_value:
+						# Stop checking predicates as soon as we fail one
+						break
+
+			if ret_value:
+				result.append(raw_command)
+		
 		return result
 		
 	def run(self):
@@ -334,10 +326,21 @@ class Build(object):
 		self.log.debug('{0} script:\n{1}'.format(self, pformat(self.script)))
 		
 		for command in self.script:
-			func_name , args , kw = command[2:]
-			self._run_task(func_name, args, kw)
-			
+			if command.get('debug'):
+				import pdb
+				pdb.set_trace()
+				continue
+			if "do" in command:
+				for task_str in command['do']:
+					task_method = self.tasks[task_str]
+					task_args = command['do'][task_str]
+					self._call_with_params(task_method, task_args)
+						
 		self.log.debug('{0} has finished'.format(self))
+	
+	def run_task(self, task, args):
+		task_method = self.tasks[task]
+		self._call_with_params(task_method, args)
 	
 	def __repr__(self):
 		return '<ForgeTask ({0})>'.format(", ".join(self.enabled_platforms))

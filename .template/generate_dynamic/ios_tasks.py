@@ -12,11 +12,13 @@ import time
 import uuid
 import shutil
 import sys
-from zipfile import ZipFile
+import hashlib
+from zipfile import ZipFile, ZIP_DEFLATED
 
 import lib
 from lib import temp_file, task, read_file_as_str
-from utils import run_shell, ensure_lib_available
+from utils import run_shell, ensure_lib_available, ProcessGroup
+from utils import which
 
 LOG = logging.getLogger(__name__)
 
@@ -32,6 +34,7 @@ class IOSRunner(object):
 		# at the moment this points one level above, e.g. my-app/development,
 		# NOT my-app/development/ios
 		self.path_to_ios_build = path_to_ios_build
+		self.provisioning_profile = None
 
 	def _missing_provisioning_profile(self, build, path_to_pp):
 		lib.local_config_problem(
@@ -63,16 +66,16 @@ class IOSRunner(object):
 	def _parse_plist(self, plist):
 		return plistlib.readPlistFromString(plist)
 		
-	def _extract_seed_id(self, plist_dict):
+	def _extract_seed_id(self):
 		'E.g. "DEADBEEDAA" from provisioning profile plist including "DEADBEEDAA.*"'
-		app_ids = plist_dict["ApplicationIdentifierPrefix"]
+		app_ids = self.provisioning_profile["ApplicationIdentifierPrefix"]
 		if not app_ids:
 			raise ValueError("Couldn't find an 'ApplicationIdentifierPrefix' entry in your provisioning profile")
 		return app_ids[0]
 
-	def _extract_app_id(self, plist_dict):
+	def _extract_app_id(self):
 		'E.g. "DEADBEEFAA.io.trigger.forge.app" from provisioning profile plist, only works for distribution profiles'
-		entitlements = plist_dict["Entitlements"]
+		entitlements = self.provisioning_profile["Entitlements"]
 		if not entitlements:
 			raise ValueError("Couldn't find an 'Entitlements' entry in your provisioning profile")
 		app_id = entitlements['application-identifier']
@@ -80,9 +83,9 @@ class IOSRunner(object):
 			raise ValueError("Couldn't find an 'application-identifier' entry in your provisioning profile")
 		return app_id
 	
-	def _is_distribution_profile(self, plist_dict):
+	def _is_distribution_profile(self):
 		'See if the profile has a false get-task-allow (i.e. is app store or adhoc distribution'
-		return not plist_dict['Entitlements']['get-task-allow']
+		return not self.provisioning_profile['Entitlements']['get-task-allow']
 
 	def _check_for_codesign(self):
 		which_codesign = subprocess.Popen(['which', 'codesign'], stdout=subprocess.PIPE)
@@ -92,7 +95,7 @@ class IOSRunner(object):
 			raise IOError("Couldn't find the codesign command. Make sure you have xcode installed and codesign in your PATH.")
 		return stdout.strip()
 
-	def get_bundled_ai(self, plist_dict, path_to_ios_build):
+	def get_bundled_ai(self, application_id_prefix, path_to_ios_build):
 		'''
 		returns the application identifier, with bundle id
 		'''
@@ -101,11 +104,11 @@ class IOSRunner(object):
 		
 		info_plist_path = glob(path_to_ios_build + '/ios' + '/device-*')[0] + '/Info.plist'
 		return "%s.%s" % (
-			plist_dict['ApplicationIdentifierPrefix'][0],
+			application_id_prefix,
 			biplist.readPlist(info_plist_path)['CFBundleIdentifier']
 		)
 
-	def check_plist_dict(self,plist_dict, path_to_ios_build):
+	def check_plist_dict(self, plist_dict, path_to_ios_build):
 		'''
 		Raises an IOSError on:
 		 - Expired profile
@@ -114,37 +117,51 @@ class IOSRunner(object):
 		if plist_dict['ExpirationDate'] < datetime.datetime.now():
 			raise IOSError("Provisioning profile has expired")
 			
-		ai = plist_dict['Entitlements']['application-identifier']
+		ai_from_provisioning_prof = plist_dict['Entitlements']['application-identifier']
+		provisioning_profile_bundle = ai_from_provisioning_prof.partition('.')[2]
 		
-		bundled_ai = self.get_bundled_ai(plist_dict, path_to_ios_build)
+		ai_from_built_app = self.get_bundled_ai(
+				plist_dict['ApplicationIdentifierPrefix'][0],
+				path_to_ios_build)
 		wildcard_ai = "%s.*" % plist_dict['ApplicationIdentifierPrefix'][0]
 		
-		if ai == bundled_ai:
+		if ai_from_provisioning_prof == ai_from_built_app:
 			LOG.debug("Application ID in app and provisioning profile match")
-		elif ai == wildcard_ai:
+		elif ai_from_provisioning_prof == wildcard_ai:
 			LOG.debug("Provisioning profile has valid wildcard application ID")
 		else:
-			raise IOSError('Provisioning profile and application ID do not match \n '
-				'Provisioning profile ID: {pp_id}\n '
-				'Application ID: {app_id}\n '
-				'Please see "Preparing your apps for app stores" in our docs: \n'
-				'http://current-docs.trigger.io/releasing.html#ios'.format(
-					pp_id=bundled_ai,
-					app_id=ai,
+			raise IOSError('''Provisioning profile and application ID do not match
+
+	ID in your provisioning profile: {pp_id}
+	ID in your app:                  {app_id}
+
+You probably want to add something like this to your module configuration:
+
+	"package_names": {{
+		"ios": "{pp_bundle}"
+	}}
+
+See "Preparing your apps for app stores" in our docs: http://current-docs.trigger.io/releasing.html#ios'''.format(
+				pp_id=ai_from_provisioning_prof,
+				app_id=ai_from_built_app,
+				pp_bundle=provisioning_profile_bundle,
 				)
 			)
-		
-	def log_profile(self, plist_dict):
+			
+	def plist_supports_wireless_distribution(self, plist_dict):
+		return not plist_dict['Entitlements']['get-task-allow'] and ('ProvisionedDevices' in plist_dict or 'ProvisionsAllDevices' in plist_dict)
+			
+	def log_profile(self):
 		'''
 		Logs:
 		name
 		number of enabled devices (with ids)
 		appstore profile or development
 		'''
-		if len(plist_dict.get('ProvisionedDevices', [])) > 0:
+		if len(self.provisioning_profile.get('ProvisionedDevices', [])) > 0:
 			
-			LOG.info(str(len(plist_dict['ProvisionedDevices'])) + ' Provisioned Device(s):')
-			LOG.info(plist_dict['ProvisionedDevices'])
+			LOG.info(str(len(self.provisioning_profile['ProvisionedDevices'])) + ' Provisioned Device(s):')
+			LOG.info(self.provisioning_profile['ProvisionedDevices'])
 		else:
 			LOG.info('No Provisioned Devices, profile is Appstore')
 	
@@ -174,7 +191,7 @@ class IOSRunner(object):
 					examples={
 						"ios.profiles.DEFAULT.developer_certificate_path": path.abspath("/Users/Bob/certificate.pfx")
 					},
-					more_info="http://docs.trigger.io/en/v1.3/tools/ios-windows.html"
+					more_info="http://current-docs.trigger.io/tools/ios-windows.html"
 				)
 
 			if not certificate_password:
@@ -185,22 +202,72 @@ class IOSRunner(object):
 					examples={
 						"ios.profiles.DEFAULT.developer_certificate_password": "mypassword"
 					},
-					more_info="http://docs.trigger.io/en/v1.3/tools/ios-windows.html",
+					more_info="http://current-docs.trigger.io/tools/ios-windows.html"
 				)
-			
+
+			cache_file = None
+			development_certificate = False
+			try:
+				cert_name = subprocess.check_output(['java', '-jar', ensure_lib_available(build, 'p12name.jar'), certificate_path, certificate_password]).strip()
+				if cert_name.startswith('iPhone Developer:'):
+					development_certificate = True
+			except Exception:
+				pass
+
+			if development_certificate:
+				# Development certificate signings can be cached
+				# Hash for Forge binary + signing certificate + profile + info.plist
+				h = hashlib.sha1()
+				with open(path.join(path_to_app, 'Forge'), 'rb') as binary_file:
+					h.update(binary_file.read())
+				with open(path.join(path_to_app, 'Info.plist'), 'rb') as info_plist_file:
+					h.update(info_plist_file.read())
+				with open(certificate_path, 'rb') as certificate_file:
+					h.update(certificate_file.read())
+				with open(path_to_embedded_profile, 'rb') as embedded_file:
+					h.update(embedded_file.read())
+
+				if not path.exists(path.abspath(path.join(self.path_to_ios_build, '..', '.template', 'ios-signing-cache'))):
+					os.makedirs(path.abspath(path.join(self.path_to_ios_build, '..', '.template', 'ios-signing-cache')))
+				cache_file = path.abspath(path.join(self.path_to_ios_build, '..', '.template', 'ios-signing-cache', h.hexdigest()))
+
+			# XXX: Currently cache file is never saved, see below.
+			if cache_file is not None and path.exists(cache_file):
+				with temp_file() as resource_rules_temp:
+					shutil.copy2(path.join(path_to_app, 'ResourceRules.plist'), resource_rules_temp)
+					zip_to_extract = ZipFile(cache_file)
+					zip_to_extract.extractall(path_to_app)
+					zip_to_extract.close()
+					shutil.copy2(resource_rules_temp, path.join(path_to_app, 'ResourceRules.plist'))
+				return
+
 			# Remote
 			LOG.info('Sending app to remote server for codesigning. Uploading may take some time.')
 			
 			# Zip up app
 			with temp_file() as app_zip_file:
-				with ZipFile(app_zip_file, 'w') as app_zip:
-					for root, dirs, files in os.walk(path_to_app, topdown=False):
-						for file in files:
-							app_zip.write(path.join(root, file), path.join(root[len(path_to_app):], file))
-							os.remove(path.join(root, file))
-						for dir in dirs:
-							os.rmdir(path.join(root, dir))
-							
+				if cache_file is None:
+					with ZipFile(app_zip_file, 'w', compression=ZIP_DEFLATED) as app_zip:
+						for root, dirs, files in os.walk(path_to_app, topdown=False):
+							for file in files:
+								app_zip.write(path.join(root, file), path.join(root[len(path_to_app):], file))
+								os.remove(path.join(root, file))
+							for dir in dirs:
+								os.rmdir(path.join(root, dir))
+				else:
+					with ZipFile(app_zip_file, 'w', compression=ZIP_DEFLATED) as app_zip:
+						app_zip.write(path.join(path_to_app, 'Forge'), 'Forge')
+						app_zip.write(path.join(path_to_app, 'Info.plist'), 'Info.plist')
+						app_zip.write(path_to_embedded_profile, 'embedded.mobileprovision')
+						with temp_file() as tweaked_resource_rules:
+							import biplist
+							rules = biplist.readPlist(path.join(path_to_app, 'ResourceRules.plist'))
+							# Don't sign anything
+							rules['rules']['.*'] = False
+							with open(tweaked_resource_rules, 'wb') as tweaked_resource_rules_file:
+								biplist.writePlist(rules, tweaked_resource_rules_file)
+							app_zip.write(tweaked_resource_rules, 'ResourceRules.plist')
+								
 							
 				from poster.encode import multipart_encode
 				from poster.streaminghttp import register_openers
@@ -269,6 +336,10 @@ class IOSRunner(object):
 					zip_to_extract = ZipFile(signed_zip_file)
 					zip_to_extract.extractall(path_to_app)
 					zip_to_extract.close()
+
+					# XXX: Caching currently disabled as Info.plist changes on every build
+					"""if cache_file is not None:
+						shutil.copy2(signed_zip_file, cache_file)"""
 					LOG.info('Signed app received, continuing with packaging.')
 
 		else:
@@ -281,7 +352,16 @@ class IOSRunner(object):
 					'--resource-rules={0}'.format(resource_rules),
 					path_to_app)
 
-	def _create_entitlements_file(self, build, plist_dict, temp_file_path):
+	def _select_certificate(self, certificate):
+		if certificate is not None:
+			return certificate
+		else:
+			if self._is_distribution_profile():
+				return 'iPhone Distribution'
+			else:
+				return 'iPhone Developer'
+
+	def _create_entitlements_file(self, build, temp_file_path):
 		# XXX
 		# TODO: refactor _replace_in_file into common utility file
 		def _replace_in_file(filename, find, replace):
@@ -293,7 +373,7 @@ class IOSRunner(object):
 			os.remove(filename)
 			os.rename(tmp_file, filename)
 	
-		bundle_id = self._extract_app_id(plist_dict)
+		bundle_id = self._extract_app_id()
 		shutil.copy2(path.join(self._lib_path(), 'template.entitlements'), temp_file_path)
 		
 		_replace_in_file(temp_file_path, 'APP_ID', bundle_id)
@@ -305,11 +385,11 @@ class IOSRunner(object):
 			_replace_in_file(temp_file_path, '<key>aps-environment</key><string>development</string>', '')
 		
 		# Distribution mode specific changes
-		if self._is_distribution_profile(plist_dict):
+		if self._is_distribution_profile():
 			_replace_in_file(temp_file_path, '<key>get-task-allow</key><true/>', '<key>get-task-allow</key><false/>')
 			_replace_in_file(temp_file_path, '<key>aps-environment</key><string>development</string>', '<key>aps-environment</key><string>production</string>')
 	
-	def create_ipa_from_app(self, build, provisioning_profile, output_path_for_ipa, certificate_to_sign_with=None, relative_path_to_itunes_artwork=None, certificate_path=None, certificate_password=None):
+	def create_ipa_from_app(self, build, provisioning_profile, output_path_for_ipa, certificate_to_sign_with=None, relative_path_to_itunes_artwork=None, certificate_path=None, certificate_password=None, output_path_for_manifest=None):
 		"""Create an ipa from an app, with an embedded provisioning profile provided by the user, and
 		signed with a certificate provided by the user.
 
@@ -323,9 +403,6 @@ class IOSRunner(object):
 
 		LOG.info('Starting package process for iOS')
 		
-		if certificate_to_sign_with is None:
-			certificate_to_sign_with = 'iPhone Developer'
-
 		directory = path.dirname(output_path_for_ipa)
 		if not path.isdir(directory):
 			os.makedirs(directory)
@@ -338,11 +415,15 @@ class IOSRunner(object):
 		plist_str = self._grab_plist_from_binary_mess(build, provisioning_profile)
 		plist_dict = self._parse_plist(plist_str)
 		self.check_plist_dict(plist_dict, self.path_to_ios_build)
+		self.provisioning_profile = plist_dict
 		LOG.info("Plist OK")
+
+		# use distribution cert automatically if PP is distribution
+		certificate_to_sign_with = self._select_certificate(certificate_to_sign_with)
+
+		self.log_profile()
 		
-		self.log_profile(plist_dict)
-		
-		seed_id = self._extract_seed_id(plist_dict)
+		seed_id = self._extract_seed_id()
 		
 		LOG.debug("Extracted seed ID: {0}".format(seed_id))
 		
@@ -359,7 +440,7 @@ class IOSRunner(object):
 				path_to_itunes_artwork = None
 
 			with temp_file() as temp_file_path:
-				self._create_entitlements_file(build, plist_dict, temp_file_path)
+				self._create_entitlements_file(build, temp_file_path)
 				self._sign_app(build=build,
 					provisioning_profile=provisioning_profile,
 					certificate=certificate_to_sign_with,
@@ -376,9 +457,38 @@ class IOSRunner(object):
 			with ZipFile(output_path_for_ipa, 'w') as out_ipa:
 				for root, dirs, files in os.walk(temp_dir):
 					for file in files:
+						LOG.debug('adding to IPA: {file}'.format(
+							file=path.join(root, file),
+						))
 						out_ipa.write(path.join(root, file), path.join(root[len(temp_dir):], file))
 
 		LOG.info("created IPA: {output}".format(output=output_path_for_ipa))
+		
+		if output_path_for_manifest and self.plist_supports_wireless_distribution(plist_dict):
+			LOG.info("Provisioning profile supports wireless distributions, creating manifest: %s" % output_path_for_manifest)
+			# Based on https://help.apple.com/iosdeployment-apps/#app43ad78b3
+			manifest = {"items": [{
+				"assets": [{
+					"kind": "software-package",
+					"url": "http://www.example.com/app.ipa"
+				},{
+					"kind": "display-image",
+					"needs-shine": True,
+					"url": "http://www.example.com/image.57x57.png",
+				},{
+					"kind": "full-size-image",
+					"needs-shine": True,
+					"url": "http://www.example.com/image.512x512.jpg",
+				}],
+				"metadata": {
+					"bundle-identifier": _generate_package_name(build),
+					"bundle-version": build.config['version'],
+					"kind": "software",
+					"title": build.config['name']
+				}
+			}]}
+			plistlib.writePlist(manifest, output_path_for_manifest)
+			
 		return output_path_for_ipa
 
 	def _locate_ios_app(self, error_message):
@@ -409,26 +519,50 @@ class IOSRunner(object):
 		
 		path_to_app = possible_apps[0]
 		
-		LOG.debug('trying to run app %s' % path_to_app)
+		LOG.debug('Trying to run app %s' % path_to_app)
 
-		if path.exists(SIMULATOR_IN_42):
-			LOG.debug("Detected XCode version 4.2 or older")
-			ios_sim_binary = "ios-sim-xc4.2"
-		elif path.exists(SIMULATOR_IN_43):
+		if path.exists(SIMULATOR_IN_43):
 			LOG.debug("Detected XCode version 4.3 or newer")
 			ios_sim_binary = "ios-sim-xc4.3"
+		elif path.exists(SIMULATOR_IN_42):
+			LOG.debug("Detected XCode version 4.2 or older")
+			ios_sim_binary = "ios-sim-xc4.2"
 		else:
 			raise IOSError("Couldn't find iOS simulator in {old} or {new}, if you want to use the iOS simulator then you need to install XCode".format(
 				old=SIMULATOR_IN_42,
 				new=SIMULATOR_IN_43,
 			))
-		logfile = tempfile.mkstemp()[1]
-		ios_sim_proc = subprocess.Popen([path.join(self._lib_path(), ios_sim_binary), "launch", path_to_app, '--stderr', logfile])
-		LOG.info('Showing log output:')
+
+		def could_not_start_simulator(line):
+			return line.startswith("[DEBUG] Could not start simulator")
+
 		try:
-			run_shell("tail", "-f", logfile, fail_silently=False, command_log_level=logging.INFO, check_for_interrupt=True)
+			logfile = tempfile.mkstemp()[1]
+			process_group = ProcessGroup()
+
+			ios_sim_cmd = [path.join(self._lib_path(), ios_sim_binary), "launch", path_to_app, '--stderr', logfile]
+
+			sdk = build.tool_config.get('ios.simulatorsdk')
+			if sdk is not None:
+				ios_sim_cmd = ios_sim_cmd + ['--sdk', sdk]
+			family = build.tool_config.get('ios.simulatorfamily')
+			if family is not None:
+				ios_sim_cmd = ios_sim_cmd + ['--family', family]
+
+			LOG.info('Starting simulator')
+			process_group.spawn(
+				ios_sim_cmd,
+				fail_if=could_not_start_simulator
+			)
+
+			LOG.info('Showing log output:')
+			process_group.spawn(
+				["tail", "-f", logfile],
+				command_log_level=logging.INFO
+			)
+
+			process_group.wait_for_success()
 		finally:
-			lib.progressive_kill(ios_sim_proc.pid)
 			os.remove(logfile)
 	
 	def run_idevice(self, build, device, provisioning_profile, certificate=None, certificate_path=None, certificate_password=None):
@@ -445,11 +579,15 @@ class IOSRunner(object):
 		plist_str = self._grab_plist_from_binary_mess(build, provisioning_profile)
 		plist_dict = self._parse_plist(plist_str)
 		self.check_plist_dict(plist_dict, self.path_to_ios_build)
+		self.provisioning_profile = plist_dict
 		LOG.info("Plist OK")
+
+		certificate = self._select_certificate(certificate)
+		self.log_profile()
 		
 		if sys.platform.startswith('darwin'):
 			with temp_file() as temp_file_path:
-				self._create_entitlements_file(build, plist_dict, temp_file_path)
+				self._create_entitlements_file(build, temp_file_path)
 				
 				self._sign_app(build=build,
 					provisioning_profile=provisioning_profile,
@@ -457,7 +595,7 @@ class IOSRunner(object):
 					entitlements_file=temp_file_path,
 				)
 			
-			fruitstrap = [ensure_lib_available(build, 'fruitstrap'), '-d', '-g', ensure_lib_available(build, 'gdb-arm-apple-darwin'), '-t', '10', '-b', path_to_app]
+			fruitstrap = [ensure_lib_available(build, 'fruitstrap'), '-d', '-u', '-t', '10', '-g', '-i mi -q', '-b', path_to_app]
 			if device and device.lower() != 'device':
 				# pacific device given
 				fruitstrap.append('-i')
@@ -466,7 +604,7 @@ class IOSRunner(object):
 			else:
 				LOG.info('Installing app on device: is it connected?')
 
-			run_shell(*fruitstrap, fail_silently=False, command_log_level=logging.INFO, filter=lambda x: not x.startswith("warning"), check_for_interrupt=True)
+			run_shell(*fruitstrap, fail_silently=False, command_log_level=logging.INFO, filter=lambda x: ((x.startswith('[') or x.startswith('-')) and x) or (x.startswith('@') and x[2:-6]), check_for_interrupt=True)
 		elif sys.platform.startswith('win'):
 			with temp_file() as ipa_path:
 				self.create_ipa_from_app(
@@ -488,7 +626,34 @@ class IOSRunner(object):
 				win_ios_install.append(_generate_package_name(build))
 
 				run_shell(*win_ios_install, fail_silently=False, command_log_level=logging.INFO, check_for_interrupt=True)
-
+		else:
+			if not which('ideviceinstaller'):
+				raise Exception("Can't find ideviceinstaller - is it installed and on your PATH?")
+			with temp_file() as ipa_path:
+				self.create_ipa_from_app(
+					build=build,
+					provisioning_profile=provisioning_profile,
+					output_path_for_ipa=ipa_path,
+					certificate_path=certificate_path,
+					certificate_password=certificate_password,
+				)
+				
+				linux_ios_install = ['ideviceinstaller']
+				
+				if device and device.lower() != 'device':
+					# pacific device given
+					linux_ios_install.append('-U')
+					linux_ios_install.append(device)
+					LOG.info('Installing app on device {device}: is it connected?'.format(device=device))
+				else:
+					LOG.info('Installing app on device: is it connected?')
+				
+				linux_ios_install.append('-i')
+				linux_ios_install.append(ipa_path)
+				run_shell(*linux_ios_install, fail_silently=False,
+					command_log_level=logging.INFO,
+					check_for_interrupt=True)
+				LOG.info('App installed, you will need to run the app on the device manually.')
 	
 	def _lib_path(self):
 		return path.abspath(path.join(
@@ -507,7 +672,7 @@ def run_ios(build, device):
 		runner.run_iphone_simulator(build)
 	else:
 		LOG.info('Running on iOS device: {device}'.format(device=device))
-		certificate_to_sign_with = build.tool_config.get('ios.profile.developer_certificate', 'iPhone Developer')
+		certificate_to_sign_with = build.tool_config.get('ios.profile.developer_certificate')
 		provisioning_profile = build.tool_config.get('ios.profile.provisioning_profile')
 		if not provisioning_profile:
 			lib.local_config_problem(
@@ -543,9 +708,9 @@ def package_ios(build):
 			more_info="http://current-docs.trigger.io/tools/local-config.html#ios"
 		)
 		# raise IOSError("see http://current-docs.trigger.io/tools/local-config.html#ios")
-	certificate_to_sign_with = build.tool_config.get('ios.profile.developer_certificate', 'iPhone Developer') 
-	certificate_path = build.tool_config.get('ios.profile.developer_certificate_path', '') 
-	certificate_password = build.tool_config.get('ios.profile.developer_certificate_password', '') 
+	certificate_to_sign_with = build.tool_config.get('ios.profile.developer_certificate')
+	certificate_path = build.tool_config.get('ios.profile.developer_certificate_path', '')
+	certificate_password = build.tool_config.get('ios.profile.developer_certificate_password', '')
 
 	runner = IOSRunner(path.abspath('development'))
 	try:
@@ -553,11 +718,12 @@ def package_ios(build):
 	except KeyError:
 		relative_path_to_itunes_artwork = None
 
-	file_name = "{name}-{time}.ipa".format(
+	file_name = "{name}-{time}".format(
 		name=re.sub("[^a-zA-Z0-9]", "", build.config["name"].lower()),
 		time=str(int(time.time()))
 	)
-	output_path_for_ipa = path.abspath(path.join('release', 'ios', file_name))
+	output_path_for_ipa = path.abspath(path.join('release', 'ios', file_name+'.ipa'))
+	output_path_for_manifest = path.abspath(path.join('release', 'ios', file_name+'-WirelessDistribution.plist'))
 	runner.create_ipa_from_app(
 		build=build,
 		provisioning_profile=provisioning_profile,
@@ -566,6 +732,7 @@ def package_ios(build):
 		output_path_for_ipa=output_path_for_ipa,
 		certificate_path=certificate_path,
 		certificate_password=certificate_password,
+		output_path_for_manifest=output_path_for_manifest,
 	)
 
 def _generate_package_name(build):

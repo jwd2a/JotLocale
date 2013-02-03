@@ -3,37 +3,44 @@
 window.JotLocale = Backbone.Router.extend({
 	routes: {
 	'' : 'checkLogin',
+	'myplaces' : 'myplaces',
 	'searchresults/:query/location/:location' : 'searchresults',
-	'home' : 'myplaces',
+	'home/:action(/:placename)' : 'myplaces',
 	'locationdetail/:id' : 'locationdetail',
 	'register' : 'register',
-	'myplaces' : 'myplaces',
+	'myplaces/:action(/:placename)' : 'myplaces',
 	'login' : 'login',
 	'mylocation/:id' : 'mylocation',
 	'add' : 'addItem',
-	'findPlace' : 'findPlace'
+	'findPlace' : 'findPlace',
+	'editPlace' : 'editPlace',
+	'settings' : 'settings'
 	},
 	
 	initialize: function() {
 		
 	},
 	
-	tempFB: function() {
-		this.changePage(new TempFBLogin({}));
-	},
-	
-	checkLogin: function() {
-		window.App.User = new User({});
-		window.console.log("checking login");
-		var loggedIn = window.App.User.checkLoginStatus();
-	},
-	
 	login: function() {
 		this.changePage(new LoginView({}));
 	},
 	
+	checkLogin: function(){
+		console.log("checking login");
+		if(!Parse.User.current()){
+			window.App.navigate("#login", {trigger:true});
+		}
+		else {
+			window.App.navigate("#myplaces", {trigger:true});
+		}
+		
+		
+	},
+	
 	mylocation: function(id) {
+		console.log(id);
 		var place = window.collection.get(id);
+		console.log(place);
 		this.changePage(new MyLocationDetailView({model: place}), "slide");
 	},
 	
@@ -42,38 +49,40 @@ window.JotLocale = Backbone.Router.extend({
 
 	},
 	
-	myplaces: function() {
-		var self=this;
-		console.log("myplaces route");
-		
-		if (!(window.App.User)){
-			self.checkLogin();
+	myplaces: function(action, place) {
+		console.log("my places route");
+		if (!action){
+			var action = "";
+			var place = "";
 		}
-		
 		var myPlaceList = new SavedPlaces();
-
-		if (window.App.User.get("lat")) { //fallback feature to handle instance where device has no geolocation (should this be city?)
-			myPlaceList.getByDistance();
-		}
-		else {
-			console.log("no city");
-			myPlaceList.getByState();
-		}
-		
-		this.changePage(new MyPlacesView({collection: myPlaceList}));
-		
-	},
+		var self=this;
+		myPlaceList.getByCity();
+		self.changePage(new MyPlacesView({
+			collection: myPlaceList,
+			action:action,
+			place:place
+		}));
+	},	
 	
 	addItem: function() {
 		if (!window.newplace) {
-		window.newplace = new Place({});
+		window.newplace = new compactPlace({});
 		}
-		this.changePage(new AddItemView({model:window.newplace}), "flip");
+		this.changePage(new AddItemView({model:window.newplace}), "slide");
 	},
 	
 	findPlace: function() {
-		this.changePage(new FindPlaceView({}), "slide");
+		this.changePage(new FindPlaceView({}), "flip");
 	},
+	
+	editPlace: function(){
+		this.changePage(new EditPlaceView({model:window.loc}), "flip");
+	},
+	
+	settings: function() {
+		this.changePage(new SettingsView({}), "fade");
+	},	
 
 	changePage:function (view, transition) {
 			this.currentView = view;
@@ -81,6 +90,12 @@ window.JotLocale = Backbone.Router.extend({
 	        view.render();
 	        $('body').append($(view.el));
 	        $.mobile.changePage($(view.el), {changeHash:false, transition: transition});
+			setTimeout(function() {
+			       if (view.postRender) {
+				        view.postRender();
+				}
+			}, 0);
+			
 	}
 	
 });

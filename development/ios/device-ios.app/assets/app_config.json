@@ -1,0 +1,24 @@
+{
+  "config_hash": "fd03c13eac21c571312338e5966be08236b9d3af", 
+  "ipad_orientation": "portrait", 
+  "iphone_orientation": "portrait", 
+  "modules": [
+    "internal", 
+    "launchimage", 
+    "logging", 
+    "event", 
+    "display", 
+    "contact", 
+    "facebook", 
+    "file", 
+    "geolocation", 
+    "media", 
+    "prefs", 
+    "reload", 
+    "request", 
+    "tools", 
+    "topbar"
+  ], 
+  "trigger_domain": "https://trigger.io", 
+  "uuid": "513f8a2c1bf511e2b35812313d1adcbe"
+}

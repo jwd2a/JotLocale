@@ -1,33 +1,66 @@
 {
-    "config_version": "3", 
-    "uuid": "84ba256cba7811e1897412313d1adcbe", 
-    "author": "jdavis1002@gmail.com", 
-    "modules": {
-        "geolocation": true, 
-        "logging": {
-            "level": "DEBUG"
-        }, 
-        "file": true, 
-        "media": true, 
-        "is": true, 
-        "request": {
-            "permissions": [
-                "http://*/*", 
-                "https://*/*"
-            ]
-        }, 
-        "reload": true, 
-        "contact": true, 
-        "facebook": {
-            "appid": "173569276105298"
-        }, 
-        "tabbar": false, 
-        "prefs": true, 
-        "tools": true, 
-        "topbar": true
-    }, 
-    "name": "Squirrel", 
-    "platform_version": "v1.4", 
-    "version": "0.1", 
-    "description": "An empty app created by default"
+	"author": "justin@maderalabs.com", 
+	"config_version": "3", 
+	"description": "Never forget another recommendation again!", 
+	"modules": {
+		"contact": true,
+		"facebook": {
+			"appid": "173569276105298"
+		},
+		"display": {
+			"orientations": {
+			                "default": "portrait",
+			                "iphone": "portrait",
+			                "ipad": "portrait",
+			                "android": "portrait"
+			            }
+		},
+		"file": true, 
+		"geolocation": true, 
+		"icons": {
+			"android": {
+				"36": "img/icons/icon36.png", 
+				"48": "img/icons/icon48-android.png", 
+				"72": "img/icons/icon72.png"
+			}, 
+			"ios": {
+				"114": "img/icons/icon114.png", 
+				"144": "img/icons/icon144.png", 
+				"512": "img/icons/icon512.png", 
+				"57": "img/icons/icon57.png", 
+				"72": "img/icons/icon72-ios.png", 
+				"prerendered": true
+			}
+		}, 
+		"is": true, 
+		"launchimage": {
+			"android": "img/splash/launch_screen_640x1136_android.png",
+			"android-landscape": "img/splash/launch_screen_640x1136_android.png",   
+			"ipad": "img/splash/launch_screen_640x960.png", 
+			"ipad-landscape": "img/splash/launch_screen_640x960.png", 
+			"ipad-landscape-retina": "img/splash/launch_screen_640x960.png", 
+			"ipad-retina": "img/splash/launch_screen_640x960.png", 
+			"iphone": "img/splash/launch_screen_320x480.png",
+			"iphone-retina": "img/splash/launch_screen_640x960.png", 
+			"iphone-retina4": "img/splash/launch_screen_640x1136.png",
+			"background-color": "#026b88"
+		}, 
+		"logging": {
+			"level": "DEBUG"
+		}, 
+		"media": true, 
+		"prefs": true, 
+		"reload": true, 
+		"request": {
+			"permissions": [
+				"http://*/*", 
+				"https://*/*"
+			]
+		}, 
+		"tools": true, 
+		"topbar": true
+	}, 
+	"name": "Drawer", 
+	"platform_version": "v1.4", 
+	"version": "0.8"
 }

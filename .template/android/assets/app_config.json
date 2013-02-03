@@ -1,0 +1,26 @@
+{
+  "config_hash": "CONFIG_HASH_HERE", 
+  "disable_ics_acceleration": false, 
+  "facebook_appid": "173569276105298", 
+  "modules": [
+    "internal", 
+    "logging", 
+    "launchimage", 
+    "event", 
+    "contact", 
+    "display", 
+    "facebook", 
+    "file", 
+    "media", 
+    "prefs", 
+    "reload", 
+    "request", 
+    "tools", 
+    "topbar"
+  ], 
+  "payments_publicKey": "PAYMENTS_PUBLIC_KEY_HERE", 
+  "splashimage": "src/img/splash/launch_screen_640x1136_android.png", 
+  "splashimage_landscape": "src/img/splash/launch_screen_640x1136_android.png", 
+  "trigger_domain": "TRIGGER_DOMAIN_HERE", 
+  "uuid": "UUID_HERE"
+}

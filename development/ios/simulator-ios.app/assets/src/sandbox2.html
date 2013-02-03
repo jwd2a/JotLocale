@@ -17,60 +17,96 @@
 #container {
 	height: 100%;
 }
+
+.address {
+	background-image: url('img/btn_location88.png');
+	background-repeat: no-repeat;
+	background-position: left middle;
+	background-size: 10%;
+	padding-left: 20px;
+	width: 100%;
+}
+
+.phone {
+	background-image: url('img/btn_phone88.png');
+	background-repeat: no-repeat;
+	background-position: left middle;
+	background-size: 10%;
+	padding-left: 20px;
+	width: 100%;
+}
+
+.url {
+	background-image: url('img/btn_web88.png');
+	background-repeat: no-repeat;
+	background-position: left middle;
+	background-size: 10%;
+	padding-left: 20px;
+	width: 100%;
+}
 </style>
 
 </head>
 <body>
-		<div id="container">
+	<div id="header">
+		<div class="btnLeft back"></div>
+		<div class="btnRight edit"></div>
+		<div id="logo"></div>
+	</div>
+	
+	<div class="clearHeader"></div>
+	
+	<div id="content">
+	
+		<div id="placePhoto">
 			
-			<div id="header">
-				
+			<div id="placeTitleBlock">
+				<div class="placeTitle"><%= name %></div>
+				<div class="placeCategory"><%= categories[0].name %></div>
 			</div>
 			
+			<img src="img/test_photo2.jpg" id="placeImg" alt="Test Photo"/>
 		
+		</div>
+		
+		<div id="placeBottom">
+			
+			<div id="placeDetails">
 				
-			<div id="placePhoto">
-				<div id="placeTitleBlock"><div class="placeTitle">Siam Thai</div><div class="placeCategory">Thai Restaurant</div></div>
-				<img src="img/test_photo2.jpg" width="640" height="280" alt="Test Photo">
+				<div id="placeDetailsAddress" class="placeDetailComponent">
+					<span class="placeDetailsComponentText address">
+					<a href="http://maps.google.com/maps?q=<%=location.address %> <%=location.city%> <%=location.state%> <%=location.postalcode%>">
+						<span class="line1">1234 Main Street Southwest Dr.</span>
+						<span class="line2">Tampa, FL 33622</span>
+					</a>
+					</span>
+				</div> <!--end placeDetailsAddress -->
+			
+				<div id="placeDetailsPhone" class="placeDetailComponent">
+					<span class="placeDetailsComponentText phone">(813) 123-4567</span>
+				</div> <!--end #placeDetailsPhone-->
+			
+				<div id="placeDetailsWeb" class="placeDetailComponent">
+					<span class="placeDetailsComponentText url">www.myplaceurl.com</span>
+				</div> <!--end #placeDetailsWeb -->
+				
+			</div><!--end #placeDetails -->
+		
+			<div class="recommendedBy">
+				Recommended by <%= referrer %>
+			</div> <!--end #recommendedBy -->
+		
+			<div id="placeNotes">
+				<%= notes %>
+			</div> <!--end #placeNotes -->
+		
+			<div id="placeFooter">
+				<button data-role="none" id="triedPlace" class="styledSubmit">Tried it!</button>
+				<button data-role="none" id="removePlace" class="styledSubmit">Remove this place</button>
 			</div>
-				
-			<div id="placeBottom">
-					
-				<div id="placeDetails">
-						
-					<div id="placeDetailsAddress" class="placeDetailComponent">
-						<span class="placeDetailsComponentText">
-							<span class="line1"><%= location.address %></span>
-							<span class="line2"><%= location.city %>, <%= location.state %></span>
-						</span>
-					</div> <!--end placeDetailsAddress -->
-					
-					<div id="placeDetailsPhone" class="placeDetailComponent">
-						<span class="placeDetailsComponentText">123-4567456</span>
-					</div> <!--end #placeDetailsPhone-->
-					
-					<div id="placeDetailsWeb" class="placeDetailComponent">
-							<span class="placeDetailsComponentText">www.siamthai.com</span>
-					</div> <!--end #placeDetailsWeb -->
-						
-				</div><!--end #placeDetails -->
-				
-				<div class="recommendedBy">
-					Recommended By Cristina<img src="img/recommendedByFlag.png" width="13" height="40" alt="RecommendedByFlag">
-				</div> <!--end #recommendedBy -->
-				
-				<div id="placeNotes">
-					Gotta try the crab rangoons. Also, the thai tea is supposed to be awesome!
-				</div> <!--end #placeNotes -->
-				
-				<div id="placeFooter">
-					<span id="addedTime">Added 999 years ago</span>
-					<span id="tryButton">Try it yet?</span>
-				</div>
-					
-			</div><!--end #placeBottom-->
-
-		</div><!--end #container-->
+			
+	</div><!--end #placeBottom-->
+	</div> <!--end #content -->
 
 </body>
 

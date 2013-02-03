@@ -46,19 +46,25 @@ def generate_app_from_template(generate_module, build_to_run):
 		os.rmdir(tempdir)
 		build_to_run.add_steps(generate_module.customer_phases.copy_user_source_to_tempdir(ignore_patterns=build_to_run.ignore_patterns, tempdir=tempdir))
 		build_to_run.add_steps(generate_module.customer_phases.run_hook(hook='prebuild', dir=tempdir))
+		build_to_run.add_steps(generate_module.customer_phases.validate_user_source(src=tempdir))
 		build_to_run.add_steps(generate_module.customer_phases.copy_user_source_to_template(ignore_patterns=build_to_run.ignore_patterns, src=tempdir))
 		# Delete temp dir
 		build_to_run.add_steps(generate_module.customer_phases.delete_tempdir(tempdir=tempdir))
 	else:
+		build_to_run.add_steps(generate_module.customer_phases.validate_user_source())
 		build_to_run.add_steps(generate_module.customer_phases.copy_user_source_to_template(ignore_patterns=build_to_run.ignore_patterns))
 	build_to_run.add_steps(generate_module.customer_phases.include_platform_in_html())
-	build_to_run.add_steps(generate_module.customer_phases.include_icons())
 	build_to_run.add_steps(generate_module.customer_phases.include_name())
 	build_to_run.add_steps(generate_module.customer_phases.include_uuid())
 	build_to_run.add_steps(generate_module.customer_phases.include_author())
 	build_to_run.add_steps(generate_module.customer_phases.include_description())
+	build_to_run.add_steps(generate_module.customer_phases.include_version())
+	build_to_run.add_steps(generate_module.customer_phases.include_reload())
+	build_to_run.add_module_steps("customer_phase")
 	build_to_run.add_steps(generate_module.customer_phases.make_installers())
-
+	if os.path.isdir('hooks/postbuild'):
+		build_to_run.add_steps(generate_module.customer_phases.run_hook(hook='postbuild', dir='development'))
+	
 	log_build(build_to_run, "generate")
 	build_to_run.run()
 
@@ -68,7 +74,6 @@ def run_app(generate_module, build_to_run):
 	:param generate_module: the :mod:`generate.generate` module
 	:param build_to_run: a :class:`build.Build` instance
 	'''
-	add_check_settings_steps(generate_module, build_to_run)
 
 	if len(build_to_run.enabled_platforms) != 1:
 		raise BASE_EXCEPTION("Expected to run exactly one platform at a time")
@@ -120,7 +125,6 @@ def run_app(generate_module, build_to_run):
 	build_to_run.run()
 
 def package_app(generate_module, build_to_run):
-	add_check_settings_steps(generate_module, build_to_run)
 
 	if len(build_to_run.enabled_platforms) != 1:
 		raise BASE_EXCEPTION("Expected to package exactly one platform at a time")
